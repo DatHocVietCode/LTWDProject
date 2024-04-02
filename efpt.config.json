@@ -2,7 +2,6 @@
    "CodeGenerationMode": 3,
    "ContextClassName": "TraoDoiMuaBan",
    "ContextNamespace": null,
-   "DefaultDacpacSchema": null,
    "FilterSchemas": false,
    "IncludeConnectionString": false,
    "ModelNamespace": null,
@@ -48,7 +47,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "meowww\\localdb#15988abf.LTWD_Final_Project.dbo",
+   "UiHint": null,
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,

@@ -23,6 +23,7 @@ namespace WPF_Market.ViewModel
         private int number = 1;
         private ObservableCollection<string>listImage = new ObservableCollection<string>();
         private bool isFaVProduct;
+        private string DefaultPath;
         public DetailProductViewModel()
         {
 
@@ -30,6 +31,7 @@ namespace WPF_Market.ViewModel
 
         public DetailProductViewModel(Inventory productViewModel)
         {
+            DefaultPath = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"));
             Product = productViewModel;
             foreach (var item in Product.ImageLinks)
             {
@@ -91,7 +93,7 @@ namespace WPF_Market.ViewModel
 
         private void ReadTongQuan()
         {
-            string filepath = @"D:\LTWD\LTWD_FinalProject\SanPham\" + Product.IDProduct.ToString().Trim() + "/Tongquansanpham.txt";
+            string filepath = DefaultPath + @"SanPham\" + Product.IDProduct.ToString().Trim() + "/Tongquansanpham.txt";
             StreamReader reader = new StreamReader(filepath);
             while (!reader.EndOfStream)
             {
@@ -101,7 +103,7 @@ namespace WPF_Market.ViewModel
         }
         private void ReadTTThem()
         {
-            string filepath = @"D:\LTWD\LTWD_FinalProject\SanPham\" + Product.IDProduct.ToString().Trim() + "/Thongtinthem.txt";
+            string filepath = DefaultPath + @"SanPham\" + Product.IDProduct.ToString().Trim() + "/Thongtinthem.txt";
             StreamReader reader = new StreamReader(filepath);
             while (!reader.EndOfStream)
             {
@@ -111,7 +113,7 @@ namespace WPF_Market.ViewModel
         }
         private void ReadTThientai()
         {
-            string filepath = @"D:\LTWD\LTWD_FinalProject\SanPham\" + Product.IDProduct.ToString().Trim() + "/Tinhtranghientai.txt";
+            string filepath = DefaultPath + @"SanPham\" + Product.IDProduct.ToString().Trim() + "/Tinhtranghientai.txt";
             StreamReader reader = new StreamReader(filepath);
             while (!reader.EndOfStream)
             {
