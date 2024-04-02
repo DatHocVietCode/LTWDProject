@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <BaseOutputPath></BaseOutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="SanPham\1\Images\.vs\**" />
+    <Compile Remove="SanPham\1\Images\.vs\**" />
+    <Compile Remove="MaterialDesignInXamlToolkit-master\**" />
+    <Compile Remove="NewFolder1\**" />
+    <Compile Remove="SanPham\1\Images\.vs\**" />
+    <Compile Remove="SanPham\1\Images\.vs\**" />
+    <EmbeddedResource Remove="SanPham\1\Images\.vs\**" />
+    <EmbeddedResource Remove="SanPham\1\Images\.vs\**" />
+    <EmbeddedResource Remove="MaterialDesignInXamlToolkit-master\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="SanPham\1\Images\.vs\**" />
+    <EmbeddedResource Remove="SanPham\1\Images\.vs\**" />
+    <None Remove="SanPham\1\Images\.vs\**" />
+    <None Remove="SanPham\1\Images\.vs\**" />
+    <None Remove="MaterialDesignInXamlToolkit-master\**" />
+    <None Remove="NewFolder1\**" />
+    <None Remove="SanPham\1\Images\.vs\**" />
+    <None Remove="SanPham\1\Images\.vs\**" />
+    <Page Remove="SanPham\1\Images\.vs\**" />
+    <Page Remove="SanPham\1\Images\.vs\**" />
+    <Page Remove="MaterialDesignInXamlToolkit-master\**" />
+    <Page Remove="NewFolder1\**" />
+    <Page Remove="SanPham\1\Images\.vs\**" />
+    <Page Remove="SanPham\1\Images\.vs\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Login.xaml.cs" />
+    <Compile Remove="MainWindow.xaml.cs" />
+    <Compile Remove="ViewModel\DataBaseProcess.cs" />
+    <Compile Remove="ViewModel\Frame_Home_DAO.cs" />
+    <Compile Remove="ViewModel\SQLProcessViewModel.cs" />
+    <Compile Remove="View\Frame_Home.xaml.cs" />
+    <Compile Remove="View\Silde2.xaml.cs" />
+    <Compile Remove="View\Slide1.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="SanPham\10\Images\mypham1.jpg" />
+    <None Remove="SanPham\10\Images\mypham2.jpg" />
+    <None Remove="SanPham\10\Images\mypham3.jpg" />
+    <None Remove="SanPham\10\Images\mypham4.jpg" />
+    <None Remove="SanPham\10\Images\mypham5.jpg" />
+    <None Remove="SanPham\11\Images\maxresdefault %281%29.jpg" />
+    <None Remove="SanPham\11\Images\maxresdefault.jpg" />
+    <None Remove="SanPham\11\Images\OIP %281%29.jpg" />
+    <None Remove="SanPham\11\Images\OIP %282%29.jpg" />
+    <None Remove="SanPham\11\Images\OIP.jpg" />
+    <None Remove="SanPham\12\Images\432041522_803478641797498_7128876628545447927_n.jpg" />
+    <None Remove="SanPham\12\Images\Tite.jpg" />
+    <None Remove="SanPham\12\Images\vn-11134207-7r98o-lo9yjj9mwz2j5f.jpg" />
+    <None Remove="SanPham\12\Images\vn-11134207-7r98o-lqswwejdkrp3ab.jpg" />
+    <None Remove="SanPham\13\Images\vn-11134207-7r98o-lo9yjj9mix2vd1.jpg" />
+    <None Remove="SanPham\13\Images\vn-11134207-7r98o-lo9yjj9mn4s7ad.jpg" />
+    <None Remove="SanPham\13\Images\vn-11134207-7r98o-lo9yjj9mwz2j5f.jpg" />
+    <None Remove="SanPham\13\Images\vn-11134207-7r98o-lqswwejdkrp3ab.jpg" />
+    <None Remove="SanPham\14\Images\maxresdefault %281%29.jpg" />
+    <None Remove="SanPham\14\Images\maxresdefault.jpg" />
+    <None Remove="SanPham\14\Images\OIP %281%29.jpg" />
+    <None Remove="SanPham\14\Images\OIP %282%29.jpg" />
+    <None Remove="SanPham\14\Images\OIP.jpg" />
+    <None Remove="SanPham\1\Images\maytinh1.jpg" />
+    <None Remove="SanPham\1\Images\maytinh2.jpg" />
+    <None Remove="SanPham\1\Images\maytinh3.jpg" />
+    <None Remove="SanPham\1\Images\maytinh4.jpg" />
+    <None Remove="SanPham\1\Images\maytinh5.jpg" />
+    <None Remove="SanPham\2\Images\maytinh1.jpg" />
+    <None Remove="SanPham\2\Images\maytinh2.jpg" />
+    <None Remove="SanPham\2\Images\maytinh3.jpg" />
+    <None Remove="SanPham\2\Images\maytinh4.jpg" />
+    <None Remove="SanPham\2\Images\maytinh5.jpg" />
+    <None Remove="SanPham\3\Images\sach1.jpg" />
+    <None Remove="SanPham\3\Images\sach2.jpg" />
+    <None Remove="SanPham\3\Images\sach3.jpg" />
+    <None Remove="SanPham\3\Images\sach4.jpg" />
+    <None Remove="SanPham\3\Images\sach5.jpg" />
+    <None Remove="SanPham\4\Images\sach1.jpg" />
+    <None Remove="SanPham\4\Images\sach2.jpg" />
+    <None Remove="SanPham\4\Images\sach3.jpg" />
+    <None Remove="SanPham\4\Images\sach4.jpg" />
+    <None Remove="SanPham\4\Images\sach5.jpg" />
+    <None Remove="SanPham\5\Images\ao1.jpg" />
+    <None Remove="SanPham\5\Images\ao2.jpg" />
+    <None Remove="SanPham\5\Images\ao3.jpg" />
+    <None Remove="SanPham\5\Images\ao4.jpg" />
+    <None Remove="SanPham\5\Images\ao5.jpg" />
+    <None Remove="SanPham\6\Images\quanao1.jpg" />
+    <None Remove="SanPham\6\Images\quanao2.jpg" />
+    <None Remove="SanPham\6\Images\quanao3.jpg" />
+    <None Remove="SanPham\6\Images\quanao4.jpg" />
+    <None Remove="SanPham\6\Images\quanao5.jpg" />
+    <None Remove="SanPham\7\Images\trangsuc1.jpg" />
+    <None Remove="SanPham\7\Images\trangsuc2.jpg" />
+    <None Remove="SanPham\7\Images\trangsuc3.jpg" />
+    <None Remove="SanPham\7\Images\trangsuc4.jpg" />
+    <None Remove="SanPham\7\Images\trangsuc5.jpg" />
+    <None Remove="SanPham\8\Images\trangsuc1.jpg" />
+    <None Remove="SanPham\8\Images\trangsuc2.jpg" />
+    <None Remove="SanPham\8\Images\trangsuc3.jpg" />
+    <None Remove="SanPham\8\Images\trangsuc4.jpg" />
+    <None Remove="SanPham\8\Images\trangsuc5.jpg" />
+    <None Remove="SanPham\9\Images\mypham1.jpg" />
+    <None Remove="SanPham\9\Images\mypham2.jpg" />
+    <None Remove="SanPham\9\Images\mypham3.jpg" />
+    <None Remove="SanPham\9\Images\mypham4.jpg" />
+    <None Remove="SanPham\9\Images\mypham5.jpg" />
+    <None Remove="ShopImages\1\ShopAvatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Login.xaml" />
+    <Page Remove="MainWindow.xaml" />
+    <Page Remove="View\Frame_Home.xaml" />
+    <Page Remove="View\Silde2.xaml" />
+    <Page Remove="View\Slide1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SanPham\11\Images\maxresdefault (1).jpg" />
+    <Resource Include="SanPham\11\Images\maxresdefault.jpg" />
+    <Resource Include="SanPham\11\Images\OIP (1).jpg" />
+    <Resource Include="SanPham\11\Images\OIP (2).jpg" />
+    <Resource Include="SanPham\11\Images\OIP.jpg" />
+    <Resource Include="SanPham\12\Images\432041522_803478641797498_7128876628545447927_n.jpg" />
+    <Resource Include="SanPham\12\Images\Tite.jpg" />
+    <Resource Include="SanPham\12\Images\vn-11134207-7r98o-lo9yjj9mwz2j5f.jpg" />
+    <Resource Include="SanPham\12\Images\vn-11134207-7r98o-lqswwejdkrp3ab.jpg" />
+    <Resource Include="SanPham\13\Images\vn-11134207-7r98o-lo9yjj9mix2vd1.jpg" />
+    <Resource Include="SanPham\13\Images\vn-11134207-7r98o-lo9yjj9mn4s7ad.jpg" />
+    <Resource Include="SanPham\13\Images\vn-11134207-7r98o-lo9yjj9mwz2j5f.jpg" />
+    <Resource Include="SanPham\13\Images\vn-11134207-7r98o-lqswwejdkrp3ab.jpg" />
+    <Resource Include="SanPham\14\Images\maxresdefault (1).jpg" />
+    <Resource Include="SanPham\14\Images\maxresdefault.jpg" />
+    <Resource Include="SanPham\14\Images\OIP (1).jpg" />
+    <Resource Include="SanPham\14\Images\OIP (2).jpg" />
+    <Resource Include="SanPham\14\Images\OIP.jpg" />
+    <Resource Include="SanPham\1\Images\maytinh1.jpg" />
+    <Resource Include="SanPham\9\Images\mypham1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Build" Version="17.1.0" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SanPham\10\Images\mypham1.jpg" />
+    <Resource Include="SanPham\10\Images\mypham2.jpg" />
+    <Resource Include="SanPham\10\Images\mypham3.jpg" />
+    <Resource Include="SanPham\10\Images\mypham4.jpg" />
+    <Resource Include="SanPham\10\Images\mypham5.jpg" />
+    <Resource Include="SanPham\1\Images\maytinh2.jpg" />
+    <Resource Include="SanPham\1\Images\maytinh3.jpg" />
+    <Resource Include="SanPham\1\Images\maytinh4.jpg" />
+    <Resource Include="SanPham\1\Images\maytinh5.jpg" />
+    <Resource Include="SanPham\2\Images\maytinh1.jpg" />
+    <Resource Include="SanPham\2\Images\maytinh2.jpg" />
+    <Resource Include="SanPham\2\Images\maytinh3.jpg" />
+    <Resource Include="SanPham\2\Images\maytinh4.jpg" />
+    <Resource Include="SanPham\2\Images\maytinh5.jpg" />
+    <Resource Include="SanPham\3\Images\sach1.jpg" />
+    <Resource Include="SanPham\3\Images\sach2.jpg" />
+    <Resource Include="SanPham\3\Images\sach3.jpg" />
+    <Resource Include="SanPham\3\Images\sach4.jpg" />
+    <Resource Include="SanPham\3\Images\sach5.jpg" />
+    <Resource Include="SanPham\4\Images\sach1.jpg" />
+    <Resource Include="SanPham\4\Images\sach2.jpg" />
+    <Resource Include="SanPham\4\Images\sach3.jpg" />
+    <Resource Include="SanPham\4\Images\sach4.jpg" />
+    <Resource Include="SanPham\4\Images\sach5.jpg" />
+    <Resource Include="SanPham\5\Images\ao1.jpg" />
+    <Resource Include="SanPham\5\Images\ao2.jpg" />
+    <Resource Include="SanPham\5\Images\ao3.jpg" />
+    <Resource Include="SanPham\5\Images\ao4.jpg" />
+    <Resource Include="SanPham\5\Images\ao5.jpg" />
+    <Resource Include="SanPham\6\Images\quanao1.jpg" />
+    <Resource Include="SanPham\6\Images\quanao2.jpg" />
+    <Resource Include="SanPham\6\Images\quanao3.jpg" />
+    <Resource Include="SanPham\6\Images\quanao4.jpg" />
+    <Resource Include="SanPham\6\Images\quanao5.jpg" />
+    <Resource Include="SanPham\7\Images\trangsuc1.jpg" />
+    <Resource Include="SanPham\7\Images\trangsuc2.jpg" />
+    <Resource Include="SanPham\7\Images\trangsuc3.jpg" />
+    <Resource Include="SanPham\7\Images\trangsuc4.jpg" />
+    <Resource Include="SanPham\7\Images\trangsuc5.jpg" />
+    <Resource Include="SanPham\8\Images\trangsuc1.jpg" />
+    <Resource Include="SanPham\8\Images\trangsuc2.jpg" />
+    <Resource Include="SanPham\8\Images\trangsuc3.jpg" />
+    <Resource Include="SanPham\8\Images\trangsuc4.jpg" />
+    <Resource Include="SanPham\8\Images\trangsuc5.jpg" />
+    <Resource Include="SanPham\9\Images\mypham2.jpg" />
+    <Resource Include="SanPham\9\Images\mypham3.jpg" />
+    <Resource Include="SanPham\9\Images\mypham4.jpg" />
+    <Resource Include="SanPham\9\Images\mypham5.jpg" />
+    <Resource Include="ShopImages\1\ShopAvatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259aa49-8aa1-44d3-9025-a0b520596a8c}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\net6.0-windows\" />
+  </ItemGroup>
+</Project>

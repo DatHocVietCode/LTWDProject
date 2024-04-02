@@ -1,0 +1,188 @@
+﻿<Page x:Class="WPF_Market.View.Cart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:vm="clr-namespace:WPF_Market.ViewModel"
+    mc:Ignorable="d" 
+    d:DesignHeight="600" d:DesignWidth="1200"
+    ShowsNavigationUI="False">
+    <Page.Resources>
+        <vm:MyImageConverter x:Key="ImageConvert"></vm:MyImageConverter>
+    </Page.Resources>
+    <Page.DataContext>
+        <vm:CartViewModel></vm:CartViewModel>
+    </Page.DataContext>
+    
+    <Border CornerRadius="10"
+            Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="0 0 1 0"
+                    BorderBrush="Black">
+                <ListView x:Name="listView"
+                          ItemsSource="{Binding Carts, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                          >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="vm:ContextMenuBehavior.IsContextMenuEnabled" Value="True" />
+                            <Setter Property="vm:ContextMenuBehavior.ShowDetailCommand" 
+                                    Value="{Binding DataContext.ShowDetailCommand, 
+                                RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                            <Setter Property="vm:ContextMenuBehavior.DeleteItemCommand" 
+                                    Value="{Binding DataContext.DeleteProductCommand, 
+                                RelativeSource={RelativeSource AncestorType=ListView}}" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn 
+                                Header="IsSeclect">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="cbSelect"
+                                                  IsChecked ="{Binding CartWrapperIsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Command="{Binding DataContext.IsCheckedCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                                  CommandParameter="{Binding}">
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn
+                                Header="Illustration">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding CartWrapperIllustration, Converter={StaticResource ImageConvert}}" Width="50" Height="50"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn
+                                DisplayMemberBinding="{Binding CartWrapperName}"
+                                Header="Product" />
+                            
+                            <GridViewColumn
+                                DisplayMemberBinding="{Binding CartWrapperNumber}"
+                                Header="Quantity" />
+                            <GridViewColumn
+                                DisplayMemberBinding="{Binding CartWrapperOrigingalPrice, UpdateSourceTrigger=PropertyChanged}"
+                                Header="Original Price" />
+                            <GridViewColumn 
+                                DisplayMemberBinding="{Binding CartWrapperCurrentPrice}"
+                                Header="Currrent Price" />
+                            <GridViewColumn Header="">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                            Style="{StaticResource MaterialDesignIconButton}"
+                                            Content="{materialDesign:PackIcon DotsVertical}"
+                                            Command="{Binding DataContext.OpenContextMenuFromButton
+                                            , RelativeSource={RelativeSource AncestorType=ListView}}"
+                                            CommandParameter="{Binding}">
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                    <Border BorderBrush="Black"
+                            BorderThickness="0 0 0 0.5"
+                            Margin="10 0" Width="300">
+                        <TextBlock Text="Cart total"
+                                   Margin="0 30 0 0"
+                                   FontSize="25"
+                                   FontFamily="Dubai"/>
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="0 0 0 0.5"
+                            Margin="10 0">
+                        <DockPanel Height="70">
+                            <TextBlock Text="Subtotal ($)"
+                                       VerticalAlignment="Center"
+                                        FontSize="20"
+                                       HorizontalAlignment="Left"
+                                        FontFamily="Dubai"/>
+                            <TextBlock x:Name="txbl_subtotal"
+                                       DockPanel.Dock="Right"
+                                       Text="{Binding SubTotal, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                       FontSize="20"
+                                       FontFamily="Dubai"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"/>
+                        </DockPanel>
+
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="0 0 0 0.5" Margin="10 0">
+                        <DockPanel Height="70">
+                            <TextBlock Text="Shipping"
+                                       VerticalAlignment="Center"
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="Dubai"/>
+                            <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Width="130"
+                                        Orientation="Vertical">
+                                <DockPanel>
+                                    <RadioButton x:Name="btn_deli"
+                                                 DockPanel.Dock="Right"
+                                                 IsChecked="{Binding IsCheckedDelivery, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                 Command="{Binding Delivery}"/>
+                                    <TextBlock Text="Delivery (15$)"
+                                               FontSize="18"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <RadioButton x:Name="btn_pickup"
+                                                DockPanel.Dock="Right"
+                                                 IsChecked="{Binding IsCheckedPickup, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                 Command="{Binding Pickup}"/>
+                                    <TextBlock Text="Pickup"
+                                               FontSize="18"/>
+                                </DockPanel>
+
+                            </StackPanel>
+                        </DockPanel>
+                    </Border>
+                    <Border Margin="10 0">
+                        <DockPanel Height="70">
+                            <TextBlock Text="Total"
+                                       VerticalAlignment="Center"
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="Dubai"/>
+                            <TextBlock x:Name="txbl_total"
+                                        DockPanel.Dock="Right"
+                                        Text="{Binding MoneyToPay, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                        FontSize="20"
+                                        FontFamily="Dubai"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"/>
+                        </DockPanel>
+
+                    </Border>
+                    <Button Content="Proceed to checkout" 
+                            Background="#05B790" Foreground="#ffffff" 
+                            FontSize="15" 
+                            Margin="10 30"
+                            materialDesign:ButtonAssist.CornerRadius="5" 
+                            Height="45"
+                            Command="{Binding ProceedToCheckOutCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

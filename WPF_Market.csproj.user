@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="CustomControl\BindablePasswordBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Cart.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\confirmPass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Custom_mb.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Login_new.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Main_Board.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Manage_Product.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Myinf.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\product.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ShopUI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Signup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="CustomControl\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Cart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\confirmPass.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Custom_mb.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\detail_product.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Login_new.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Main_Board.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Manage_Product.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Myinf.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\product.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ShopUI.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Signup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

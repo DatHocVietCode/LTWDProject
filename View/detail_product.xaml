@@ -1,0 +1,352 @@
+﻿<Window x:Class="WPF_Market.View.detail_product"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WPF_Market.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignWidth="1280"
+        WindowStyle="None"
+      WindowStartupLocation="CenterScreen"
+      IsEnabled="True"
+      MinHeight="670"
+      MinWidth="1280"
+      Title="detail_product"
+        >
+    <Window.Resources>
+        <local:MyImageConverter x:Key="ImageConverter"></local:MyImageConverter>
+    </Window.Resources>
+    <ScrollViewer >
+        <Grid MouseDown="Window_MouseDown" MouseMove="Window_MouseMove">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:PackIcon Kind="Close"
+                                     VerticalAlignment="Top" 
+                                     Width="20" Height="20" 
+                                     HorizontalAlignment="Right" 
+                                     Margin="0 5 5 0"
+                                     Opacity="0.3"
+                                     
+                                     Grid.Row="0"/>
+            <Button x:Name="btnClose"
+                Grid.Row="0"
+                VerticalAlignment="Top"
+                Width="20" Height="20" 
+                HorizontalAlignment="Right" 
+                Margin="0 5 5 0" Opacity="0.3"
+                Background="Transparent" 
+                Click="btnClose_Click"
+                BorderThickness="0"
+          ></Button>
+            <Grid Grid.Row="1"
+                Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition MinHeight="120"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+            <Border CornerRadius="5" BorderThickness="1"
+                    Background="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="550"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.Column="0">
+                            <StackPanel Orientation="Vertical">
+                                <Border BorderThickness="2"
+                                        Height="500">
+                                    <Image x:Name="DefaultImage"
+                                        Source="{Binding DefaultImage, Mode=TwoWay, Converter={StaticResource ImageConverter}}"
+                                            VerticalAlignment="Top"
+                                           
+                                    ></Image>
+                                </Border>
+                                <ScrollViewer VerticalAlignment="Bottom" Height="120" HorizontalScrollBarVisibility="Visible"
+                                        VerticalScrollBarVisibility="Hidden"
+                                        Margin="0 5 0 0">
+                                    <ItemsControl x:Name="ListImage"
+                                ItemsSource="{Binding ListImage}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Image Source="{Binding Converter={StaticResource ImageConverter}}"
+                                                        Height="120"
+                                                        Width="120"
+                                                        Margin="5 0 0 10"
+                                                        Stretch="Uniform"
+                                                        IsEnabled="True"
+                                                        >
+                                                        <Image.InputBindings>
+                                                            <MouseBinding Gesture="LeftClick" 
+                                                                          Command="{Binding DataContext.ChangePicture,RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                                    CommandParameter="{Binding}"/>
+                                                        </Image.InputBindings>
+                                                    </Image>
+
+                                                  
+                                                </Grid>
+                                               
+                                            </DataTemplate>
+
+                                        </ItemsControl.ItemTemplate>
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                            
+                        
+                    </Grid>
+                   
+                    <Grid Grid.Column="1"
+                          Margin="20 ,0 ,0 ,0">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left"  Margin="10" >
+                                <DockPanel>
+                                    <TextBlock 
+                                        Width="550"
+                                        MaxWidth="550"
+                                        Text="{Binding Product.Name}"
+                                        FontSize="30"
+                                        FontWeight="DemiBold"
+                                        Margin="0 10"
+                                        Foreground="#5F5D5C"
+                                        FontFamily="Dubai"/>
+                                    <Button 
+                                        DockPanel.Dock="Right"
+                                        BorderThickness="0.9"
+                                        Background="WhiteSmoke" 
+                                        
+                                        FontSize="20" 
+                                        materialDesign:ButtonAssist.CornerRadius="15"
+                                        Margin="30 0 0 0"
+                                        Height="70" Width="70"
+                                        >
+                                        <materialDesign:PackIcon Kind="Heart"
+                                          Height="40"
+                                          Width="40"
+                                          BorderBrush="Black" 
+                                          Foreground="Wheat"
+                                          />
+                                    </Button>
+                                </DockPanel>
+                               
+                                
+                                <StackPanel Orientation="Horizontal" Margin="0 10">
+                                <TextBlock x:Name="tbl_review"
+                                           Text="999 reviews"
+                                           FontSize="20"
+                                           Foreground="#B6A0B3"
+                                           />
+                                <Button Background="Transparent" Margin="20 0" BorderThickness="0">
+                                    <materialDesign:PackIcon Kind="CommentEye"
+                                                             Height="25"
+                                                             Width="25"
+                                                             Foreground="Black"/>
+                                </Button>
+                            </StackPanel>
+                            <TextBlock x:Name="Tong_quan" 
+                                       Text="{Binding TongQuan}"
+                                       Margin="0 10"
+                                       FontSize="20"
+                                       Foreground="#A6A0A1"
+                                       TextWrapping="Wrap"/>
+                            <TextBlock x:Name="txlb_addShop"
+                                       FontSize="25"
+                                       Margin="0 10"
+                                        FontWeight="Bold">
+                                <Run Foreground="#5F5D5C">SHOP:</Run>
+                                <Run Foreground="#A6A0A1"
+                                     Text="{Binding Product.IDShopNavigation.NameShop}"></Run> 
+                            </TextBlock>
+                            <TextBlock x:Name="BOUGTHTIME"
+                                            FontSize="25"
+                                             Margin="0 10"
+                                            FontWeight="Bold"
+                                            Foreground="#5F5D5C"
+                                       Text="{Binding Product.BoughtTime,
+                                        StringFormat=BoughtTime: {0}}"></TextBlock>
+                            <TextBlock x:Name="LBL_NEWNESS"
+                                       FontSize="25"
+                                       Margin="0 10"
+                                       FontWeight="Bold">
+                                <Run Foreground="#5F5D5C">NEWNESS:</Run>
+                                <Run Foreground="#A6A0A1"
+                                     Text="{Binding Product.Newness, StringFormat={}{0}%}"></Run>
+                            </TextBlock>
+                                <StackPanel Orientation="Horizontal" Margin="0 10">
+                                    <TextBlock Text="ORIGINAL PRICE: "
+                                               FontSize="25"
+                                               VerticalAlignment="Center"
+                                               FontFamily="Dubai"    
+                                               Foreground="#6B605E"
+                                               FontWeight="Bold"/>
+                                    <TextBlock x:Name="txbl_origin_price"
+                                               FontSize="25"
+                                               Text="{Binding Product.OriginalPrice, StringFormat='c'}"
+                                               Foreground="#0FC20F"
+                                               VerticalAlignment="Center"
+                                               FontFamily="Dubai"
+                                               FontWeight="Bold"/>
+                                  
+                                   
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0 10">
+                                <TextBlock Text="CURRENT PRICE: "
+                                           FontSize="25"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Dubai"
+                                           Foreground="#6B605E"
+                                           FontWeight="Bold"/>
+                                <TextBlock x:Name="txbl_cur_price"
+                                           FontSize="25"
+                                           Text="{Binding CurrentPrice, StringFormat='c'}"
+                                           Foreground="#0FC20F"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Dubai"
+                                           FontWeight="Bold"/>
+                                    <TextBlock x:Name="txbl_discount"
+                                        Margin="20,0,0,0"
+                                        FontSize="25"
+                                        Text="{Binding Product.Save, StringFormat=SAVE: {0}%}"
+                                        Foreground="Red"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Dubai"
+                                        FontWeight="Bold"/>
+                                </StackPanel>
+                                <DockPanel Margin="0 5 0 10">
+                                    <TextBlock DockPanel.Dock="Left"
+                                        Width="570"
+                                        Text="{Binding Product.NumberLeft, StringFormat=NUMBER LEFT: {0}}"
+                                        FontSize="25"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        FontFamily="Dubai"
+                                        Foreground="#6B605E"
+                                        FontWeight="Bold"/>
+                                  
+                                </DockPanel>
+                                
+                                <StackPanel Orientation="Horizontal">
+                                   
+                                <TextBlock Text="Number of Products: "
+                                           FontSize="25"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Dubai"
+                                           Foreground="#6B605E"
+                                           FontWeight="Bold"/>
+                                    <Button
+                                        Command="{Binding DecreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
+                                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                        ToolTip="MaterialDesignIconForegroundButton"
+                                         Margin="10 0 0 0">
+                                        <materialDesign:PackIcon
+                                            Kind="ArrowDownThick" 
+                                            VerticalAlignment="Center"
+                                            VerticalContentAlignment="Center"  
+                                            />
+                                    </Button>
+                                    <TextBox x:Name="txt_number"
+                                        Width="100"
+                                        Height="50"
+                                        materialDesign:HintAssist.Hint="Number"
+                                        HorizontalContentAlignment="Center"
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                        Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                        <Button
+                                        Command="{Binding IncreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton"
+                                            >
+                                        <materialDesign:PackIcon
+                                            Kind="ArrowUPThick" 
+                                            VerticalAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                        />
+                                    </Button>
+                                    <Button Content="Add to cart" 
+                                            Background="#0FC20F" 
+                                            Foreground="#645A4C" 
+                                            FontSize="20" 
+                                             Margin="20 0 0 0"
+                                             FontFamily="Dubai"
+                                             FontWeight="Bold"
+                                             materialDesign:ButtonAssist.CornerRadius="15" 
+                                             Height="70" Width="200"
+                                             Command="{Binding AddProduct}"/>   
+
+                                </StackPanel>
+                                <DockPanel>
+                                   
+                                </DockPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border CornerRadius="5" BorderThickness="1"
+                    Background="White" Grid.Row="1">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Detail Information"
+                               FontSize="30"
+                               FontFamily="Dubai"
+                               Margin="20 0"
+                               FontWeight="Bold">
+                        
+                    </TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Status"
+                                   FontSize="20"
+                                   Margin="20 0"
+                                   VerticalAlignment="Center"></TextBlock>
+                            <Expander
+                                Margin="28,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                Header="More detail"
+                                Width="1100"
+                                Background="White">
+                                <StackPanel
+                                    Margin="24,8,24,16"
+                                    Orientation="Vertical"
+                                    TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                                    <TextBlock
+                                        Text="{Binding TTThem}"/>
+                                    <TextBlock
+                                         />
+                                </StackPanel>
+                            </Expander>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Gurantee"
+                                FontSize="20"
+                                Margin="20 0"
+                                VerticalAlignment="Center"></TextBlock>
+                            <Expander
+                                HorizontalAlignment="Stretch"
+                                 Header="More detail"
+                                Width="1100" Background="White">
+                                <StackPanel
+                                    Margin="24,8,24,16"
+                                    Orientation="Vertical"
+                                    TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                                    <TextBlock
+                                Text="{Binding BaoHanh}"/>
+                                    <TextBlock
+                                    />
+                                </StackPanel>
+                            </Expander>
+                        </StackPanel>
+                    </StackPanel>
+            </Border>
+            
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</Window>

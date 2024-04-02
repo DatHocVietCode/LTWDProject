@@ -1,0 +1,210 @@
+﻿<Window x:Class="WPF_Market.View.Manage_Product"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Vm ="clr-namespace:WPF_Market.ViewModel"
+        mc:Ignorable="d"
+
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        
+        FontSize="15"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Manage_Product" Height="700" Width="900"
+        MouseEnter="Window_MouseEnter"
+        x:Name="ManageProductWindow">
+
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"></BooleanToVisibilityConverter>
+    </Window.Resources>
+    
+    <!--<Window.DataContext>
+        <Vm:ManageProductViewModel></Vm:ManageProductViewModel>
+    </Window.DataContext>-->
+    <Border Background="White" CornerRadius="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3"/>
+            <Button x:Name="btnClose"
+                    VerticalAlignment="Top"
+                    Width="20" Height="20" 
+                    HorizontalAlignment="Right" 
+                    Margin="0 13 14 0" Opacity="0.3"
+                    Background="Transparent" 
+                    BorderThickness="0"
+                    Command="{Binding CloseForm}"
+                    CommandParameter="{Binding ElementName=ManageProductWindow}"></Button>
+            <TextBlock Text="Manage Product" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="14 13 0 0"  Foreground="Black" FontWeight="Bold"></TextBlock>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="13 0">
+                <TextBlock Text="ID SHOP: "/>
+                <TextBlock x:Name="txbl_idShop" Text="1" />
+            </StackPanel>
+            <ScrollViewer Grid.Row="1">
+                <Grid>
+                    <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Height="50" Margin="0 10">
+                           
+                            <TextBox x:Name="txt_nameSP"
+                                 Width="400" Margin="0 0 0 0"
+                                 materialDesign:HintAssist.Hint="Name Product"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 Text="{Binding NameProduct, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <DatePicker
+                                Margin="20 0 0 0"
+                                Width="400"
+                                materialDesign:HintAssist.HelperText="Helper text"
+                                materialDesign:HintAssist.Hint="Bought Time"
+                                Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                SelectedDate="{Binding DateBought, UpdateSourceTrigger=PropertyChanged
+                                , Mode=TwoWay}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="50" Margin="0 0 0 10">
+                            <TextBox x:Name="txt_originalprice"
+                                 Width="400" Margin="0 0 10 0"
+                                 materialDesign:HintAssist.Hint="OriginalPrice"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 Text="{Binding OriginalPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <TextBox x:Name="txt_currentprice"
+                                 Width="400" Margin="10 0 0 0"
+                                 materialDesign:HintAssist.Hint="CurrentPrice"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                  Text="{Binding CurrentPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="50" Margin="0 0 0 10">
+                            <TextBox x:Name="txt_new"
+                                 Width="400" Margin="0 0 10 0"
+                                 materialDesign:HintAssist.Hint="Newness (%)"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 Text="{Binding Newness,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <ComboBox x:Name="cbb_type"
+                                  Width="400" Margin="10 0 0 0"
+                                  materialDesign:HintAssist.Hint="Type"
+                                  SelectedItem="{Binding Type, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                  ItemsSource="{Binding ShortStringList, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                      />
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                            <TextBox x:Name="txt_overview"
+                                 MinHeight="50"
+                                 Width="820" Margin="0 0 0 010"
+                                 AcceptsReturn="True"
+                                 materialDesign:HintAssist.Hint="Overview"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 Text="{Binding Overview, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+
+                            </TextBox>
+                            <TextBox x:Name="txt_configuration"
+                                 MinHeight="50"
+                                 Width="820" Margin="0 0 0 10"
+                                 AcceptsReturn="True"
+                                 materialDesign:HintAssist.Hint="Configuration"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 Text="{Binding Configuration, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+
+                            </TextBox>
+                            <TextBox x:Name="txt_Additional"
+                                 MinHeight="50"
+                                 Width="820" Margin="0 0 0 10"
+                                       AcceptsReturn="True"
+                                 materialDesign:HintAssist.Hint="Additional"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto" 
+                                      Text="{Binding Additional, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </StackPanel>
+                       
+                        <Grid MinHeight="50" >
+                            <TextBox x:Name="txt_image"
+                                    MinHeight="50" Margin="0,0,70,0"
+                                    materialDesign:HintAssist.Hint="Image"
+                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    TextWrapping="Wrap"
+                                     VerticalAlignment="Top"
+                                    VerticalScrollBarVisibility="Auto"
+                                     Text="{Binding ImageLinks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <materialDesign:PackIcon Kind="FileSearch" 
+                                                     VerticalAlignment="Top" 
+                                                     Width="50" Height="50" 
+                                                     HorizontalAlignment="Right" Opacity="0.3"/>
+                            <Button x:Name="btn_img" 
+                                    VerticalAlignment="Top" 
+                                    Width="50" Height="50" 
+                                    HorizontalAlignment="Right" Opacity="0.3" 
+                                    Background="Transparent" 
+                                    Command="{Binding BtnImageClick}"></Button>
+                            
+                        </Grid>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,20,0,0"
+                                    HorizontalAlignment="Center">
+                            <TextBox Text="Please input your number of products"
+                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     IsEnabled="False">
+                                
+                            </TextBox>
+                            <Button
+                                Command="{Binding DecreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
+                                Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                ToolTip="MaterialDesignIconForegroundButton"
+                                Margin="20,0,0,0">
+                                <materialDesign:PackIcon
+                                Kind="ArrowDownThick" 
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                
+                                />
+                            </Button>
+                            <TextBox x:Name="txt_number"
+                                    Width="100" Margin="0 0 0 0"
+                                    Height="50"
+                                    materialDesign:HintAssist.Hint="Number"
+                                    HorizontalContentAlignment="Center"
+                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <Button
+                                    Command="{Binding IncreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
+                                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                    ToolTip="MaterialDesignIconForegroundButton"
+                                    >
+                                <materialDesign:PackIcon
+                                    Kind="ArrowUPThick" 
+                                    VerticalAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    />
+                            </Button>
+                        </StackPanel>
+                      
+                    </StackPanel>
+
+                </Grid>
+            </ScrollViewer>
+            <Border BorderThickness="0 2 0 0" Grid.Row="2"
+                    BorderBrush="#05B790"
+                    CornerRadius="10 10 0 0">
+                <Grid>
+                    <Button x:Name="btn_submitAdd"
+                            Content="Submit" 
+                            Background="#05B790" 
+                            Foreground="#ffffff" FontSize="18" 
+                            materialDesign:ButtonAssist.CornerRadius="15" 
+                            Height="45" Width="160" 
+                            Command="{Binding SubmitCommand, UpdateSourceTrigger=PropertyChanged}" IsEnabled="True"
+                            CommandParameter="{Binding ElementName=ManageProductWindow}"
+                            Visibility="Visible"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
