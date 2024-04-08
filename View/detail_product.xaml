@@ -17,11 +17,12 @@
     <Window.Resources>
         <local:MyImageConverter x:Key="ImageConverter"></local:MyImageConverter>
     </Window.Resources>
-    <ScrollViewer >
+
         <Grid MouseDown="Window_MouseDown" MouseMove="Window_MouseMove">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <materialDesign:PackIcon Kind="Close"
                                      VerticalAlignment="Top" 
@@ -31,7 +32,7 @@
                                      Opacity="0.3"
                                      
                                      Grid.Row="0"/>
-            <Button x:Name="btnClose"
+        <Button x:Name="btnClose"
                 Grid.Row="0"
                 VerticalAlignment="Top"
                 Width="20" Height="20" 
@@ -41,7 +42,8 @@
                 Click="btnClose_Click"
                 BorderThickness="0"
           ></Button>
-            <Grid Grid.Row="1"
+        <ScrollViewer>
+        <Grid Grid.Row="1"
                 Background="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -66,9 +68,7 @@
                                            
                                     ></Image>
                                 </Border>
-                                <ScrollViewer VerticalAlignment="Bottom" Height="120" HorizontalScrollBarVisibility="Visible"
-                                        VerticalScrollBarVisibility="Hidden"
-                                        Margin="0 5 0 0">
+
                                     <ItemsControl x:Name="ListImage"
                                 ItemsSource="{Binding ListImage}">
                                         <ItemsControl.ItemTemplate>
@@ -101,7 +101,7 @@
                                         </ItemsControl.ItemsPanel>
 
                                     </ItemsControl>
-                                </ScrollViewer>
+                                
                             </StackPanel>
                             
                         
@@ -347,6 +347,7 @@
             </Border>
             
         </Grid>
+        </ScrollViewer> 
     </Grid>
-    </ScrollViewer>
+    
 </Window>
