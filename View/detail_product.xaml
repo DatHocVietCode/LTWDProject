@@ -17,13 +17,13 @@
     <Window.Resources>
         <local:MyImageConverter x:Key="ImageConverter"></local:MyImageConverter>
     </Window.Resources>
-    <ScrollViewer >
-        <Grid MouseDown="Window_MouseDown" MouseMove="Window_MouseMove">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <materialDesign:PackIcon Kind="Close"
+
+    <Grid MouseDown="Window_MouseDown" MouseMove="Window_MouseMove">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:PackIcon Kind="Close"
                                      VerticalAlignment="Top" 
                                      Width="20" Height="20" 
                                      HorizontalAlignment="Right" 
@@ -31,7 +31,7 @@
                                      Opacity="0.3"
                                      
                                      Grid.Row="0"/>
-            <Button x:Name="btnClose"
+        <Button x:Name="btnClose"
                 Grid.Row="0"
                 VerticalAlignment="Top"
                 Width="20" Height="20" 
@@ -41,6 +41,7 @@
                 Click="btnClose_Click"
                 BorderThickness="0"
           ></Button>
+        <ScrollViewer Grid.Row="1">
             <Grid Grid.Row="1"
                 Background="Transparent">
                 <Grid.RowDefinitions>
@@ -48,15 +49,15 @@
                     <RowDefinition MinHeight="120"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-            <Border CornerRadius="5" BorderThickness="1"
+                <Border CornerRadius="5" BorderThickness="1"
                     Background="White">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="550"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Grid Grid.Column="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="550"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
                             <StackPanel Orientation="Vertical">
                                 <Border BorderThickness="2"
                                         Height="500">
@@ -88,9 +89,9 @@
                                                         </Image.InputBindings>
                                                     </Image>
 
-                                                  
+
                                                 </Grid>
-                                               
+
                                             </DataTemplate>
 
                                         </ItemsControl.ItemTemplate>
@@ -103,13 +104,13 @@
                                     </ItemsControl>
                                 </ScrollViewer>
                             </StackPanel>
-                            
-                        
-                    </Grid>
-                   
-                    <Grid Grid.Column="1"
+
+
+                        </Grid>
+
+                        <Grid Grid.Column="1"
                           Margin="20 ,0 ,0 ,0">
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left"  Margin="10" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left"  Margin="10" >
                                 <DockPanel>
                                     <TextBlock 
                                         Width="550"
@@ -138,50 +139,50 @@
                                           />
                                     </Button>
                                 </DockPanel>
-                               
-                                
+
+
                                 <StackPanel Orientation="Horizontal" Margin="0 10">
-                                <TextBlock x:Name="tbl_review"
+                                    <TextBlock x:Name="tbl_review"
                                            Text="999 reviews"
                                            FontSize="20"
                                            Foreground="#B6A0B3"
                                            />
-                                <Button Background="Transparent" Margin="20 0" BorderThickness="0">
-                                    <materialDesign:PackIcon Kind="CommentEye"
+                                    <Button Background="Transparent" Margin="20 0" BorderThickness="0">
+                                        <materialDesign:PackIcon Kind="CommentEye"
                                                              Height="25"
                                                              Width="25"
                                                              Foreground="Black"/>
-                                </Button>
-                            </StackPanel>
-                            <TextBlock x:Name="Tong_quan" 
+                                    </Button>
+                                </StackPanel>
+                                <TextBlock x:Name="Tong_quan" 
                                        Text="{Binding TongQuan}"
                                        Margin="0 10"
                                        FontSize="20"
                                        Foreground="#A6A0A1"
                                        TextWrapping="Wrap"/>
-                            <TextBlock x:Name="txlb_addShop"
+                                <TextBlock x:Name="txlb_addShop"
                                        FontSize="25"
                                        Margin="0 10"
                                         FontWeight="Bold">
                                 <Run Foreground="#5F5D5C">SHOP:</Run>
                                 <Run Foreground="#A6A0A1"
-                                     Text="{Binding Product.IDShopNavigation.NameShop}"></Run> 
-                            </TextBlock>
-                            <TextBlock x:Name="BOUGTHTIME"
+                                     Text="{Binding Product.IDShopNavigation.NameShop}"></Run>
+                                </TextBlock>
+                                <TextBlock x:Name="BOUGTHTIME"
                                             FontSize="25"
                                              Margin="0 10"
                                             FontWeight="Bold"
                                             Foreground="#5F5D5C"
                                        Text="{Binding Product.BoughtTime,
                                         StringFormat=BoughtTime: {0}}"></TextBlock>
-                            <TextBlock x:Name="LBL_NEWNESS"
+                                <TextBlock x:Name="LBL_NEWNESS"
                                        FontSize="25"
                                        Margin="0 10"
                                        FontWeight="Bold">
                                 <Run Foreground="#5F5D5C">NEWNESS:</Run>
                                 <Run Foreground="#A6A0A1"
                                      Text="{Binding Product.Newness, StringFormat={}{0}%}"></Run>
-                            </TextBlock>
+                                </TextBlock>
                                 <StackPanel Orientation="Horizontal" Margin="0 10">
                                     <TextBlock Text="ORIGINAL PRICE: "
                                                FontSize="25"
@@ -196,17 +197,17 @@
                                                VerticalAlignment="Center"
                                                FontFamily="Dubai"
                                                FontWeight="Bold"/>
-                                  
-                                   
+
+
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="0 10">
-                                <TextBlock Text="CURRENT PRICE: "
+                                    <TextBlock Text="CURRENT PRICE: "
                                            FontSize="25"
                                            VerticalAlignment="Center"
                                            FontFamily="Dubai"
                                            Foreground="#6B605E"
                                            FontWeight="Bold"/>
-                                <TextBlock x:Name="txbl_cur_price"
+                                    <TextBlock x:Name="txbl_cur_price"
                                            FontSize="25"
                                            Text="{Binding CurrentPrice, StringFormat='c'}"
                                            Foreground="#0FC20F"
@@ -232,12 +233,12 @@
                                         FontFamily="Dubai"
                                         Foreground="#6B605E"
                                         FontWeight="Bold"/>
-                                  
+
                                 </DockPanel>
-                                
+
                                 <StackPanel Orientation="Horizontal">
-                                   
-                                <TextBlock Text="Number of Products: "
+
+                                    <TextBlock Text="Number of Products: "
                                            FontSize="25"
                                            VerticalAlignment="Center"
                                            FontFamily="Dubai"
@@ -261,7 +262,7 @@
                                         HorizontalContentAlignment="Center"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                                        <Button
+                                    <Button
                                         Command="{Binding IncreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
                                             Style="{StaticResource MaterialDesignIconForegroundButton}"
                                             ToolTip="MaterialDesignIconForegroundButton"
@@ -281,28 +282,28 @@
                                              FontWeight="Bold"
                                              materialDesign:ButtonAssist.CornerRadius="15" 
                                              Height="70" Width="200"
-                                             Command="{Binding AddProduct}"/>   
+                                             Command="{Binding AddProduct}"/>
 
                                 </StackPanel>
                                 <DockPanel>
-                                   
+
                                 </DockPanel>
-                        </StackPanel>
+                            </StackPanel>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Border>
-            <Border CornerRadius="5" BorderThickness="1"
+                </Border>
+                <Border CornerRadius="5" BorderThickness="1"
                     Background="White" Grid.Row="1">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Detail Information"
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Detail Information"
                                FontSize="30"
                                FontFamily="Dubai"
                                Margin="20 0"
                                FontWeight="Bold">
-                        
-                    </TextBlock>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Status"
+
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Status"
                                    FontSize="20"
                                    Margin="20 0"
                                    VerticalAlignment="Center"></TextBlock>
@@ -344,9 +345,8 @@
                             </Expander>
                         </StackPanel>
                     </StackPanel>
-            </Border>
-            
-        </Grid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
     </Grid>
-    </ScrollViewer>
 </Window>
