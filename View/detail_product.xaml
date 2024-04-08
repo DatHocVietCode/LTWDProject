@@ -11,13 +11,36 @@
       IsEnabled="True"
       MinHeight="670"
       MinWidth="1280"
-      Title="detail_product"
-        >
+      Title="detail_product">
+    <Window.Resources>
+        <local:MyImageConverter x:Key="ImageConverter"></local:MyImageConverter>
+    </Window.Resources>
 
-    <ScrollViewer >
-        <Grid MouseDown="Window_MouseDown" MouseMove="Window_MouseMove">
-
-            <Grid Background="Transparent">
+    <Grid MouseDown="Window_MouseDown" MouseMove="Window_MouseMove">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:PackIcon Kind="Close"
+                                     VerticalAlignment="Top" 
+                                     Width="20" Height="20" 
+                                     HorizontalAlignment="Right" 
+                                     Margin="0 5 5 0"
+                                     Opacity="0.3"
+                                     Grid.Row="0"/>
+        <Button x:Name="btnClose"
+                Grid.Row="0"
+                VerticalAlignment="Top"
+                Width="20" Height="20" 
+                HorizontalAlignment="Right" 
+                Margin="0 5 5 0" Opacity="0.3"
+                Background="Transparent" 
+                Click="btnClose_Click"
+                BorderThickness="0"
+          ></Button>
+        <ScrollViewer Grid.Row="1">
+            <Grid Grid.Row="1"
+                Background="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition MinHeight="120"/>
@@ -85,14 +108,35 @@
                         <Grid Grid.Column="1"
                           Margin="20 ,0 ,0 ,0">
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left"  Margin="10" >
+                                <DockPanel>
+                                    <TextBlock 
+                                        Width="550"
+                                        MaxWidth="550"
+                                        Text="{Binding Product.Name}"
+                                        FontSize="30"
+                                        FontWeight="DemiBold"
+                                        Margin="0 10"
+                                        Foreground="#5F5D5C"
+                                        FontFamily="Dubai"/>
+                                    <Button 
+                                        DockPanel.Dock="Right"
+                                        BorderThickness="0.9"
+                                        Background="WhiteSmoke" 
+                                        
+                                        FontSize="20" 
+                                        materialDesign:ButtonAssist.CornerRadius="15"
+                                        Margin="30 0 0 0"
+                                        Height="70" Width="70"
+                                        >
+                                        <materialDesign:PackIcon Kind="Heart"
+                                          Height="40"
+                                          Width="40"
+                                          BorderBrush="Black" 
+                                          Foreground="Wheat"
+                                          />
+                                    </Button>
+                                </DockPanel>
 
-                                <TextBlock DockPanel.Dock="Left"
-                                    Text="{Binding Product.Name}"
-                                    FontSize="30"
-                                    FontWeight="DemiBold"
-                                    Margin="0 10"
-                                    Foreground="#5F5D5C"
-                                    FontFamily="Dubai"/>
                                 <StackPanel Orientation="Horizontal" Margin="0 10">
                                     <TextBlock x:Name="tbl_review"
                                            Text="999 reviews"
@@ -185,18 +229,6 @@
                                         FontFamily="Dubai"
                                         Foreground="#6B605E"
                                         FontWeight="Bold"/>
-                                    <Button 
-                                        DockPanel.Dock="Right"
-                                        Background="#0FC20F" 
-                                        Foreground="White"
-                                        FontSize="20" 
-                                        materialDesign:ButtonAssist.CornerRadius="15" 
-                                        Height="70" Width="70">
-                                        <materialDesign:PackIcon Kind="Heart"
-                                            Height="40"
-                                            Width="40"
-                                            />
-                                    </Button>
                                 </DockPanel>
 
                                 <StackPanel Orientation="Horizontal">
@@ -309,8 +341,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-
             </Grid>
-        </Grid>
-    </ScrollViewer>
+        </ScrollViewer>
+    </Grid>
 </Window>

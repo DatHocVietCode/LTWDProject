@@ -233,7 +233,7 @@ namespace WPF_Market.ViewModel
                 Inventory.Name = NameProduct;
                 Inventory.OriginalPrice = (float)OriginalPrice;
                 Inventory.CurrentPrice = (float)CurrentPrice;
-                Inventory.Save = (float)(CurrentPrice/OriginalPrice * 100);
+                Inventory.Save = (float)(1 - CurrentPrice/OriginalPrice)*100;
                 Inventory.Newness = Newness;
                 Inventory.Type = Type;
                 Inventory.NumberInput = Number;

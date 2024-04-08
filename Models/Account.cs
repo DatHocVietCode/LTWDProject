@@ -15,6 +15,8 @@ public partial class Account
 
     public string Password { get; set; }
 
+    public virtual ICollection<Priority> Priorities { get; set; } = new List<Priority>();
+
     public virtual Shop Shop { get; set; }
 
     public virtual User User { get; set; }

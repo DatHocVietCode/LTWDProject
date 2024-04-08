@@ -12,11 +12,7 @@ public partial class TraoDoiMuaBan : DbContext
         : base(options)
     {
     }
-    public TraoDoiMuaBan() { }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(Properties.Settings.Default.TraoDoiMuaBan);
-    }
+
     public virtual DbSet<Account> Accounts { get; set; }
 
     public virtual DbSet<Cart> Carts { get; set; }
@@ -26,6 +22,8 @@ public partial class TraoDoiMuaBan : DbContext
     public virtual DbSet<ImageLink> ImageLinks { get; set; }
 
     public virtual DbSet<Inventory> Inventories { get; set; }
+
+    public virtual DbSet<Priority> Priorities { get; set; }
 
     public virtual DbSet<Shop> Shops { get; set; }
 
@@ -123,6 +121,23 @@ public partial class TraoDoiMuaBan : DbContext
                         j.HasKey("IDProduct", "IDUser").HasName("PK__FaVProdu__AC3EBCE4279CDD42");
                         j.ToTable("FaVProduct");
                     });
+        });
+
+        modelBuilder.Entity<Priority>(entity =>
+        {
+            entity.HasKey(e => new { e.IDuser, e.IDproduct }).HasName("PK__Priority__83F81D44931B9824");
+
+            entity.ToTable("Priority");
+
+            entity.HasOne(d => d.IDproductNavigation).WithMany(p => p.Priorities)
+                .HasForeignKey(d => d.IDproduct)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Priority__IDprod__02FC7413");
+
+            entity.HasOne(d => d.IDuserNavigation).WithMany(p => p.Priorities)
+                .HasForeignKey(d => d.IDuser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Priority__IDuser__03F0984C");
         });
 
         modelBuilder.Entity<Shop>(entity =>
