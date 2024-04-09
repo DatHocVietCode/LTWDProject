@@ -124,16 +124,8 @@
                                  VerticalScrollBarVisibility="Auto" 
                                       Text="{Binding Additional, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </StackPanel>
-                       
+
                         <Grid MinHeight="50" >
-                            <!--<TextBox x:Name="txt_image"
-                                    MinHeight="50" Margin="0,0,70,0"
-                                    materialDesign:HintAssist.Hint="Image"
-                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                    TextWrapping="Wrap"
-                                     VerticalAlignment="Top"
-                                    VerticalScrollBarVisibility="Auto"
-                                     Text="{Binding ImageLinks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
                             <ListView Margin="0 0 70 0" ItemsSource="{Binding ImageLinksGV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                                 <ListView.View>
                                     <GridView AllowsColumnReorder="False">
@@ -144,8 +136,8 @@
                                                 <DataTemplate>
                                                     <Button
                                                         Style="{StaticResource MaterialDesignIconButton}"
-                                                        Content="{materialDesign:PackIcon DotsVertical}"
-                                                        Command="{Binding DataContext.OpenContextMenuFromButton
+                                                        Content="{materialDesign:PackIcon Delete}"
+                                                        Command="{Binding DataContext.DeleteItem
                                                         , RelativeSource={RelativeSource AncestorType=ListView}}"
                                                         CommandParameter="{Binding}">
                                                     </Button>

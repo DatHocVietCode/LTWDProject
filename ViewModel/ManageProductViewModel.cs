@@ -50,26 +50,13 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(shortStringList));
             }
         }
-        private void ExecuteOpenContextMenuFromButton(object obj)
-        {
-            var contextMenu = new ContextMenu();
-            var menuItemShowDetail = new MenuItem { Header = "Show detail" };
-            //menuItemShowDetail.Command = ShowDetailCommand;
-            menuItemShowDetail.CommandParameter = obj as CartWrapper;
-            contextMenu.Items.Add(menuItemShowDetail);
-            var menuItemDeleteItem = new MenuItem { Header = "Delete item" };
-            //menuItemDeleteItem.Command = DeleteProductCommand;
-            menuItemDeleteItem.CommandParameter = obj as CartWrapper;
-            contextMenu.Items.Add(menuItemDeleteItem);
-            contextMenu.IsOpen = true;
-        }
         private void ExecuteShowDetailCommand(object obj)
         {
             System.Windows.Forms.MessageBox.Show("oke");
         }
         public ManageProductViewModel(int value)
         {
-            OpenContextMenuFromButton = new BaseViewModelCommand(ExecuteOpenContextMenuFromButton);
+            DeleteItem = new BaseViewModelCommand(ExecuteDeleteItem);
             ShowDetailCommand = new BaseViewModelCommand(ExecuteShowDetailCommand);
             ShortStringList = new ObservableCollection<string>
             {
@@ -97,6 +84,12 @@ namespace WPF_Market.ViewModel
                 DataProvider.Instance.DB.Inventories.Add(Inventory);
                 DataProvider.Instance.DB.SaveChanges();
             }
+        }
+
+        private void ExecuteDeleteItem(object obj)
+        {
+            var imageLink = obj as string;
+            ImageLinksGV.Remove(imageLink);
         }
 
         private void ExecuteCloseFormAddCommand(object obj)
@@ -347,7 +340,7 @@ namespace WPF_Market.ViewModel
         public ICommand BtnImageClick { get; }
         public ICommand IncreaseNumberButttonClick { get; }
         public ICommand DecreaseNumberButttonClick { get; }
-        public ICommand OpenContextMenuFromButton { get; }
+        public ICommand DeleteItem { get; }
         public ICommand ShowDetailCommand { get; }
         public ICommand CloseForm {  get; }
         public Inventory Inventory { get => inventory; set { inventory = value; OnPropertyChanged(nameof(Inventory)); } }

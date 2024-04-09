@@ -76,19 +76,20 @@
                                 </GridViewColumn>
                                 <GridViewColumn
                                 DisplayMemberBinding="{Binding Name}"
-                                Header="Product's Name"
+                                Header="Product's Name"                      
                                 Width="160"/>
+                               
                                 <GridViewColumn
-                                DisplayMemberBinding="{Binding Rating}"
-                                Header="Rating"
+                                DisplayMemberBinding="{Binding OriginalPrice}"
+                                Header="Original Price"
                                 Width="150"/>
                                 <GridViewColumn
-                                DisplayMemberBinding="{Binding Price}"
-                                Header="Price"
+                                DisplayMemberBinding="{Binding CurrentPrice}"
+                                Header="Current Price"
                                 Width="150"/>
                                 <GridViewColumn
-                                DisplayMemberBinding="{Binding Discount}"
-                                Header="Discount"
+                                DisplayMemberBinding="{Binding Save}"
+                                Header="Save(%)"
                                 Width="150"/>
                             </GridView>
                         </ListView.View>
