@@ -29,6 +29,8 @@ public partial class Inventory
 
     public DateTime? BoughtTime { get; set; }
 
+    public int? Priority { get; set; }
+
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     public virtual Shop IDShopNavigation { get; set; }

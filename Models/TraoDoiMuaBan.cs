@@ -98,6 +98,7 @@ public partial class TraoDoiMuaBan : DbContext
             entity.ToTable("Inventory");
 
             entity.Property(e => e.BoughtTime).HasColumnType("datetime");
+            entity.Property(e => e.Priority).HasDefaultValueSql("((0))");
             entity.Property(e => e.Type).HasMaxLength(50);
 
             entity.HasOne(d => d.IDShopNavigation).WithMany(p => p.Inventories)
