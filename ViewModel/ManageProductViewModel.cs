@@ -18,6 +18,9 @@ using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 using System.Windows.Shapes;
 using Path = System.IO.Path;
+using System.Windows.Controls;
+using WPF_Market.ViewModel.CartsWrapper;
+
 namespace WPF_Market.ViewModel
 {
     public class ManageProductViewModel : BaseViewModel
@@ -37,6 +40,7 @@ namespace WPF_Market.ViewModel
         public ObservableCollection<string> shortStringList;
         private bool isCompleteAddProduct = false;
         private DateTime dateBought = DateTime.Now;
+        private ObservableCollection<string> imageLinksGV = new ObservableCollection<string>();
         public ObservableCollection<string> ShortStringList
         {
             get { return shortStringList; }
@@ -46,9 +50,14 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(shortStringList));
             }
         }
+        private void ExecuteShowDetailCommand(object obj)
+        {
+            System.Windows.Forms.MessageBox.Show("oke");
+        }
         public ManageProductViewModel(int value)
         {
-
+            DeleteItem = new BaseViewModelCommand(ExecuteDeleteItem);
+            ShowDetailCommand = new BaseViewModelCommand(ExecuteShowDetailCommand);
             ShortStringList = new ObservableCollection<string>
             {
                 "Electronics",
@@ -75,6 +84,12 @@ namespace WPF_Market.ViewModel
                 DataProvider.Instance.DB.Inventories.Add(Inventory);
                 DataProvider.Instance.DB.SaveChanges();
             }
+        }
+
+        private void ExecuteDeleteItem(object obj)
+        {
+            var imageLink = obj as string;
+            ImageLinksGV.Remove(imageLink);
         }
 
         private void ExecuteCloseFormAddCommand(object obj)
@@ -175,6 +190,7 @@ namespace WPF_Market.ViewModel
                     string destinationFilePath = Path.Combine(destinationDirectory, Path.GetFileName(sourceFilePath));
                     File.Copy(sourceFilePath, destinationFilePath, true);
                     ImageLinks += @"SanPham\" + Inventory.IDProduct.ToString().Trim() + @"\Images\" + Path.GetFileName(sourceFilePath) +'\n';
+                    ImageLinksGV.Add(@"SanPham\" + Inventory.IDProduct.ToString().Trim() + @"\Images\" + Path.GetFileName(sourceFilePath));
                     new Custom_mb("Operation successfully!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
                 }
                 catch (Exception ex)
@@ -324,6 +340,8 @@ namespace WPF_Market.ViewModel
         public ICommand BtnImageClick { get; }
         public ICommand IncreaseNumberButttonClick { get; }
         public ICommand DecreaseNumberButttonClick { get; }
+        public ICommand DeleteItem { get; }
+        public ICommand ShowDetailCommand { get; }
         public ICommand CloseForm {  get; }
         public Inventory Inventory { get => inventory; set { inventory = value; OnPropertyChanged(nameof(Inventory)); } }
         public string ImageLinks
@@ -357,5 +375,7 @@ namespace WPF_Market.ViewModel
 
         public double CurrentPrice { get => currentPrice; set { currentPrice = value; OnPropertyChanged(nameof(CurrentPrice)); } }
         public double OriginalPrice { get => originalPrice; set { originalPrice = value; OnPropertyChanged(nameof(OriginalPrice)); } }
+
+        public ObservableCollection<string> ImageLinksGV { get => imageLinksGV; set { imageLinksGV = value; OnPropertyChanged(nameof(ImageLinksGV)); } }
     }
 }

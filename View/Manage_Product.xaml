@@ -9,7 +9,7 @@
 
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        
+        WindowStyle="None"
         FontSize="15"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Manage_Product" Height="700" Width="900"
@@ -124,23 +124,38 @@
                                  VerticalScrollBarVisibility="Auto" 
                                       Text="{Binding Additional, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </StackPanel>
-                       
+
                         <Grid MinHeight="50" >
-                            <TextBox x:Name="txt_image"
-                                    MinHeight="50" Margin="0,0,70,0"
-                                    materialDesign:HintAssist.Hint="Image"
-                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                    TextWrapping="Wrap"
-                                     VerticalAlignment="Top"
-                                    VerticalScrollBarVisibility="Auto"
-                                     Text="{Binding ImageLinks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <ListView Margin="0 0 70 0" ItemsSource="{Binding ImageLinksGV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="False">
+                                        <GridViewColumn Width="650"
+                                            DisplayMemberBinding="{Binding}"/>
+                                        <GridViewColumn>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        Style="{StaticResource MaterialDesignIconButton}"
+                                                        Content="{materialDesign:PackIcon Delete}"
+                                                        Command="{Binding DataContext.DeleteItem
+                                                        , RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                        CommandParameter="{Binding}">
+                                                    </Button>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                    
+                                </ListView.View>
+                            </ListView>
                             <materialDesign:PackIcon Kind="FileSearch" 
                                                      VerticalAlignment="Top" 
-                                                     Width="50" Height="50" 
+                                                     Width="40" Height="40" 
                                                      HorizontalAlignment="Right" Opacity="0.3"/>
                             <Button x:Name="btn_img" 
                                     VerticalAlignment="Top" 
-                                    Width="50" Height="50" 
+                                    Width="40" Height="40" 
+                                    BorderThickness="0"
                                     HorizontalAlignment="Right" Opacity="0.3" 
                                     Background="Transparent" 
                                     Command="{Binding BtnImageClick}"></Button>
