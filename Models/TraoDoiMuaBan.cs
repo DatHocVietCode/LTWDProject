@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace WPF_Market.Models;
@@ -11,6 +12,11 @@ public partial class TraoDoiMuaBan : DbContext
     public TraoDoiMuaBan(DbContextOptions<TraoDoiMuaBan> options)
         : base(options)
     {
+    }
+    public TraoDoiMuaBan() { }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer(Properties.Settings.Default.TraoDoiMuaBan);
     }
 
     public virtual DbSet<Account> Accounts { get; set; }
