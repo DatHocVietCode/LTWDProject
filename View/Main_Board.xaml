@@ -66,6 +66,14 @@
                         Content="CART"
                         Style="{StaticResource MaterialDesignFlatButton}" Click="btn_cart_Click">
                     </Button>
+                    <Button    
+                        x:Name="btn_Bought"
+                        Margin="15 4"
+                        VerticalAlignment="Center"
+                        Command="{Binding CartCommand}"
+                        Content="BOUGHT"
+                        Style="{StaticResource MaterialDesignFlatButton}" Click="btn_cart_Click">
+                    </Button>
                 </StackPanel>
             </materialDesign:ColorZone>
             <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3"/>

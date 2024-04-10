@@ -77,6 +77,7 @@ D:\HK2_23-24_LTwindows\4-2\LTWDProject\bin\Debug\net6.0-windows\runtimes\browser
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\WPF_Market.csproj.AssemblyReference.cache
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Custom_mb.baml
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\CustomControl\BindablePasswordBox.g.cs
+D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Bought.g.cs
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Cart.g.cs
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\confirmPass.g.cs
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Custom_mb.g.cs
@@ -94,6 +95,7 @@ D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\WPF_Market_Marku
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\WPF_Market_MarkupCompile.lref
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\App.baml
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\CustomControl\BindablePasswordBox.baml
+D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Bought.baml
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Cart.baml
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\confirmPass.baml
 D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\detail_product.baml
