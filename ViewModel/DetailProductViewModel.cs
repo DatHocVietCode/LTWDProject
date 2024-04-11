@@ -146,7 +146,6 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(DefaultImage));
             }
         }
-
         public double CurrentPrice { get => (double)(Product.CurrentPrice) ; set { currentPrice = value; OnPropertyChanged(nameof(CurrentPrice)); } }
 
         public ObservableCollection<string> ListImage { get => listImage; set => listImage = value; }

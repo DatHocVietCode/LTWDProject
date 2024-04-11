@@ -9,7 +9,6 @@ namespace WPF_Market.Models
     class DataProvider
     {
         private static DataProvider instance;
-
         public static DataProvider Instance
         {
             get
@@ -22,6 +21,7 @@ namespace WPF_Market.Models
             {
                 instance = value;
             }
+
         }
         public TraoDoiMuaBan DB { get; set; }
         private DataProvider()

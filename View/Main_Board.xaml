@@ -70,7 +70,7 @@
                         x:Name="btn_Bought"
                         Margin="15 4"
                         VerticalAlignment="Center"
-                        Command="{Binding CartCommand}"
+                        Command="{Binding BoughtCommand}"
                         Content="BOUGHT"
                         Style="{StaticResource MaterialDesignFlatButton}" Click="btn_cart_Click">
                     </Button>

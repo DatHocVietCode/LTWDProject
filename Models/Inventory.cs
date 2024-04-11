@@ -29,11 +29,17 @@ public partial class Inventory
 
     public DateTime? BoughtTime { get; set; }
 
+    public int Priority { get; set; }
+
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     public virtual Shop IDShopNavigation { get; set; }
 
     public virtual ICollection<ImageLink> ImageLinks { get; set; } = new List<ImageLink>();
+
+    public virtual ICollection<LstProduct> LstProducts { get; set; } = new List<LstProduct>();
+
+    public virtual ICollection<Priority> Priorities { get; set; } = new List<Priority>();
 
     public virtual ICollection<User> IDUsers { get; set; } = new List<User>();
 }

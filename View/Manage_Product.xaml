@@ -124,6 +124,24 @@
                                  VerticalScrollBarVisibility="Auto" 
                                       Text="{Binding Additional, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,20,0,0"
+                                    HorizontalAlignment="Center">
+                            <TextBox Text="Please input your number of products"
+                                     BorderThickness="0"
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     IsEnabled="False">
+
+                            </TextBox>
+
+                            <TextBox x:Name="txt_number"
+                                    Width="100" Margin="0 0 0 0"
+                                    Height="50"
+                                    materialDesign:HintAssist.Hint="Number"
+                                    HorizontalContentAlignment="Center"
+                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextChanged="txt_number_TextChanged"/>
+                        </StackPanel>
 
                         <Grid MinHeight="50" >
                             <ListView Margin="0 0 70 0" ItemsSource="{Binding ImageLinksGV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
@@ -161,45 +179,7 @@
                                     Command="{Binding BtnImageClick}"></Button>
                             
                         </Grid>
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="0,20,0,0"
-                                    HorizontalAlignment="Center">
-                            <TextBox Text="Please input your number of products"
-                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     IsEnabled="False">
-                                
-                            </TextBox>
-                            <Button
-                                Command="{Binding DecreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
-                                Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                ToolTip="MaterialDesignIconForegroundButton"
-                                Margin="20,0,0,0">
-                                <materialDesign:PackIcon
-                                Kind="ArrowDownThick" 
-                                VerticalAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                
-                                />
-                            </Button>
-                            <TextBox x:Name="txt_number"
-                                    Width="100" Margin="0 0 0 0"
-                                    Height="50"
-                                    materialDesign:HintAssist.Hint="Number"
-                                    HorizontalContentAlignment="Center"
-                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                    Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                            <Button
-                                    Command="{Binding IncreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
-                                    Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                    ToolTip="MaterialDesignIconForegroundButton"
-                                    >
-                                <materialDesign:PackIcon
-                                    Kind="ArrowUPThick" 
-                                    VerticalAlignment="Center"
-                                    VerticalContentAlignment="Center"
-                                    />
-                            </Button>
-                        </StackPanel>
+                        
                       
                     </StackPanel>
 
