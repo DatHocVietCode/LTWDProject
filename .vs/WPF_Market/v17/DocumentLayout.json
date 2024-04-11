@@ -50,9 +50,9 @@
               "Title": "MainBoardViewModel.cs",
               "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\MainBoardViewModel.cs",
               "RelativeDocumentMoniker": "ViewModel\\MainBoardViewModel.cs",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\MainBoardViewModel.cs",
-              "RelativeToolTip": "ViewModel\\MainBoardViewModel.cs",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAuwCYAAAAAAAAA",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\MainBoardViewModel.cs*",
+              "RelativeToolTip": "ViewModel\\MainBoardViewModel.cs*",
+              "ViewState": "AQIAAEkAAAAAAAAAAAA8wFMAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-09T07:41:40.511Z",
               "EditorCaption": ""
@@ -66,8 +66,7 @@
               "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Main_Board.xaml",
               "RelativeToolTip": "View\\Main_Board.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-09T07:36:49.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T07:36:49.44Z"
             },
             {
               "$type": "Document",
@@ -78,8 +77,7 @@
               "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\ShopUI.xaml",
               "RelativeToolTip": "View\\ShopUI.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-09T07:36:38.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T07:36:38.244Z"
             },
             {
               "$type": "Document",
@@ -90,8 +88,7 @@
               "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\product.xaml",
               "RelativeToolTip": "View\\product.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-09T07:36:37.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T07:36:37.898Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Myinf.xaml",
               "RelativeToolTip": "View\\Myinf.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-09T07:36:32.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T07:36:32.986Z"
             },
             {
               "$type": "Document",
@@ -114,8 +110,7 @@
               "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Cart.xaml",
               "RelativeToolTip": "View\\Cart.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-09T07:29:30.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T07:29:30.821Z"
             }
           ]
         },
