@@ -2,7 +2,6 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace WPF_Market.Models;
@@ -21,6 +20,8 @@ public partial class TraoDoiMuaBan : DbContext
 
     public virtual DbSet<Account> Accounts { get; set; }
 
+    public virtual DbSet<Bought> Boughts { get; set; }
+
     public virtual DbSet<Cart> Carts { get; set; }
 
     public virtual DbSet<Comment> Comments { get; set; }
@@ -28,6 +29,8 @@ public partial class TraoDoiMuaBan : DbContext
     public virtual DbSet<ImageLink> ImageLinks { get; set; }
 
     public virtual DbSet<Inventory> Inventories { get; set; }
+
+    public virtual DbSet<LstProduct> LstProducts { get; set; }
 
     public virtual DbSet<Priority> Priorities { get; set; }
 
@@ -52,6 +55,20 @@ public partial class TraoDoiMuaBan : DbContext
             entity.Property(e => e.UserName)
                 .IsRequired()
                 .HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Bought>(entity =>
+        {
+            entity.HasKey(e => e.IDInvoice);
+
+            entity.ToTable("Bought");
+
+            entity.Property(e => e.DateBought).HasColumnType("datetime");
+
+            entity.HasOne(d => d.IDUserNavigation).WithMany(p => p.Boughts)
+                .HasForeignKey(d => d.IDUser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Bought__IDUser__2BFE89A6");
         });
 
         modelBuilder.Entity<Cart>(entity =>
@@ -128,6 +145,25 @@ public partial class TraoDoiMuaBan : DbContext
                         j.HasKey("IDProduct", "IDUser").HasName("PK__FaVProdu__AC3EBCE4279CDD42");
                         j.ToTable("FaVProduct");
                     });
+        });
+
+        modelBuilder.Entity<LstProduct>(entity =>
+        {
+            entity.HasKey(e => new { e.IDInvoice, e.IDProduct }).HasName("PK__LstProdu__C98150671B347B2F");
+
+            entity.ToTable("LstProduct");
+
+            entity.Property(e => e.Number).HasDefaultValueSql("((1))");
+
+            entity.HasOne(d => d.IDInvoiceNavigation).WithMany(p => p.LstProducts)
+                .HasForeignKey(d => d.IDInvoice)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__LstProduc__IDInv__2CF2ADDF");
+
+            entity.HasOne(d => d.IDProductNavigation).WithMany(p => p.LstProducts)
+                .HasForeignKey(d => d.IDProduct)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__LstProduc__IDPro__2DE6D218");
         });
 
         modelBuilder.Entity<Priority>(entity =>

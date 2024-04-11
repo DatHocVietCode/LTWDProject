@@ -1,0 +1,89 @@
+﻿<Window x:Class="WPF_Market.View.Invoice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Market.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="Invoice" MinHeight="450" Width="500">
+    <Border CornerRadius="10"
+            BorderThickness="3"
+            Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <materialDesign:PackIcon Kind="Close"
+                             VerticalAlignment="Top" 
+                             Width="20" Height="20" 
+                             HorizontalAlignment="Right" 
+                             Margin="0 5 5 0"
+                             Opacity="0.3"
+                             Grid.Row="0"/>
+            <Button x:Name="btnClose"
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            Width="20" Height="20" 
+                            HorizontalAlignment="Right" 
+                            Margin="0 5 5 0" Opacity="0.3"
+                            Background="Transparent"                  
+                            BorderThickness="0"
+            ></Button>
+            <ScrollViewer Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" VerticalAlignment="Top">
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="15"
+                                   Margin="10"
+                                   FontFamily="Dubai">
+                            <Run>ID Invoice:</Run>
+                            <Run>23746</Run>
+                        </TextBlock>
+
+                        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center"
+                                   FontSize="15"
+                                   Margin="10"
+                                   FontFamily="Dubai">
+                            <Run>Day of Buy:</Run>
+                            <Run>99/99/9999</Run>
+                        </TextBlock>
+                    </Grid>
+                    <Grid  Grid.Row="1">
+                        <ListView ItemsSource="{Binding YourData}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Name" Width="250">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Property1}" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Property2}" Width="150"/>
+                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Property2}" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Grid Height="50" VerticalAlignment="Bottom">
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Margin="10"
+                                       FontFamily="Dubai">
+                                <Run>Total Price: </Run>
+                                <Run>999999</Run>
+                            </TextBlock>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Window>

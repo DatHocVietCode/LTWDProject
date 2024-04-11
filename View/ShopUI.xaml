@@ -91,6 +91,19 @@
                                 DisplayMemberBinding="{Binding Save}"
                                 Header="Save(%)"
                                 Width="150"/>
+                                <GridViewColumn >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="btn_searchDetail" Background="Transparent"
+                                                    BorderThickness="0">
+                                                <materialDesign:PackIcon Kind="Search"
+                                                                         Foreground="Black"
+                                                                         Width="30"
+                                                                        Height="30"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

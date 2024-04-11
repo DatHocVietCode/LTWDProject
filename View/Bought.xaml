@@ -13,6 +13,9 @@
     <UserControl.Resources>
         <vm:MyImageConverter x:Key="ImageConvert"></vm:MyImageConverter>
     </UserControl.Resources>
+    <UserControl.DataContext>
+        <vm:BougthViewModel></vm:BougthViewModel>
+    </UserControl.DataContext>
     <Border CornerRadius="10"
             BorderThickness="3"
             Background="White">
@@ -44,60 +47,24 @@
             <ScrollViewer Grid.Row="1">
                 <Grid Grid.Row="1">
                     <ListView x:Name="listView"
-                      ItemsSource="{Binding ShopInventory}">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="vm:ContextMenuBehavior.IsContextMenuEnabled" Value="True" />
-                                <Setter Property="vm:ContextMenuBehavior.ShowDetailCommand" Value="{Binding DataContext.EditProductCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
-                                <Setter Property="vm:ContextMenuBehavior.DeleteItemCommand" Value="{Binding DataContext.DeleteProductCommand, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
+                      ItemsSource="{Binding Boughts}">
+                       
                         <ListView.View>
 
                             <GridView>
-
                                 <GridViewColumn
-                                        DisplayMemberBinding="{Binding IDProduct}"
-                                        Header="ID Product"
-                                        Width="130"/>
-
-                                <GridViewColumn Header="Illustration">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Image Source="{Binding ImageLinks[0].ImageLink1, Converter={StaticResource ImageConvert}}" Width="50" Height="50"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                    DisplayMemberBinding="{Binding IDInvoice}"
+                                    Header="ID Invoice"
+                                    Width="130"/>
                                 <GridViewColumn
-                                        DisplayMemberBinding="{Binding Name}"
-                                        Header="Product's Name"                      
-                                        Width="160"/>
-
+                                    DisplayMemberBinding="{Binding DateBought}"
+                                    Header="DateBought"
+                                    Width="200"/>
                                 <GridViewColumn
-                                    DisplayMemberBinding="{Binding OriginalPrice}"
-                                    Header="Quantity"
-                                    Width="150"/>
-                                <GridViewColumn
-                                    DisplayMemberBinding="{Binding CurrentPrice}"
-                                    Header="Total Price"
-                                    Width="150"/>
-                                <GridViewColumn
-                                    DisplayMemberBinding="{Binding CurrentPrice}"
-                                    Header="Purchase Date"
-                                    Width="150"/>
-                                <GridViewColumn >
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button x:Name="btn_reBuy"
-                                                    Width="50"
-                                                    Height="50">
-                                                <materialDesign:PackIcon Kind="Reload"/>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                    DisplayMemberBinding="{Binding TotalPrice}"
+                                    Header="TotalPrice"
+                                    Width="130"/>
+                               
                                 <GridViewColumn >
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>

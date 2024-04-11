@@ -37,6 +37,8 @@ public partial class Inventory
 
     public virtual ICollection<ImageLink> ImageLinks { get; set; } = new List<ImageLink>();
 
+    public virtual ICollection<LstProduct> LstProducts { get; set; } = new List<LstProduct>();
+
     public virtual ICollection<Priority> Priorities { get; set; } = new List<Priority>();
 
     public virtual ICollection<User> IDUsers { get; set; } = new List<User>();

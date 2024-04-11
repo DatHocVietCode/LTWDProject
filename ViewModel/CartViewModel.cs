@@ -80,6 +80,8 @@ namespace WPF_Market.ViewModel
                     {
                         item.Cart.IDProductNavigation.NumberLeft -= item.CartWrapperNumber;
                         //item.Cart.IDProductNavigation.NumberSold += item.CartWrapperNumber;
+                       
+                        DataProvider.Instance.DB.SaveChanges();
                         DataProvider.Instance.DB.Remove(item.Cart);
                         DataProvider.Instance.DB.SaveChanges();
                         carts.Remove(item);

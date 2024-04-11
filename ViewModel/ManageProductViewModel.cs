@@ -213,9 +213,11 @@ namespace WPF_Market.ViewModel
         }   
         private void ExecuteSubmitCommand(object obj)
         {
-            string pathOver = string.Format(@"D:\LTWD\LTWD_FinalProject\SanPham\{0}\Tongquansanpham.txt", Inventory.IDProduct.ToString().Trim());
-            string pathTinhtrang = string.Format(@"D:\LTWD\LTWD_FinalProject\SanPham\{0}\Tinhtranghientai.txt", Inventory.IDProduct.ToString().Trim());
-            string pathThem = string.Format(@"D:\LTWD\LTWD_FinalProject\SanPham\{0}\Thongtinthem.txt", Inventory.IDProduct.ToString().Trim());
+            string pathOver = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
++string.Format(@"SanPham\{0}\Tongquansanpham.txt", Inventory.IDProduct.ToString().Trim());
+            string pathTinhtrang = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
++string.Format(@"SanPham\{0}\Tinhtranghientai.txt", Inventory.IDProduct.ToString().Trim());
+            string pathThem = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin")) + string.Format(@"SanPham\{0}\Thongtinthem.txt", Inventory.IDProduct.ToString().Trim());
             bool writeOverview = writeFile(pathOver, Overview);
             bool writeAdditional = writeFile(pathThem, Additional);
             bool writeConfiguration = writeFile(pathTinhtrang, Configuration);
