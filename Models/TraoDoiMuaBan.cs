@@ -46,7 +46,7 @@ public partial class TraoDoiMuaBan : DbContext
 
             entity.ToTable("Account");
 
-            entity.HasIndex(e => e.UserName, "UQ__Account__C9F2845681F2AFF2").IsUnique();
+            entity.HasIndex(e => e.UserName, "UQ__Account__C9F28456F3DF6B0D").IsUnique();
 
             entity.Property(e => e.Email)
                 .IsRequired()
@@ -68,7 +68,7 @@ public partial class TraoDoiMuaBan : DbContext
             entity.HasOne(d => d.IDUserNavigation).WithMany(p => p.Boughts)
                 .HasForeignKey(d => d.IDUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bought__IDUser__7814D14C");
+                .HasConstraintName("FK__Bought__IDUser__2BFE89A6");
         });
 
         modelBuilder.Entity<Cart>(entity =>
@@ -80,7 +80,7 @@ public partial class TraoDoiMuaBan : DbContext
             entity.HasOne(d => d.IDProductNavigation).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.IDProduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Cart__IDProduct__2F9A1060");
+                .HasConstraintName("FK__Cart__IDProduct__45F365D3");
 
             entity.HasOne(d => d.IDUserNavigation).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.IDUser)
@@ -90,7 +90,7 @@ public partial class TraoDoiMuaBan : DbContext
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => new { e.DataTimeCreate, e.IDUser, e.IDProduct }).HasName("PK__Comment__18F87060439BAE95");
+            entity.HasKey(e => new { e.DataTimeCreate, e.IDUser, e.IDProduct }).HasName("PK__Comment__18F87060396AC099");
 
             entity.ToTable("Comment");
 
@@ -116,11 +116,12 @@ public partial class TraoDoiMuaBan : DbContext
 
         modelBuilder.Entity<Inventory>(entity =>
         {
-            entity.HasKey(e => e.IDProduct).HasName("PK__tmp_ms_x__4290D179EFAA8E55");
+            entity.HasKey(e => e.IDProduct).HasName("PK__Inventor__4290D1794A33FD73");
 
             entity.ToTable("Inventory");
 
             entity.Property(e => e.BoughtTime).HasColumnType("datetime");
+            entity.Property(e => e.Priority).HasDefaultValueSql("((0))");
             entity.Property(e => e.Type).HasMaxLength(50);
 
             entity.HasOne(d => d.IDShopNavigation).WithMany(p => p.Inventories)
@@ -134,21 +135,21 @@ public partial class TraoDoiMuaBan : DbContext
                     r => r.HasOne<User>().WithMany()
                         .HasForeignKey("IDUser")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__FaVProduc__IDUse__4589517F"),
+                        .HasConstraintName("FK__FaVProduc__IDUse__48CFD27E"),
                     l => l.HasOne<Inventory>().WithMany()
                         .HasForeignKey("IDProduct")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__FaVProduc__IDPro__44952D46"),
+                        .HasConstraintName("FK__FaVProduc__IDPro__47DBAE45"),
                     j =>
                     {
-                        j.HasKey("IDProduct", "IDUser").HasName("PK__FaVProdu__AC3EBCE47ED2D341");
+                        j.HasKey("IDProduct", "IDUser").HasName("PK__FaVProdu__AC3EBCE4279CDD42");
                         j.ToTable("FaVProduct");
                     });
         });
 
         modelBuilder.Entity<LstProduct>(entity =>
         {
-            entity.HasKey(e => new { e.IDInvoice, e.IDProduct }).HasName("PK__LstProdu__C9815067155AA75B");
+            entity.HasKey(e => new { e.IDInvoice, e.IDProduct }).HasName("PK__LstProdu__C98150671B347B2F");
 
             entity.ToTable("LstProduct");
 
@@ -157,34 +158,34 @@ public partial class TraoDoiMuaBan : DbContext
             entity.HasOne(d => d.IDInvoiceNavigation).WithMany(p => p.LstProducts)
                 .HasForeignKey(d => d.IDInvoice)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LstProduc__IDInv__79FD19BE");
+                .HasConstraintName("FK__LstProduc__IDInv__2CF2ADDF");
 
             entity.HasOne(d => d.IDProductNavigation).WithMany(p => p.LstProducts)
                 .HasForeignKey(d => d.IDProduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LstProduc__IDPro__7908F585");
+                .HasConstraintName("FK__LstProduc__IDPro__2DE6D218");
         });
 
         modelBuilder.Entity<Priority>(entity =>
         {
-            entity.HasKey(e => new { e.IDuser, e.IDproduct }).HasName("PK__Priority__83F81D44F8A799B9");
+            entity.HasKey(e => new { e.IDuser, e.IDproduct }).HasName("PK__Priority__83F81D44931B9824");
 
             entity.ToTable("Priority");
 
             entity.HasOne(d => d.IDproductNavigation).WithMany(p => p.Priorities)
                 .HasForeignKey(d => d.IDproduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Priority__IDprod__54CB950F");
+                .HasConstraintName("FK__Priority__IDprod__02FC7413");
 
             entity.HasOne(d => d.IDuserNavigation).WithMany(p => p.Priorities)
                 .HasForeignKey(d => d.IDuser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Priority__IDuser__55BFB948");
+                .HasConstraintName("FK__Priority__IDuser__03F0984C");
         });
 
         modelBuilder.Entity<Shop>(entity =>
         {
-            entity.HasKey(e => e.IDShop).HasName("PK__tmp_ms_x__EB360B913B87F53C");
+            entity.HasKey(e => e.IDShop).HasName("PK__Shop__C52550285E540EBA");
 
             entity.ToTable("Shop");
 
@@ -202,7 +203,7 @@ public partial class TraoDoiMuaBan : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.ID).HasName("PK__User__3214EC07AB300865");
+            entity.HasKey(e => e.ID).HasName("PK__User__3214EC27E9B90458");
 
             entity.ToTable("User");
 

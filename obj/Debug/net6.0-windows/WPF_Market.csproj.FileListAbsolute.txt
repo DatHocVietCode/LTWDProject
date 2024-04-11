@@ -1,3 +1,5 @@
+D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Invoice.g.cs
+D:\HK2_23-24_LTwindows\4-2\LTWDProject\obj\Debug\net6.0-windows\View\Invoice.baml
 D:\LTWD\LTWD_FinalProject\bin\Debug\net6.0-windows\WPF_Market.exe
 D:\LTWD\LTWD_FinalProject\bin\Debug\net6.0-windows\WPF_Market.dll.config
 D:\LTWD\LTWD_FinalProject\bin\Debug\net6.0-windows\WPF_Market.deps.json
@@ -82,6 +84,7 @@ D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Cart.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\confirmPass.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Custom_mb.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\detail_product.g.cs
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Invoice.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Login_new.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Main_Board.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Manage_Product.g.cs
@@ -99,6 +102,7 @@ D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Bought.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Cart.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\confirmPass.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\detail_product.baml
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Invoice.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Login_new.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Main_Board.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Manage_Product.baml
