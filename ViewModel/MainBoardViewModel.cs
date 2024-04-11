@@ -29,6 +29,7 @@ namespace WPF_Market.ViewModel
         private void ExecuteBoughtCommand(object obj)
         {
             CloseDrawerHost(obj);
+            currentContent = new Bought();
             
         }
 

@@ -40,6 +40,9 @@ namespace WPF_Market.View
 
         }
 
-      
+        private void txt_number_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
