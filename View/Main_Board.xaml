@@ -13,7 +13,7 @@
     <Window.DataContext>
         <vm:MainBoardViewModel></vm:MainBoardViewModel>
     </Window.DataContext>
-
+   
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="48"/>
@@ -124,28 +124,44 @@
                     </TreeView>
                     <CheckBox x:Name="cb_elec"
                           Content="Electronics"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                             IsChecked="{Binding CbElect, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_fasAclo"
                           Content="Fashion and Clothing"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                              IsChecked="{Binding CbFashion, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_jewell"
                           Content="Jewellery"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                              IsChecked="{Binding CbJewell, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_heAbea"
                           Content="Health and Beauty"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                         IsChecked="{Binding CbHealthBeauty, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_book"
                           Content="Books"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                          IsChecked="{Binding CbBooks, UpdateSourceTrigger=PropertyChanged,
+                            Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_kidAbaby"
                           Content="Kids and Babies"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                          IsChecked="{Binding CbKidsBaies, UpdateSourceTrigger=PropertyChanged,
+                          Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_sport"
                           Content="Sports"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                          IsChecked="{Binding CbSports, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_home"
                           Content="Home and Graden"
-                          Margin="4 10"/>
+                          Margin="4 10"
+                          IsChecked="{Binding CbHomeGarden, UpdateSourceTrigger=PropertyChanged,
+                            Mode=TwoWay}"/>
 
                 </StackPanel>
             </Border>

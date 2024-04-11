@@ -22,8 +22,7 @@ namespace WPF_Market.ViewModel
             ShortStringList.Add("Kids and Babies");
             ShortStringList.Add("Sports");
             ShortStringList.Add("Fruit and veg");
-            ShortStringList.Add("Home and Graden");
-            ShortStringList.Add("Others");
+            ShortStringList.Add("Home and Garden");
         }
     }
 }

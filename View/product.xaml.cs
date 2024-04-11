@@ -26,10 +26,14 @@ namespace WPF_Market.View
 
     public partial class product : Page
     {
-        public product()
+
+        public product(UpdateFilter filterProduct)
         {
             InitializeComponent();
+            var a = new ListProductViewModel();
+            this.DataContext = a;
+            filterProduct(a.FilterProductByCB);
         }
-      
+    
     }
 }

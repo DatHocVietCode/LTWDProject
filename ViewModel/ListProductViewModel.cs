@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -16,14 +17,24 @@ namespace WPF_Market.ViewModel
 {
     public class ListProductViewModel : BaseViewModel
     {
+     
         private ObservableCollection<Inventory> productList = new ObservableCollection<Inventory>();
         private IShowProductDetail showProductDetail;
-   
+        
         public ListProductViewModel()
         {
             GetProductDataFromDataBase();
+
             SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
-        }  
+        }
+        public void FilterProductByCB(List<string> listTypes)
+        {
+           
+                var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).Where(p=> listTypes.Contains(p.Type)).ToList().OrderByDescending(p => p.Priority);
+                ProductList = new ObservableCollection<Inventory>(lst);
+            
+          
+        }
         public ObservableCollection<Inventory> ProductList
         {
             get
@@ -38,7 +49,7 @@ namespace WPF_Market.ViewModel
         }
         private void GetProductDataFromDataBase()
         {
-            var lst = DataProvider.Instance.DB.Inventories.Include(p=>p.IDShopNavigation).Include(p=>p.ImageLinks).ToList();
+            var lst = DataProvider.Instance.DB.Inventories.Include(p=>p.IDShopNavigation).Include(p=>p.ImageLinks).ToList().OrderByDescending(p=>p.Priority);
             ProductList = new ObservableCollection<Inventory>(lst);
         }
         public ICommand SeeDetailCommand { get; }
@@ -46,6 +57,9 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteSeeDetailCommand(object obj)
         {
+            var product = (Inventory)obj;
+            product.Priority++;
+            DataProvider.Instance.DB.SaveChanges();
             showProductDetail = new DisplayDetailProduct();
             showProductDetail.ShowProductDetail((Inventory)obj);
         }

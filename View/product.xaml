@@ -14,9 +14,9 @@
       Title="product"
       ShowsNavigationUI="False">
 
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <vmProduct:ListProductViewModel></vmProduct:ListProductViewModel>
-    </Page.DataContext>
+    </Page.DataContext>-->
     
     <Page.Resources>
         <sys:Single x:Key="MySingleValue">1.5</sys:Single>
