@@ -68,7 +68,7 @@ namespace WPF_Market.ViewModel
                 "Kids and Babies",
                 "Sports",
                 "Fruit and veg",
-                "Home and Graden",
+                "Home and Garden",
                 "Others"
             };
             IncreaseNumberButttonClick = new BaseViewModelCommand(ExecuteIncreaseNumberCommand);

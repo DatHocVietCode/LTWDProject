@@ -158,7 +158,7 @@
                           IsChecked="{Binding CbSports, UpdateSourceTrigger=PropertyChanged,
                         Mode=TwoWay}"/>
                     <CheckBox x:Name="cb_home"
-                          Content="Home and Graden"
+                          Content="Home and Garden"
                           Margin="4 10"
                           IsChecked="{Binding CbHomeGarden, UpdateSourceTrigger=PropertyChanged,
                             Mode=TwoWay}"/>

@@ -103,13 +103,13 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(CbHealth));
                 if (cbHealth == true) { types.Add("Health and Beauty"); } else types.Remove("Health and Beauty");
                 filterProduct(types); } }
-        public bool CbFashion { get => cbFashion; set { cbFashion = value; OnPropertyChanged(nameof(CbFashion)); if (CbFashion == true) { types.Add("Fashion and Clothing"); } else types.Remove("Fashion and Clothing");/* filterProduct(types);*/ } }
+        public bool CbFashion { get => cbFashion; set { cbFashion = value; OnPropertyChanged(nameof(CbFashion)); if (CbFashion == true) { types.Add("Fashion and Clothing"); } else types.Remove("Fashion and Clothing"); filterProduct(types); } }
         public bool CbJewell { get => cbJewell; set { cbJewell = value; OnPropertyChanged(nameof(CbJewell)); if (CbJewell == true) { types.Add("Jewellery"); } else types.Remove("Jewellery"); filterProduct(types); } }
-        public bool CbHealthBeauty { get => cbHealthBeauty; set { cbHealthBeauty = value; OnPropertyChanged(nameof(CbHealthBeauty)); if (CbHealthBeauty == true) { types.Add("Health and Beauty"); } else types.Remove("Health and Beauty"); /*filterProduct(types);*/ } }
+        public bool CbHealthBeauty { get => cbHealthBeauty; set { cbHealthBeauty = value; OnPropertyChanged(nameof(CbHealthBeauty)); if (CbHealthBeauty == true) { types.Add("Health and Beauty"); } else types.Remove("Health and Beauty"); filterProduct(types); } }
         public bool CbBooks { get => cbBooks; set { cbBooks = value; OnPropertyChanged(nameof(CbBooks)); if (CbBooks == true) { types.Add("Books"); } else types.Remove("Books"); filterProduct(types); } }
-        public bool CbKidsBaies { get => cbKidsBaies; set { cbKidsBaies = value; OnPropertyChanged(nameof(CbKidsBaies)); if (CbKidsBaies == true) { types.Add("Kids and Babies"); } else types.Remove("Kids and Babies"); /*filterProduct(types); */} }
+        public bool CbKidsBaies { get => cbKidsBaies; set { cbKidsBaies = value; OnPropertyChanged(nameof(CbKidsBaies)); if (CbKidsBaies == true) { types.Add("Kids and Babies"); } else types.Remove("Kids and Babies"); filterProduct(types); } }
         public bool CbSports { get => cbSports; set { cbSports = value; OnPropertyChanged(nameof(CbSports)); if (CbSports == true) { types.Add("Sports"); } else types.Remove("Sports"); filterProduct(types); } }
-        public bool CbHomeGarden { get => cbHomeGarden; set { cbHomeGarden = value; OnPropertyChanged(nameof(CbHomeGarden)); if (CbHomeGarden == true) { types.Add("Home and Garden"); } else types.Remove("Home and Garden"); /*filterProduct(types);*/ } }
+        public bool CbHomeGarden { get => cbHomeGarden; set { cbHomeGarden = value; OnPropertyChanged(nameof(CbHomeGarden)); if (CbHomeGarden == true) { types.Add("Home and Garden"); } else types.Remove("Home and Garden"); filterProduct(types); } }
         public bool CbElect { get => cbElect; set { cbElect = value; OnPropertyChanged(nameof(CbElect)); if (CbElect == true) { types.Add("Electronics"); } else types.Remove("Electronics"); filterProduct(types); } }
     }
 }
