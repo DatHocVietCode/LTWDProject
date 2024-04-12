@@ -22,6 +22,7 @@ namespace WPF_Market.ViewModel
         private double currentPrice;
         private int number = 1;
         private ObservableCollection<string>listImage = new ObservableCollection<string>();
+        private ObservableCollection<Inventory> productList = new ObservableCollection<Inventory>();
         private bool isFaVProduct;
         private string DefaultPath;
         public DetailProductViewModel()
@@ -45,6 +46,21 @@ namespace WPF_Market.ViewModel
             AddProduct = new BaseViewModelCommand(ExecuteAddProductCommand);
             IncreaseNumberButttonClick = new BaseViewModelCommand(ExecuteIncreaseNumberCommand);
             DecreaseNumberButttonClick = new BaseViewModelCommand(ExecuteDecreaseNumberCommand, CanExecuteDecreaseNumberCommand);
+            var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type || p.IDShop == productViewModel.IDShop).Take(5).ToList();
+            productList = new ObservableCollection<Inventory>(lst);
+        }
+
+        public ObservableCollection<Inventory> ProductList
+        {
+            get
+            {
+                return productList;
+            }
+            set
+            {
+                productList = value;
+                OnPropertyChanged(nameof(productList));
+            }
         }
         private void ExecuteDecreaseNumberCommand(object obj)
         {

@@ -33,7 +33,6 @@ namespace WPF_Market.ViewModel
         private string overview;
         private string configuration;
         private string additional;
-        private string imageLinks="";
         private int number = 1;
         private int iDProduct;
         private Inventory inventory = new Inventory();
@@ -54,9 +53,9 @@ namespace WPF_Market.ViewModel
         {
             System.Windows.Forms.MessageBox.Show("oke");
         }
-        public ManageProductViewModel(int value)
+        public ManageProductViewModel(Inventory item)
         {
-            DeleteItem = new BaseViewModelCommand(ExecuteDeleteItem);
+            
             ShowDetailCommand = new BaseViewModelCommand(ExecuteShowDetailCommand);
             ShortStringList = new ObservableCollection<string>
             {
@@ -68,25 +67,95 @@ namespace WPF_Market.ViewModel
                 "Kids and Babies",
                 "Sports",
                 "Fruit and veg",
-                "Home and Graden",
+                "Home and Garden",
                 "Others"
             };
             IncreaseNumberButttonClick = new BaseViewModelCommand(ExecuteIncreaseNumberCommand);
             DecreaseNumberButttonClick = new BaseViewModelCommand(ExecuteDecreaseNumberCommand, CanExecuteDecreaseNumberCommand);
-            var s = DataProvider.Instance.DB.Users.FirstOrDefault();
+          
+            BtnImageClick = new BaseViewModelCommand(ExecuteImageClickCommand);
             
-            if (value == 0)
+            if (item == null)
             {
-                SubmitCommand = new BaseViewModelCommand(ExecuteSubmitCommand, CanExecuteSubmitCommand);
-                BtnImageClick = new BaseViewModelCommand(ExecuteImageClickCommand);
+                DeleteItem = new BaseViewModelCommand(ExecuteDeleteItemAdd);
+                SubmitCommand = new BaseViewModelCommand(ExecuteSubmitAddCommand, CanExecuteSubmitCommand);
                 CloseForm = new BaseViewModelCommand(ExecuteCloseFormAddCommand);
                 Inventory = new Inventory { IDShop = CurrentApplicationStatus.CurrentID };
                 DataProvider.Instance.DB.Inventories.Add(Inventory);
                 DataProvider.Instance.DB.SaveChanges();
             }
+            else
+            {
+                DeleteItem = new BaseViewModelCommand(ExecuteDeleteItemEdit);
+                SubmitCommand = new BaseViewModelCommand(ExecuteSubmitCommand,CanExecuteSubmitCommand);
+                Inventory = item;
+                UpdateAllValue(item);
+                CloseForm = new BaseViewModelCommand(ExecuteCloseFormCommand);
+            }
         }
 
-        private void ExecuteDeleteItem(object obj)
+        private void ExecuteDeleteItemEdit(object obj)
+        {
+            ImageLinksGV.Remove(obj as string);
+            var image = DataProvider.Instance.DB.ImageLinks.Where(p=> p.IDProduct == Inventory.IDProduct && p.ImageLink1 == obj as string).FirstOrDefault();
+            DataProvider.Instance.DB.ImageLinks.Remove(image);
+            DataProvider.Instance.DB.SaveChanges();
+        }
+
+        private void ExecuteSubmitCommand(object obj)
+        {
+            WriteToFile();
+            Inventory.Name = NameProduct;
+            Inventory.OriginalPrice = (float)OriginalPrice;
+            Inventory.CurrentPrice = (float)CurrentPrice;
+            Inventory.Save = (float)(1 - CurrentPrice / OriginalPrice) * 100;
+            Inventory.Newness = Newness;
+            Inventory.Type = Type;
+            Inventory.NumberInput = Number;
+            Inventory.NumberLeft = Number;
+            Inventory.BoughtTime = DateBought;
+            DataProvider.Instance.DB.SaveChanges();
+
+            new Custom_mb("Succesfully edit item!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
+            var currentWindow = obj as Window;
+            currentWindow.Close();
+        }
+
+        private void UpdateAllValue(Inventory inventory)
+        {
+            NameProduct = inventory.Name;
+            DateBought = (DateTime)inventory.BoughtTime;
+            OriginalPrice = (float)inventory.OriginalPrice;
+
+           CurrentPrice = (float)inventory.CurrentPrice;
+          
+           Newness = (float)inventory.Newness;
+            Type = inventory.Type;
+            Number = (int)inventory.NumberLeft;
+            string pathOver = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
++ string.Format(@"SanPham\{0}\Tongquansanpham.txt", Inventory.IDProduct.ToString().Trim());
+            string pathTinhtrang = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
++ string.Format(@"SanPham\{0}\Tinhtranghientai.txt", Inventory.IDProduct.ToString().Trim());
+            string pathThem = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
+                + string.Format(@"SanPham\{0}\Thongtinthem.txt", Inventory.IDProduct.ToString().Trim());
+            Overview = ReadContextInfile(pathOver);
+            Configuration = ReadContextInfile(pathTinhtrang);
+            Additional = ReadContextInfile(pathThem);
+           
+            var lst = DataProvider.Instance.DB.ImageLinks.Where(p=> p.IDProduct == Inventory.IDProduct).ToList();
+            foreach (var item in lst)
+            {
+                ImageLinksGV.Add(item.ImageLink1);
+            }
+        }
+        private string ReadContextInfile(string direction)
+        {
+            string text = string.Empty;
+            StreamReader streamReader = new StreamReader(direction);
+            text = streamReader.ReadToEnd();
+            return text;
+        }
+        private void ExecuteDeleteItemAdd(object obj)
         {
             var imageLink = obj as string;
             ImageLinksGV.Remove(imageLink);
@@ -136,7 +205,8 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteCloseFormCommand(object obj)
         {
-            System.Windows.Forms.MessageBox.Show("Test");
+           var window = obj as Window;
+            window.Close();
         }
         private bool CanExecuteDecreaseNumberCommand(object obj)
         {
@@ -160,17 +230,12 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteImageClickCommand(object obj)
         {
-            //ImageLinks ="";
             string path = Path.GetFullPath("SanPham");
             string folderPath = path.Substring(0, path.IndexOf("bin"));
             string temp = @"SanPham\" + Inventory.IDProduct.ToString().Trim() + @"\Images";
             string destinationDirectory = @Path.Combine(folderPath, temp);
             CopyImageToDirectory(destinationDirectory);
-            string[] files = Directory.GetFiles(destinationDirectory);
-            /*foreach (string file in files)
-            {
-                ImageLinks += file + "\n";
-            }*/
+            string[] files = Directory.GetFiles(destinationDirectory);      
         }
         private void CopyImageToDirectory(string destinationDirectory)
         {
@@ -189,7 +254,7 @@ namespace WPF_Market.ViewModel
                     string sourceFilePath = openFileDialog.FileName;
                     string destinationFilePath = Path.Combine(destinationDirectory, Path.GetFileName(sourceFilePath));
                     File.Copy(sourceFilePath, destinationFilePath, true);
-                    ImageLinks += @"SanPham\" + Inventory.IDProduct.ToString().Trim() + @"\Images\" + Path.GetFileName(sourceFilePath) +'\n';
+                  
                     ImageLinksGV.Add(@"SanPham\" + Inventory.IDProduct.ToString().Trim() + @"\Images\" + Path.GetFileName(sourceFilePath));
                     new Custom_mb("Operation successfully!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
                 }
@@ -201,7 +266,7 @@ namespace WPF_Market.ViewModel
         }
         private bool CanExecuteSubmitCommand(object obj)
         {
-            if (string.IsNullOrEmpty(imageLinks) || string.IsNullOrEmpty(type) ||
+            if (ImageLinksGV.Count<=0 || string.IsNullOrEmpty(type) ||
                 string.IsNullOrEmpty(overview) || string.IsNullOrEmpty(Additional) ||
                 string.IsNullOrEmpty(Configuration) || string.IsNullOrEmpty(NameProduct) ||
                 string.IsNullOrEmpty(Newness.ToString()))
@@ -211,17 +276,22 @@ namespace WPF_Market.ViewModel
             return true;
           
         }   
-        private void ExecuteSubmitCommand(object obj)
+        private bool WriteToFile()
         {
             string pathOver = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
-+string.Format(@"SanPham\{0}\Tongquansanpham.txt", Inventory.IDProduct.ToString().Trim());
++ string.Format(@"SanPham\{0}\Tongquansanpham.txt", Inventory.IDProduct.ToString().Trim());
             string pathTinhtrang = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
-+string.Format(@"SanPham\{0}\Tinhtranghientai.txt", Inventory.IDProduct.ToString().Trim());
-            string pathThem = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin")) + string.Format(@"SanPham\{0}\Thongtinthem.txt", Inventory.IDProduct.ToString().Trim());
++ string.Format(@"SanPham\{0}\Tinhtranghientai.txt", Inventory.IDProduct.ToString().Trim());
+            string pathThem = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
+                + string.Format(@"SanPham\{0}\Thongtinthem.txt", Inventory.IDProduct.ToString().Trim());
             bool writeOverview = writeFile(pathOver, Overview);
             bool writeAdditional = writeFile(pathThem, Additional);
             bool writeConfiguration = writeFile(pathTinhtrang, Configuration);
-            if (writeOverview && writeAdditional && writeConfiguration)
+            return writeOverview && writeAdditional && writeConfiguration;
+        }
+        private void ExecuteSubmitAddCommand(object obj)
+        {
+            if (WriteToFile())
             {
                 
                 //Inventory.IDShop = CurrentApplicationStatus.CurrentID;
@@ -235,8 +305,7 @@ namespace WPF_Market.ViewModel
                 Inventory.NumberLeft = Number;
                 Inventory.BoughtTime = DateBought;
                 DataProvider.Instance.DB.SaveChanges();
-                string[] ListImageLink = ImageLinks.Split('\n');
-                foreach (string imageLink in ListImageLink)
+                foreach (string imageLink in ImageLinksGV)
                 {
                     if (string.IsNullOrEmpty(imageLink)) continue;
                     DataProvider.Instance.DB.ImageLinks.Add(new ImageLink { IDProduct = Inventory.IDProduct, ImageLink1 = imageLink });
@@ -346,16 +415,7 @@ namespace WPF_Market.ViewModel
         public ICommand ShowDetailCommand { get; }
         public ICommand CloseForm {  get; }
         public Inventory Inventory { get => inventory; set { inventory = value; OnPropertyChanged(nameof(Inventory)); } }
-        public string ImageLinks
-        {
-            get { return imageLinks; }
-            set
-            {
-                imageLinks = value;
-                OnPropertyChanged(nameof(imageLinks));
-            }
-        }
-
+      
         public int Number
         {
             get

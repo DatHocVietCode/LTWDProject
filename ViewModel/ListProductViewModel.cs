@@ -29,9 +29,14 @@ namespace WPF_Market.ViewModel
         }
         public void FilterProductByCB(List<string> listTypes)
         {
-           
-                var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).Where(p=> listTypes.Contains(p.Type)).ToList().OrderByDescending(p => p.Priority);
+           if(listTypes.Count > 0) {
+                var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).Where(p => listTypes.Contains(p.Type)).ToList().OrderByDescending(p => p.Priority);
                 ProductList = new ObservableCollection<Inventory>(lst);
+            }
+            else
+            {
+                GetProductDataFromDataBase();
+            }
             
           
         }

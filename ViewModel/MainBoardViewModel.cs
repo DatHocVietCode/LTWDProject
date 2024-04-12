@@ -53,12 +53,14 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteAccountCommand(object obj)
         {
+            SetCbtoDefault();
             CloseDrawerHost(obj);
             CurrentContent = new Myinf();
         }
 
         private void ExecuteShopCommand(object obj)
         {
+            SetCbtoDefault();
             CloseDrawerHost(obj);
             CurrentContent = new ShopUI();
         }
@@ -70,15 +72,18 @@ namespace WPF_Market.ViewModel
         }
         private void ExecuteCartCommand(object obj)
         {
+            SetCbtoDefault();
             CloseDrawerHost(obj);
             CurrentContent = new Cart();
         }
 
         private void ExecuteHomeCommand(object obj)
         {
+            
             CloseDrawerHost(obj);
             UpdateFilter filterProduct = new UpdateFilter(UpdateFilterFromA);
             CurrentContent = new product(filterProduct);
+            SetCbtoDefault();
         }
         // Commands
         public ICommand HomeCommand { get; }
@@ -98,6 +103,18 @@ namespace WPF_Market.ViewModel
                     OnPropertyChanged(nameof(CurrentContent));
                 }
             }
+        }
+        private void SetCbtoDefault()
+        {
+            CbHealth = false;
+            CbFashion = false;
+            cbJewell = false;
+            CbHealthBeauty= false;
+            CbBooks = false;
+            CbKidsBaies = false;
+            CbSports = false;
+            CbHomeGarden = false;
+            CbElect = false;
         }
         public bool CbHealth { get => cbHealth; set { cbHealth = value; 
                 OnPropertyChanged(nameof(CbHealth));
