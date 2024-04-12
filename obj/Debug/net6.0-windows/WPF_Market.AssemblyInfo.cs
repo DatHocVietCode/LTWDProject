@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WPF_Market")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c41632f3b285823623268256ca63e73979c61a7e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e9ec68d785cf5b917ae7834e2d9c7af3e953866")]
 [assembly: System.Reflection.AssemblyProductAttribute("WPF_Market")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WPF_Market")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
