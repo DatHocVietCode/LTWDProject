@@ -70,7 +70,11 @@
                                         <DataTemplate>
                                             <Button x:Name="btn_searchDetail"
                                                     Width="50"
-                                                    Height="50">
+                                                    Height="50"
+                                                    Command="{Binding DataContext.CheckDetail,
+                                                RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                    CommandParameter="{Binding}">
+                                                    
                                                 <materialDesign:PackIcon Kind="TagSearch"/>
                                             </Button>
                                         </DataTemplate>

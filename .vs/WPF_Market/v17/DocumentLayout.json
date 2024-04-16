@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "D:\\LTWD\\LTWD_FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\view\\shopui.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:view\\shopui.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\viewmodel\\bougthviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:viewmodel\\bougthviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\viewmodel\\manageproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:viewmodel\\manageproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\view\\manage_product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:view\\manage_product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\view\\manage_product.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:view\\manage_product.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\sanpham\\3\\tongquansanpham.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:sanpham\\3\\tongquansanpham.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\sanpham\\3\\tinhtranghientai.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:sanpham\\3\\tinhtranghientai.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\viewmodel\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:viewmodel\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\view\\invoice.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:view\\invoice.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,18 +18,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ShopUI.xaml",
-              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\View\\ShopUI.xaml",
-              "RelativeDocumentMoniker": "View\\ShopUI.xaml",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\ShopUI.xaml",
-              "RelativeToolTip": "View\\ShopUI.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-12T09:13:34.497Z",
+              "DocumentIndex": 1,
+              "Title": "Invoice.xaml.cs",
+              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\View\\Invoice.xaml.cs",
+              "RelativeDocumentMoniker": "View\\Invoice.xaml.cs",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Invoice.xaml.cs*",
+              "RelativeToolTip": "View\\Invoice.xaml.cs*",
+              "ViewState": "AQIAABAAAAAAAAAAAADgvxYAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T06:20:07.187Z",
               "EditorCaption": ""
             },
             {
@@ -62,75 +43,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Tinhtranghientai.txt",
-              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\SanPham\\3\\Tinhtranghientai.txt",
-              "RelativeDocumentMoniker": "SanPham\\3\\Tinhtranghientai.txt",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\SanPham\\3\\Tinhtranghientai.txt",
-              "RelativeToolTip": "SanPham\\3\\Tinhtranghientai.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-04-12T09:05:56.972Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Tongquansanpham.txt",
-              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\SanPham\\3\\Tongquansanpham.txt",
-              "RelativeDocumentMoniker": "SanPham\\3\\Tongquansanpham.txt",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\SanPham\\3\\Tongquansanpham.txt",
-              "RelativeToolTip": "SanPham\\3\\Tongquansanpham.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-04-12T09:05:56.032Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Manage_Product.xaml",
-              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml",
-              "RelativeDocumentMoniker": "View\\Manage_Product.xaml",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml",
-              "RelativeToolTip": "View\\Manage_Product.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-12T08:54:15.685Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Manage_Product.xaml.cs",
-              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml.cs",
-              "RelativeDocumentMoniker": "View\\Manage_Product.xaml.cs",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml.cs",
-              "RelativeToolTip": "View\\Manage_Product.xaml.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAIAwwCAAAAA5AAAA",
+              "DocumentIndex": 0,
+              "Title": "BougthViewModel.cs",
+              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\BougthViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\BougthViewModel.cs",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\BougthViewModel.cs",
+              "RelativeToolTip": "ViewModel\\BougthViewModel.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAADgvxgAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T08:21:18.097Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ManageProductViewModel.cs",
-              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ManageProductViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\ManageProductViewModel.cs",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ManageProductViewModel.cs",
-              "RelativeToolTip": "ViewModel\\ManageProductViewModel.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAIAwwGoAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T08:20:10.46Z",
+              "WhenOpened": "2024-04-16T06:19:57.267Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ShopViewModel.cs",
-              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ShopViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\ShopViewModel.cs",
-              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ShopViewModel.cs",
-              "RelativeToolTip": "ViewModel\\ShopViewModel.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBQAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T08:21:24.111Z"
             }
           ]
         },

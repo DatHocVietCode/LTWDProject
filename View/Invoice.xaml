@@ -8,7 +8,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Title="Invoice" MinHeight="450" Width="500">
+        Title="Invoice" MinHeight="450" Width="500"
+        MouseDown="Window_MouseDown">
     <Border CornerRadius="10"
             BorderThickness="3"
             Background="White">
@@ -32,6 +33,7 @@
                             Margin="0 5 5 0" Opacity="0.3"
                             Background="Transparent"                  
                             BorderThickness="0"
+                    Click="btnClose_Click"  
             ></Button>
             <ScrollViewer Grid.Row="1">
                 <Grid>
@@ -43,32 +45,34 @@
                         <TextBlock VerticalAlignment="Center"
                                    FontSize="15"
                                    Margin="10"
-                                   FontFamily="Dubai">
-                            <Run>ID Invoice:</Run>
-                            <Run>23746</Run>
+                                   FontFamily="Dubai"
+                                   Text="{Binding DetailInvoice.IDInvoice,
+                            StringFormat='ID:{0}'}">
+                           
                         </TextBlock>
 
                         <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center"
                                    FontSize="15"
                                    Margin="10"
-                                   FontFamily="Dubai">
-                            <Run>Day of Buy:</Run>
-                            <Run>99/99/9999</Run>
+                                   FontFamily="Dubai"
+                                   Text="{Binding DetailInvoice.DateBought,
+                            StringFormat='DayBought: {0}'}">
+                           
                         </TextBlock>
                     </Grid>
                     <Grid  Grid.Row="1">
-                        <ListView ItemsSource="{Binding YourData}">
+                        <ListView ItemsSource="{Binding ListItem}">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Name" Width="250">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Property1}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding IDProductNavigation.Name}" TextWrapping="Wrap"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Property2}" Width="150"/>
-                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Property2}" Width="100"/>
+                                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Number}" Width="150"/>
+                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding IDProductNavigation.CurrentPrice}" Width="100"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -76,9 +80,10 @@
                             <TextBlock VerticalAlignment="Center"
                                        FontSize="15"
                                        Margin="10"
-                                       FontFamily="Dubai">
-                                <Run>Total Price: </Run>
-                                <Run>999999</Run>
+                                       FontFamily="Dubai"
+                                       Text="{Binding DetailInvoice.TotalPrice,
+                                StringFormat='TotalPrice: {0}'}" >
+                                
                             </TextBlock>
                         </Grid>
                     </Grid>

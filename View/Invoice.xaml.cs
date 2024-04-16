@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPF_Market.Models;
+using WPF_Market.ViewModel;
 
 namespace WPF_Market.View
 {
@@ -19,9 +21,21 @@ namespace WPF_Market.View
     /// </summary>
     public partial class Invoice : Window
     {
-        public Invoice()
+        public Invoice(WPF_Market.Models.Bought bought)
         {
             InitializeComponent();
+            this.DataContext = new InvoiceViewModel(bought);
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }
