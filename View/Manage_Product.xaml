@@ -6,7 +6,6 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:Vm ="clr-namespace:WPF_Market.ViewModel"
         mc:Ignorable="d"
-
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         WindowStyle="None"
