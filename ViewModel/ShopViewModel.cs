@@ -20,7 +20,26 @@ namespace WPF_Market.ViewModel
             GetProductFromDB();
             AddProductCommand = new BaseViewModelCommand(ExecuteAddProductCommand);
             DeleteProductCommand = new BaseViewModelCommand(ExecuteDeleteProductCommand);
+            SeeProductDetail = new BaseViewModelCommand(ExecuteSeeDetailCommand);
+            EditProductCommand = new BaseViewModelCommand(ExecuteEditProductCommand);
         }
+
+        private void ExecuteEditProductCommand(object obj)
+        {
+            var inventory = (Inventory)obj;
+            var detail = new Manage_Product(inventory);
+            detail.Owner = CurrentApplicationStatus.MainBoardWindow;
+            detail.ShowDialog();
+        }
+
+        private void ExecuteSeeDetailCommand(object obj)
+        {
+            var inventory = (Inventory)obj;
+            var detail = new detail_product(inventory);
+            detail.Owner = CurrentApplicationStatus.MainBoardWindow;
+            detail.ShowDialog();
+        }
+
         private void GetProductFromDB()
         {
             ShopInventory = new ObservableCollection<Inventory>(DataProvider.Instance.DB.Inventories.Where(p => p.IDShop == CurrentApplicationStatus.CurrentID));
@@ -41,7 +60,7 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteAddProductCommand(object obj)
         {
-            var newWindow = new Manage_Product(0);
+            var newWindow = new Manage_Product(null);
             newWindow.Owner = CurrentApplicationStatus.MainBoardWindow;
             newWindow.ShowDialog();
             GetProductFromDB();
@@ -50,6 +69,7 @@ namespace WPF_Market.ViewModel
         public int IDShop { get => iDShop; set => iDShop = value; }
         public ICommand AddProductCommand { get; }
         public ICommand DeleteProductCommand { get; }
-      
+        public ICommand SeeProductDetail {  get; }
+        public ICommand EditProductCommand { get; }
     }
 }

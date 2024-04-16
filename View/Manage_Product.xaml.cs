@@ -18,6 +18,7 @@ using Path = System.IO.Path;
 using static MaterialDesignThemes.Wpf.Theme;
 using System.Threading;
 using WPF_Market.ViewModel;
+using WPF_Market.Models;
 
 namespace WPF_Market.View
 {
@@ -26,7 +27,7 @@ namespace WPF_Market.View
     /// </summary>
     public partial class Manage_Product : Window
     {
-        public Manage_Product(int value)
+        public Manage_Product(Inventory value)
         {
             InitializeComponent();
             this.DataContext = new ManageProductViewModel(value);   
