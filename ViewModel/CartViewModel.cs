@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -72,6 +73,12 @@ namespace WPF_Market.ViewModel
         {
             var tempLst = carts.ToList();
             bool isbought = false;
+            Models.Bought invoice = new Models.Bought();
+            invoice.DateBought = DateTime.Now;
+            invoice.IDUser = CurrentApplicationStatus.CurrentID;
+            invoice.TotalPrice = (float)MoneyToPay;
+            DataProvider.Instance.DB.Boughts.Add(invoice);
+            DataProvider.Instance.DB.SaveChanges();
             foreach (var item in tempLst)
             {
                 if (item.CartWrapperIsChecked)
@@ -79,9 +86,16 @@ namespace WPF_Market.ViewModel
                     if (item.Cart.IDProductNavigation.NumberLeft >= item.CartWrapperNumber)
                     {
                         item.Cart.IDProductNavigation.NumberLeft -= item.CartWrapperNumber;
-                        //item.Cart.IDProductNavigation.NumberSold += item.CartWrapperNumber;
-                       
+                        //item.Cart.IDProductNavigation.NumberSold += item.CartWrapperNumber;   
                         DataProvider.Instance.DB.SaveChanges();
+
+                        LstProduct product = new LstProduct();
+                        product.IDProduct = item.Cart.IDProduct;
+                        product.IDInvoice = invoice.IDInvoice;
+                        product.Number = item.CartWrapperNumber;
+                        DataProvider.Instance.DB.LstProducts.Add(product);
+                        DataProvider.Instance.DB.SaveChanges();
+
                         DataProvider.Instance.DB.Remove(item.Cart);
                         DataProvider.Instance.DB.SaveChanges();
                         carts.Remove(item);
@@ -98,7 +112,15 @@ namespace WPF_Market.ViewModel
             }
             if (isbought)
             {
+                var lst = DataProvider.Instance.DB.LstProducts.Where(p => p.IDInvoice == invoice.IDInvoice).ToList();
+                invoice.LstProducts = new List<LstProduct>(lst);
+                DataProvider.Instance.DB.SaveChanges();
                 new Custom_mb("Thanks for your support! Hope to see you later!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
+            }
+            else
+            {
+                DataProvider.Instance.DB.Boughts.Remove(invoice);
+                DataProvider.Instance.DB.SaveChanges();
             }
             SubTotal = 0;
             MoneyToPay = 0;
