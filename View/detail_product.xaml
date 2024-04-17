@@ -13,13 +13,14 @@
       IsEnabled="True"
       MinHeight="670"
       MinWidth="1280"
-      Title="detail_product">
+      Title="detail_product"
+       MouseDown="Window_MouseDown" >
 
     <Window.Resources>
         <local:MyImageConverter x:Key="ImageConverter"></local:MyImageConverter>
     </Window.Resources>
 
-    <Grid MouseDown="Window_MouseDown" MouseMove="Window_MouseMove">
+    <Grid  MouseMove="Window_MouseMove">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -130,12 +131,14 @@
                                         materialDesign:ButtonAssist.CornerRadius="15"
                                         Margin="30 0 0 0"
                                         Height="70" Width="70"
+                                        Command="{Binding SetFaV}"
                                         >
                                         <materialDesign:PackIcon Kind="Heart"
                                           Height="40"
                                           Width="40"
                                           BorderBrush="Black" 
-                                          Foreground="Wheat"
+                                          Foreground="{Binding Color,
+                                            UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                                           />
                                     </Button>
                                 </DockPanel>
@@ -145,14 +148,26 @@
                                        FontSize="20"
                                        Foreground="#A6A0A1"
                                        TextWrapping="Wrap"/>
-                                <TextBlock x:Name="txlb_addShop"
-                                       FontSize="25"
-                                       Margin="0 10"
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock x:Name="txlb_addShop"
+                                        FontSize="25"
+                                        Margin="0 10"
                                         FontWeight="Bold">
-                                <Run Foreground="#5F5D5C">SHOP:</Run>
-                                <Run Foreground="#A6A0A1"
-                                     Text="{Binding Product.IDShopNavigation.NameShop}"></Run>
-                                </TextBlock>
+                                        <Run Foreground="#5F5D5C">SHOP:</Run>
+                                        <Run Foreground="#A6A0A1"
+                                        Text="{Binding Product.IDShopNavigation.NameShop}"></Run>
+                                    </TextBlock>
+                                    <Button x:Name="btn_Visit"
+                                            Background="Transparent"
+                                            Foreground="#0FC20F"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Margin="5 0 0 0"
+                                            Command="{Binding VisitShop}">
+                                        <materialDesign:PackIcon Kind="StoreSearch" />
+                                    </Button>
+                                </StackPanel>
+                               
                                 <TextBlock x:Name="BOUGTHTIME"
                                             FontSize="25"
                                              Margin="0 10"

@@ -40,10 +40,7 @@ namespace WPF_Market.View
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = true;
-                startPoint = e.GetPosition(this);
-            }
+                this.DragMove();
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
@@ -67,5 +64,7 @@ namespace WPF_Market.View
         {
             Close();
         }
+
+     
     }
 }

@@ -19,12 +19,13 @@ namespace WPF_Market.ViewModel
     {
      
         private ObservableCollection<Inventory> productList = new ObservableCollection<Inventory>();
+        private ObservableCollection<Inventory> favProductList = new ObservableCollection<Inventory>();
         private IShowProductDetail showProductDetail;
         
         public ListProductViewModel()
         {
             GetProductDataFromDataBase();
-
+            
             SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
         }
         public void FilterProductByCB(List<string> listTypes)
@@ -52,13 +53,16 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(productList)); 
             }
         }
+        public ObservableCollection<Inventory> FavProductList { get => favProductList; set { favProductList = value; OnPropertyChanged(nameof(FavProductList)); } }
+
         private void GetProductDataFromDataBase()
         {
-            var lst = DataProvider.Instance.DB.Inventories.Include(p=>p.IDShopNavigation).Include(p=>p.ImageLinks).ToList().OrderByDescending(p=>p.Priority);
+            var lst = DataProvider.Instance.DB.Inventories.Include(p=>p.IDShopNavigation).Include(p=>p.ImageLinks).Include(p=>p.IDUsers).ToList().OrderByDescending(p=>p.Priority);
             ProductList = new ObservableCollection<Inventory>(lst);
+            var favlst = DataProvider.Instance.DB.Inventories.Include(p => p.IDUsers).Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).Where(p=>p.IDUsers.Contains(CurrentApplicationStatus.CurrentUser)).ToList().OrderByDescending(p => p.Priority);
+            FavProductList = new ObservableCollection<Inventory>(favlst);
         }
         public ICommand SeeDetailCommand { get; }
-        
 
         private void ExecuteSeeDetailCommand(object obj)
         {

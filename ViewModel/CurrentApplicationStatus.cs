@@ -13,5 +13,6 @@ namespace WPF_Market.ViewModel
     {
         public static int CurrentID;
         public static Window MainBoardWindow;
+        public static User CurrentUser;
     }
 }

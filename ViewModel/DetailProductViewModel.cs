@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Effects;
 using WPF_Market.Models;
 using WPF_Market.View;
@@ -25,6 +27,8 @@ namespace WPF_Market.ViewModel
         private ObservableCollection<Inventory> productList = new ObservableCollection<Inventory>();
         private bool isFaVProduct;
         private string DefaultPath;
+        private System.Windows.Media.Brush color;
+
         public DetailProductViewModel()
         {
 
@@ -34,6 +38,7 @@ namespace WPF_Market.ViewModel
         {
             DefaultPath = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"));
             Product = productViewModel;
+            ChangeColor();
             foreach (var item in Product.ImageLinks)
             {
                 ListImage.Add(item.ImageLink1);
@@ -45,9 +50,56 @@ namespace WPF_Market.ViewModel
             ChangePicture = new BaseViewModelCommand(SelectImageCommand);
             AddProduct = new BaseViewModelCommand(ExecuteAddProductCommand);
             IncreaseNumberButttonClick = new BaseViewModelCommand(ExecuteIncreaseNumberCommand);
+            VisitShop = new BaseViewModelCommand(ExecuteVisitShop);
             DecreaseNumberButttonClick = new BaseViewModelCommand(ExecuteDecreaseNumberCommand, CanExecuteDecreaseNumberCommand);
+            SetFaV = new BaseViewModelCommand(ExecuteSetFaV);
             var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type || p.IDShop == productViewModel.IDShop).Take(5).ToList();
             productList = new ObservableCollection<Inventory>(lst);
+            
+        }
+
+        private void ExecuteVisitShop(object obj)
+        {
+            MessageBox.Show(Product.IDShopNavigation.NameShop + "'s UI is being under development");
+        }
+
+        private void ChangeColor()
+        {
+           
+            if (Product.IDUsers.Contains(CurrentApplicationStatus.CurrentUser))
+            {
+                Color = new SolidColorBrush(Colors.OrangeRed);
+            }
+            else
+            {
+                Color = new SolidColorBrush(Colors.Wheat);
+            }
+        }
+        private void ExecuteSetFaV(object obj)
+        {
+            if (Color is SolidColorBrush solidColorBrush && solidColorBrush.Color == Colors.OrangeRed)
+            {
+                RemoveFav();
+            }
+           else
+           {
+                AddFaV();
+           }
+        }
+
+        private void AddFaV()
+        {
+            Product.IDUsers.Add(CurrentApplicationStatus.CurrentUser);
+            DataProvider.Instance.DB.SaveChanges();
+            ChangeColor();
+        }
+
+        private void RemoveFav()
+        {
+            
+            Product.IDUsers.Remove(CurrentApplicationStatus.CurrentUser);
+            DataProvider.Instance.DB.SaveChanges();
+            ChangeColor();
         }
 
         public ObservableCollection<Inventory> ProductList
@@ -150,7 +202,7 @@ namespace WPF_Market.ViewModel
         public string TongQuan { get => tongQuan; set => tongQuan = value; }
         public string TTThem { get => tTThem; set => tTThem = value; }
         public string BaoHanh { get => baoHanh; set => baoHanh = value; }
-        
+        public System.Windows.Media.Brush Color { get => color; set { color = value; OnPropertyChanged(nameof(Color)); } }
         public ICommand ChangePicture {  get;}
         public ICommand AddProduct { get;}
         public string DefaultImage
@@ -167,6 +219,8 @@ namespace WPF_Market.ViewModel
         public ObservableCollection<string> ListImage { get => listImage; set => listImage = value; }
         public ICommand IncreaseNumberButttonClick { get; }
         public ICommand DecreaseNumberButttonClick { get; }
+        public ICommand SetFaV {  get; }
+        public ICommand VisitShop {  get; } 
         public int Number
         {
             get
@@ -179,5 +233,7 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(number));
             }
         }
+
+      
     }
 }

@@ -53,8 +53,9 @@ namespace WPF_Market.ViewModel
             if (UserAccount != null)
             {
                 new Custom_mb("Welcome back, " + UserName, Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
-                new Main_Board().Show();
                 CurrentApplicationStatus.CurrentID = UserAccount.ID;
+                CurrentApplicationStatus.CurrentUser = DataProvider.Instance.DB.Users.Where(p => p.ID == UserAccount.ID).FirstOrDefault();
+                new Main_Board().Show();
                 var currentWindow  = obj as Window;
                 currentWindow.Close();
             }
