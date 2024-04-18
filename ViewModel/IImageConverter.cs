@@ -21,13 +21,17 @@ namespace WPF_Market.ViewModel
 
             try
             {
-                //ABSOLUTE
-                if (path.Length > 0 && path[0] == System.IO.Path.DirectorySeparatorChar
-                    || path.Length > 1 && path[1] == System.IO.Path.VolumeSeparatorChar)
-                    return new BitmapImage(new Uri(path));
+                if (path!=null)
+                {
+                    //ABSOLUTE
+                    if (path.Length > 0 && path[0] == System.IO.Path.DirectorySeparatorChar
+                        || path.Length > 1 && path[1] == System.IO.Path.VolumeSeparatorChar)
+                        return new BitmapImage(new Uri(path));
 
-                //RELATIVE
-                return new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin")) + path)) ;
+                    //RELATIVE
+                    return new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin")) + path));
+                }
+                return string.Empty;
             }
             catch (Exception)
             {

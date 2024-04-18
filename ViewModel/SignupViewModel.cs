@@ -65,6 +65,9 @@ namespace WPF_Market.ViewModel
             }
             DataProvider.Instance.DB.Accounts.Add(new Account { Email = Email, UserName = userName, Password = SecureStringProcess.ConvertToUnsecureString(password) });
             DataProvider.Instance.DB.SaveChanges();
+            var account = DataProvider.Instance.DB.Accounts.Where(_ => _.Email == Email).FirstOrDefault();
+            DataProvider.Instance.DB.Users.Add(new User { ID = account.ID, Email = account.Email });
+            DataProvider.Instance.DB.SaveChanges();
             new Custom_mb("Signup successfully! Back to Login!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
             Window window = obj as Window;
             new Login_new().Show();

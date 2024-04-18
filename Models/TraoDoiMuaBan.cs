@@ -12,12 +12,15 @@ public partial class TraoDoiMuaBan : DbContext
         : base(options)
     {
     }
-    public TraoDoiMuaBan() { }
+
+    public TraoDoiMuaBan()
+    {
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(Properties.Settings.Default.TraoDoiMuaBan);
     }
-
     public virtual DbSet<Account> Accounts { get; set; }
 
     public virtual DbSet<Bought> Boughts { get; set; }
