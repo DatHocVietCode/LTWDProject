@@ -55,27 +55,55 @@
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding IDInvoice}"
                                     Header="ID Invoice"
-                                    Width="130"/>
+                                    Width="150"/>
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding DateBought}"
                                     Header="DateBought"
-                                    Width="200"/>
+                                    Width="300"/>
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding TotalPrice}"
                                     Header="TotalPrice"
-                                    Width="130"/>
+                                    Width="200"/>
                                
                                 <GridViewColumn >
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button x:Name="btn_searchDetail"
-                                                    Width="50"
+                                                    Width="60"
                                                     Height="50"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
                                                     Command="{Binding DataContext.CheckDetail,
                                                 RelativeSource={RelativeSource AncestorType=ListView}}"
                                                     CommandParameter="{Binding}">
                                                     
-                                                <materialDesign:PackIcon Kind="TagSearch"/>
+                                                <materialDesign:PackIcon Kind="TagSearch"
+                                                                         Height="30"
+                                                                         HorizontalAlignment="Center"
+                                                                         Foreground="Black"
+                                                                         Width="40"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="btn_deleteDetail"
+                                                    Width="60"
+                                                    Height="50"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Command="{Binding DataContext.CheckDetail,
+                                                RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                CommandParameter="{Binding}">
+
+                                                <materialDesign:PackIcon Kind="Delete"
+                                                                         Height="30"
+                                                                         HorizontalAlignment="Center"
+                                                                         Foreground="Black"
+                                                                         Width="40"/>
                                             </Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

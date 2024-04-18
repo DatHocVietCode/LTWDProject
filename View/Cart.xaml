@@ -98,19 +98,20 @@
                 </ListView>
             </Border>
             <Grid Grid.Column="1">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="25">
                     <Border BorderBrush="Black"
                     BorderThickness="0 0 0 0.5"
                     Margin="10 0" Width="300">
                         <TextBlock Text="Cart total"
                            Margin="0 30 0 0"
-                           FontSize="25"
+                           FontSize="20"
+                           FontWeight="Black"
                            FontFamily="Dubai"/>
                     </Border>
                     <Border BorderBrush="Black"
                     BorderThickness="0 0 0 0.5"
                     Margin="10 0">
-                        <DockPanel Height="70">
+                        <DockPanel Height="80">
                             <TextBlock Text="Subtotal ($)"
                                VerticalAlignment="Center"
                                 FontSize="20"
@@ -128,7 +129,7 @@
                     </Border>
                     <Border BorderBrush="Black"
                     BorderThickness="0 0 0 0.5" Margin="10 0">
-                        <DockPanel Height="70">
+                        <DockPanel Height="80">
                             <TextBlock Text="Shipping"
                                VerticalAlignment="Center"
                                FontSize="20"
@@ -159,7 +160,7 @@
                         </DockPanel>
                     </Border>
                     <Border Margin="10 0">
-                        <DockPanel Height="70">
+                        <DockPanel Height="80">
                             <TextBlock Text="Total"
                                VerticalAlignment="Center"
                                FontSize="20"
@@ -178,7 +179,7 @@
                     <Button Content="Proceed to checkout" 
                     Background="#05B790" Foreground="#ffffff" 
                     FontSize="15" 
-                    Margin="10 30"
+                    Margin="20 50"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Height="45"
                     Command="{Binding ProceedToCheckOutCommand}"/>

@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Title="Invoice" MinHeight="450" Width="500"
+        Title="Invoice" MinHeight="250" Width="500"
         MouseDown="Window_MouseDown">
     <Border CornerRadius="10"
             BorderThickness="3"
@@ -33,22 +33,28 @@
                             Margin="0 5 5 0" Opacity="0.3"
                             Background="Transparent"                  
                             BorderThickness="0"
-                    Click="btnClose_Click"  
-            ></Button>
+                            Click="btnClose_Click"/>
+            <TextBlock Text="INVOICE"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"
+                       FontSize="15"
+                       FontFamily="Dubai"
+                       FontWeight="DemiBold"/>
             <ScrollViewer Grid.Row="1">
                 <Grid>
+                    
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" VerticalAlignment="Top">
+                    <Grid VerticalAlignment="Center" Grid.ColumnSpan="2">
                         <TextBlock VerticalAlignment="Center"
                                    FontSize="15"
                                    Margin="10"
                                    FontFamily="Dubai"
                                    Text="{Binding DetailInvoice.IDInvoice,
                             StringFormat='ID:{0}'}">
-                           
+
                         </TextBlock>
 
                         <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center"
@@ -57,34 +63,43 @@
                                    FontFamily="Dubai"
                                    Text="{Binding DetailInvoice.DateBought,
                             StringFormat='DayBought: {0}'}">
-                           
+
                         </TextBlock>
                     </Grid>
                     <Grid  Grid.Row="1">
-                        <ListView ItemsSource="{Binding ListItem}">
+                        <ListView ItemsSource="{Binding ListItem}" IsEnabled="False">
+                            
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Name" Width="250">
+                                    <GridViewColumn Header="Name" Width="200">
+                                        
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding IDProductNavigation.Name}" TextWrapping="Wrap"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Number}" Width="150"/>
-                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding IDProductNavigation.CurrentPrice}" Width="100"/>
+                                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Number}" Width="130"/>
+                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding IDProductNavigation.CurrentPrice}" Width="95"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Grid Height="50" VerticalAlignment="Bottom">
+                        <Grid Height="60" VerticalAlignment="Bottom">
                             <TextBlock VerticalAlignment="Center"
                                        FontSize="15"
                                        Margin="10"
                                        FontFamily="Dubai"
                                        Text="{Binding DetailInvoice.TotalPrice,
                                 StringFormat='TotalPrice: {0}'}" >
-                                
+
                             </TextBlock>
+                            <TextBlock VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Right"
+                                       FontSize="15"
+                                       FontFamily="Dubai"
+                                       FontWeight="Black"
+                                       Text="Thank you for your purchase"
+                                       Margin="10"/>
                         </Grid>
                     </Grid>
                 </Grid>

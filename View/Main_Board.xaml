@@ -102,10 +102,10 @@
                 Grid.Column="1"/>
             <Border BorderThickness="0 0 0 0" 
                     BorderBrush="Black"
-                    Background="#DADADA"
-                    CornerRadius="0 10 10 0">
+                    Background="White"
+                    CornerRadius="0 0 0 0">
                 <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" />
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="1" />
                 </Border.Effect>
                 <StackPanel  Background="White" Margin="10">
                     <TextBox x:Name="txt_search" Margin="10 0"

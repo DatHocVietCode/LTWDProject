@@ -154,18 +154,24 @@
                                         Margin="0 10"
                                         FontWeight="Bold">
                                         <Run Foreground="#5F5D5C">SHOP:</Run>
-                                        <Run Foreground="#A6A0A1"
-                                        Text="{Binding Product.IDShopNavigation.NameShop}"></Run>
+                                        
                                     </TextBlock>
                                     <Button x:Name="btn_Visit"
+                                            FontSize="30"
+                                            Height="50"
+                                            Margin="5 0 0 0" 
+                                            BorderThickness="0"
                                             Background="Transparent"
-                                            Foreground="#0FC20F"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
-                                            Margin="5 0 0 0"
+                                            VerticalContentAlignment="Top"
+                                            FontFamily="Dubai"
+                                            FontWeight="Black"
+                                            Foreground="#A6A0A1"
+                                            Content="{Binding Product.IDShopNavigation.NameShop}"
                                             Command="{Binding VisitShop}">
-                                        <materialDesign:PackIcon Kind="StoreSearch" />
                                     </Button>
+                                   
                                 </StackPanel>
                                
                                 <TextBlock x:Name="BOUGTHTIME"
@@ -353,8 +359,116 @@
                     </StackPanel>
                 </Border>
                 <Grid Grid.Row="2">
-                    
+                    <ItemsControl ItemsSource="{Binding productList}" >
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#37B89C"
+                                        CornerRadius="10"
+                                        BorderThickness="2"
+                                        Margin="5,5,5,5">
+                                    <Button BorderThickness="0"
+                                            x:Name="btn_Chitietsanpham"
+                                            BorderBrush="Transparent"
+                                            Background="Transparent"
+                                            Width="195"
+                                            Height="300"
+                                            Margin="0"
+                                            Command="{Binding DataContext.SeeDetailCommand,
+                                        RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                            CommandParameter="{Binding}"
+>
+                                        <StackPanel Orientation="Vertical">
+                                            <Grid>
+                                                <Image x:Name="Illustration"
+                                                    Source="{Binding ImageLinks[0].ImageLink1, Converter={StaticResource MyImageConverter}}"
+                                                    MaxHeight="155"
+                                                    MaxWidth="160"
+                                                    Stretch="Fill"/>
+                                                <TextBlock Background="Red"
+                                                       Height="20"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Padding="5 0 5 0"
+                                                       Foreground="White"
+                                                       FontFamily="Dubai"
+                                                       Margin="-5 5 0 0"
+                                                       Text="{Binding Save, StringFormat=Save: {0}%}">
 
+                                                </TextBlock>
+                                            </Grid>
+                                            <TextBlock 
+                                                TextTrimming="WordEllipsis"
+                                                FontWeight="SemiBold"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                Foreground="#EE4D2D"
+                                                FontSize="15">
+                                                <Run Text="{Binding Name}"></Run>
+                                            </TextBlock>
+                                            <TextBlock 
+                                                TextTrimming="WordEllipsis"
+                                                Margin="0,0,0,0"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                Foreground="Black">
+    
+                                                <Run Text="Remaining:"></Run>
+                                                <Run Text="{Binding NumberLeft}"></Run>
+                                            </TextBlock>
+                                            <TextBlock 
+                                                    TextTrimming="WordEllipsis"
+                                                    FontWeight="Medium"
+                                                    FontSize="14"
+                                                    Foreground="#EE4D2D"
+                                                    HorizontalAlignment="Center">
+                                                    <Run Text="Current Price:"></Run>
+                                                    <Run Text="{Binding CurrentPrice, StringFormat='c'}"></Run>
+                                            </TextBlock>
+                                            <TextBlock 
+                                                    TextTrimming="WordEllipsis"
+                                                    FontWeight="Medium"
+                                                    FontSize="10"
+                                                    Foreground="#EE4D2D"
+                                                    HorizontalAlignment="Center">
+                                                    <Run Text="Original Price:"></Run>
+                                                    <Run Text="{Binding OriginalPrice, StringFormat='c'}"></Run>
+                                            </TextBlock>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center">
+                                                <materialDesign:PackIcon Kind="StoreMarker"
+                                                                     Foreground="Green"
+                                                                     Margin="0 2 2 0"/>
+                                                <TextBlock 
+                                                        TextTrimming="WordEllipsis"
+                                                        FontWeight="Medium"
+                                                        FontSize="13"
+                                                        Foreground="Orange"
+                                                        HorizontalAlignment="Center"
+                                                        Text="{Binding IDShopNavigation.Address}">
+                                                </TextBlock>
+                                            </StackPanel>
+
+                                            <Button Height="35"
+                                                    Width="130"
+                                                    Content="Add to Cart"
+                                                    Background="#0FC20F"
+                                                    Command="{Binding DataContext.SeeDetailCommand,
+                                                    RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                                    CommandParameter="{Binding}">
+                                            </Button>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                    </ItemsControl>
+                    
                 </Grid>
             </Grid>
         </ScrollViewer>
