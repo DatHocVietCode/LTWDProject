@@ -65,20 +65,14 @@
                             Command="{Binding CloseCommand}"></Button>
                     <StackPanel VerticalAlignment="Center" Margin="75 0">
                         <TextBox Name="txt_user"
-                            Margin="0,0,0,20" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Username"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Margin="0,0,0,30" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Username"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
-                        <cc:BindablePasswordBox Margin="0,20,0,20" 
+                        <cc:BindablePasswordBox Margin="0,20,0,30" 
                                                 Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                                 materialDesign:HintAssist.Hint="Password" >
                         </cc:BindablePasswordBox>
-                        <CheckBox x:Name="cb_remember_account"
-                            Margin="0 40 0 20" FontSize="13">
-                            <TextBlock>
-                     <Run Foreground="#b6b6b6">Remember</Run>
-                     <Run Foreground="#07BF96">me</Run>
-                            </TextBlock>
-                        </CheckBox>
+                        
                         <Button Content="Login" 
                                 Background="#05B790" Foreground="#ffffff" 
                                 FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" 

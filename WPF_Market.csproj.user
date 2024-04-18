@@ -43,6 +43,9 @@
     <Compile Update="View\ShopUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ShopUIGuest.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Signup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,7 +87,13 @@
     <Page Update="View\product.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\Scroll.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\ShopUI.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ShopUIGuest.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Signup.xaml">
