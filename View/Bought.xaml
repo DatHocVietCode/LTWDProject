@@ -95,7 +95,7 @@
                                                     Height="50"
                                                     Background="Transparent"
                                                     BorderThickness="0"
-                                                    Command="{Binding DataContext.CheckDetail,
+                                                    Command="{Binding DataContext.DeleteDetail,
                                                 RelativeSource={RelativeSource AncestorType=ListView}}"
                                                 CommandParameter="{Binding}">
 

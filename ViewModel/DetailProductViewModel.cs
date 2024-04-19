@@ -50,10 +50,11 @@ namespace WPF_Market.ViewModel
             ChangePicture = new BaseViewModelCommand(SelectImageCommand);
             AddProduct = new BaseViewModelCommand(ExecuteAddProductCommand);
             IncreaseNumberButttonClick = new BaseViewModelCommand(ExecuteIncreaseNumberCommand);
+            SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
             VisitShop = new BaseViewModelCommand(ExecuteVisitShop);
             DecreaseNumberButttonClick = new BaseViewModelCommand(ExecuteDecreaseNumberCommand, CanExecuteDecreaseNumberCommand);
             SetFaV = new BaseViewModelCommand(ExecuteSetFaV);
-            var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type || p.IDShop == productViewModel.IDShop).Take(5).ToList();
+            var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type).Take(6).ToList();
             productList = new ObservableCollection<Inventory>(lst);
             
         }
@@ -199,6 +200,15 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(Product));
             }
         }
+        private void ExecuteSeeDetailCommand(object obj)
+        {
+            var product = (Inventory)obj;
+            product.Priority++;
+            DataProvider.Instance.DB.SaveChanges();
+            var detail = new detail_product(product);
+            detail.Owner = CurrentApplicationStatus.MainBoardWindow;
+            detail.ShowDialog();
+        }
         public string TongQuan { get => tongQuan; set => tongQuan = value; }
         public string TTThem { get => tTThem; set => tTThem = value; }
         public string BaoHanh { get => baoHanh; set => baoHanh = value; }
@@ -218,6 +228,7 @@ namespace WPF_Market.ViewModel
 
         public ObservableCollection<string> ListImage { get => listImage; set => listImage = value; }
         public ICommand IncreaseNumberButttonClick { get; }
+        public ICommand SeeDetailCommand { get; }
         public ICommand DecreaseNumberButttonClick { get; }
         public ICommand SetFaV {  get; }
         public ICommand VisitShop {  get; } 
