@@ -113,7 +113,7 @@
     <None Remove="SanPham\9\Images\mypham3.jpg" />
     <None Remove="SanPham\9\Images\mypham4.jpg" />
     <None Remove="SanPham\9\Images\mypham5.jpg" />
-    <None Remove="ShopImages\1\ShopAvatar.png" />
+    <None Remove="ImagesAvatar\1\ShopAvatar.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Remove="Login.xaml" />
@@ -212,7 +212,6 @@
     <Resource Include="SanPham\9\Images\mypham3.jpg" />
     <Resource Include="SanPham\9\Images\mypham4.jpg" />
     <Resource Include="SanPham\9\Images\mypham5.jpg" />
-    <Resource Include="ShopImages\1\ShopAvatar.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -243,5 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\net6.0-windows\" />
+    <Folder Include="ImagesAvatar\1\" />
   </ItemGroup>
 </Project>

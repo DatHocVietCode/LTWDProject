@@ -23,13 +23,11 @@ public partial class User
 
     public string Email { get; set; }
 
-    public float? Budget { get; set; }
-
-    public int? IDShop { get; set; }
-
     public string IDFavProduct { get; set; }
 
     public string IDFavShop { get; set; }
+
+    public string Avatar { get; set; }
 
     public virtual ICollection<Bought> Boughts { get; set; } = new List<Bought>();
 
