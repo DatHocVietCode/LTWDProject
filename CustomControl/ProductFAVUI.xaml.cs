@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,14 @@ namespace WPF_Market.CustomControl
     /// </summary>
     public partial class ProductFAVUI : UserControl
     {
+        public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
+        "ItemsSource", typeof(IEnumerable), typeof(ProductFAVUI), new PropertyMetadata(null));
+
+        public IEnumerable ItemsSource
+        {
+            get { return (IEnumerable)GetValue(ItemsSourceProperty); }
+            set { SetValue(ItemsSourceProperty, value); }
+        }
         public ProductFAVUI()
         {
             InitializeComponent();

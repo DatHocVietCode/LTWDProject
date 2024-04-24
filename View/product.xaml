@@ -55,7 +55,7 @@
                                 <ItemsControl ItemsSource="{Binding FavProductList}" >
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <CustomControl:ProductUI></CustomControl:ProductUI>
+                                            <CustomControl:ProductFAVUI></CustomControl:ProductFAVUI>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                     <ItemsControl.ItemsPanel>
@@ -88,7 +88,7 @@
                                 <ItemsControl ItemsSource="{Binding ProductList}" >
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <CustomControl:ProductUI></CustomControl:ProductUI>
+                                        <CustomControl:ProductUI></CustomControl:ProductUI>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                     <ItemsControl.ItemsPanel>

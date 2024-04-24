@@ -19,6 +19,22 @@ namespace WPF_Market.ViewModel
         {
             GetData();
             CheckDetail = new BaseViewModelCommand(ExecuteCheckDetailCommand);
+            DeleteDetail = new BaseViewModelCommand(ExecuteDeleteCommand);
+        }
+
+        private void ExecuteDeleteCommand(object obj)
+        {
+            var invoiceDele = obj as Bought;
+            var lst = new ObservableCollection<LstProduct>(invoiceDele.LstProducts);
+            foreach (var item in lst)
+            {
+                DataProvider.Instance.DB.LstProducts.Remove(item);
+            }
+            DataProvider.Instance.DB.SaveChanges();
+            Boughts.Remove(invoiceDele);
+            DataProvider.Instance.DB.Boughts.Remove(invoiceDele);
+            DataProvider.Instance.DB.SaveChanges();
+            new Custom_mb("Successfullly delete!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
         }
 
         private void ExecuteCheckDetailCommand(object obj)
@@ -38,5 +54,6 @@ namespace WPF_Market.ViewModel
         }
         // Commands
         public ICommand CheckDetail { get; }
+        public ICommand DeleteDetail { get; }
     }
 }

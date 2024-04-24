@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:WPF_Market.ViewModel"
+      xmlns:CustomControl="clr-namespace:WPF_Market.CustomControl"
       xmlns:v="clr-namespace:WPF_Market.View"
       mc:Ignorable="d" 
       d:DesignWidth="1280"
@@ -359,7 +360,7 @@
                     </StackPanel>
                 </Border>
                 <Grid Grid.Row="2">
-                    <ItemsControl ItemsSource="{Binding productList}" >
+                    <ItemsControl ItemsSource="{Binding ProductList}" >
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="#37B89C"
@@ -370,17 +371,17 @@
                                             x:Name="btn_Chitietsanpham"
                                             BorderBrush="Transparent"
                                             Background="Transparent"
-                                            Width="195"
+                                            Width="190"
                                             Height="300"
                                             Margin="0"
                                             Command="{Binding DataContext.SeeDetailCommand,
-                                        RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                        RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                             CommandParameter="{Binding}"
 >
                                         <StackPanel Orientation="Vertical">
                                             <Grid>
                                                 <Image x:Name="Illustration"
-                                                    Source="{Binding ImageLinks[0].ImageLink1, Converter={StaticResource MyImageConverter}}"
+                                                    Source="{Binding ImageLinks[0].ImageLink1, Converter={StaticResource ImageConverter}}"
                                                     MaxHeight="155"
                                                     MaxWidth="160"
                                                     Stretch="Fill"/>
@@ -453,7 +454,7 @@
                                                     Content="Add to Cart"
                                                     Background="#0FC20F"
                                                     Command="{Binding DataContext.SeeDetailCommand,
-                                                    RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                                    RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                                     CommandParameter="{Binding}">
                                             </Button>
                                         </StackPanel>
