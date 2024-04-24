@@ -1,6 +1,7 @@
-﻿D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿
 FD:\LTWD\LTWD_FinalProject\App.xaml;;
 FD:\LTWD\LTWD_FinalProject\CustomControl\BindablePasswordBox.xaml;;
+FD:\LTWD\LTWD_FinalProject\CustomControl\ProductUI.xaml;;
 FD:\LTWD\LTWD_FinalProject\View\Bought.xaml;;
 FD:\LTWD\LTWD_FinalProject\View\Cart.xaml;;
 FD:\LTWD\LTWD_FinalProject\View\confirmPass.xaml;;
@@ -14,4 +15,5 @@ FD:\LTWD\LTWD_FinalProject\View\product.xaml;;
 FD:\LTWD\LTWD_FinalProject\View\ShopUI.xaml;;
 FD:\LTWD\LTWD_FinalProject\View\ShopUIGuest.xaml;;
 FD:\LTWD\LTWD_FinalProject\View\Signup.xaml;;
+FD:\LTWD\LTWD_FinalProject\CustomControl\ProductFAVUI.xaml;;
 
