@@ -21,5 +21,6 @@ namespace WPF_Market.CustomControl
         }
 
         public ICommand SeeDetailCommand { get; }
+        
     }
 }
