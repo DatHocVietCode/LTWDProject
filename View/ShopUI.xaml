@@ -124,20 +124,42 @@
                                FontSize="15" 
                                Margin="10 0"
                                 VerticalAlignment="Center"/>
-                    
+
                 </Grid>
-                <Button HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Margin="0 0 30 0"
-                        Height="40"
-                        Width="40"
-                        x:Name="btn_addProduct"
-                          Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}"
-                          ToolTip="MaterialDesignFloatingActionSecondaryButton" Click="btn_addProduct_Click"
-                        Command="{Binding AddProductCommand}">
-                    <materialDesign:PackIcon Kind="PencilPlus"
-                                             Width="20"/>
-                </Button>
+                <materialDesign:PopupBox
+                          Height="40"
+                          Width="40"
+                          HorizontalAlignment ="Right"
+                          VerticalAlignment="Top"
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                          Margin="0 0 30 0"
+                          PlacementMode="TopAndAlignCentres"
+                          Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                         
+                          ToolTipService.Placement="Right">
+                    <StackPanel>
+                        <Button
+                          Command="{Binding AddProductCommand}"
+                          ToolTip="Add New Product" >
+                            <materialDesign:PackIcon Kind="PencilPlus"
+                         Width="20"/>
+                        </Button>
+                        <Button
+                          
+                          ToolTip="Delivery Progress">
+                            <materialDesign:PackIcon Kind="TruckDelivery" />
+                        </Button>
+                        <Button
+                            Command="{Binding SeeStatistical}"
+                          ToolTip="Statistical">
+                            <materialDesign:PackIcon Kind="NoteText" />
+                        </Button>
+                        <Button ToolTip="GuestView"
+                                Command="{Binding GuessView}">
+                            <materialDesign:PackIcon Kind="EyeRefresh" />
+                        </Button>
+                    </StackPanel>
+                </materialDesign:PopupBox>
             </Grid>
         </Grid>
     </Border>

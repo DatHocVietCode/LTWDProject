@@ -19,6 +19,16 @@ public partial class Shop
 
     public string Email { get; set; }
 
+    public int? NumCustomersVisit { get; set; }
+
+    public int? NumCustomersRate { get; set; }
+
+    public float? Rating { get; set; }
+
+    public string Slogan { get; set; }
+
+    public DateTime? CreateDate { get; set; }
+
     public virtual Account IDShopNavigation { get; set; }
 
     public virtual ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();

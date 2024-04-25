@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Input;
 using WPF_Market.Models;
 using WPF_Market.View;
@@ -15,13 +16,14 @@ namespace WPF_Market.ViewModel
         private Shop shop;
         private ObservableCollection<Inventory> productList = new ObservableCollection<Inventory>();
         public Shop Shop { get => shop; set { shop = value; OnPropertyChanged(nameof(Shop)); } }
-
+        private bool writeCommand = true;
         public ObservableCollection<Inventory> ProductList { get => productList; set { productList = value; OnPropertyChanged(nameof(ProductList)); } }
 
-        public ShopGuestViewModel(Shop shop)
+        public ShopGuestViewModel(Shop shop, bool canWriteComment)
         {
             this.Shop = shop;
             GetShopProduct();
+            WriteCommand = canWriteComment;
             SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
         }
 
@@ -45,5 +47,6 @@ namespace WPF_Market.ViewModel
         {
         }
         public ICommand SeeDetailCommand { get; }
+        public bool WriteCommand { get => writeCommand; set { writeCommand = value; OnPropertyChanged(nameof(WriteCommand)); } }
     }
 }

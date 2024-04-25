@@ -22,10 +22,10 @@ namespace WPF_Market.View
     /// </summary>
     public partial class ShopUIGuest : Window
     {
-        public ShopUIGuest(Shop shop)
+        public ShopUIGuest(Shop shop, bool canWriteComnent)
         {
             InitializeComponent();
-            this.DataContext = new ShopGuestViewModel(shop);
+            this.DataContext = new ShopGuestViewModel(shop, canWriteComnent);
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

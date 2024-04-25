@@ -61,6 +61,9 @@
     <Compile Update="View\Signup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Statistical.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CustomControl\BindablePasswordBox.xaml">
@@ -121,6 +124,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Signup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Statistical.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

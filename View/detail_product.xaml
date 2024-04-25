@@ -167,13 +167,13 @@
                                             HorizontalAlignment="Center"
                                             VerticalContentAlignment="Top"
                                             FontFamily="Dubai"
-                                            FontWeight="Black"
-                                            Foreground="#A6A0A1"
+                                            FontWeight="ExtraBold"
+                                            Foreground="DarkBlue"
                                             Content="{Binding Product.IDShopNavigation.NameShop}"
                                             Command="{Binding VisitShop}"
                                             CommandParameter="{Binding}">
                                     </Button>
-                                   
+                                 
                                 </StackPanel>
                                
                                 <TextBlock x:Name="BOUGTHTIME"

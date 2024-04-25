@@ -193,9 +193,14 @@ public partial class TraoDoiMuaBan : DbContext
 
             entity.Property(e => e.IDShop).ValueGeneratedNever();
             entity.Property(e => e.Address).HasMaxLength(50);
+            entity.Property(e => e.CreateDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.NameShop).HasMaxLength(50);
             entity.Property(e => e.PhoneNumber).HasMaxLength(50);
+            entity.Property(e => e.Rating).HasDefaultValueSql("((5))");
+            entity.Property(e => e.Slogan).HasDefaultValueSql("('Sorry! This user has not written slogan!')");
 
             entity.HasOne(d => d.IDShopNavigation).WithOne(p => p.Shop)
                 .HasForeignKey<Shop>(d => d.IDShop)

@@ -21,58 +21,75 @@
     <Border CornerRadius="10"
             BorderThickness="0"
             Background="White">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="300"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-           
-            <Border BorderBrush="Gray"
+       
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border BorderBrush="Gray"
                     BorderThickness="0 0 0 1"
                     CornerRadius="0 0 10 10"
                     Grid.Row="0">
-                <Grid>
-                    <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 10 10 0" Opacity="0.3"/>
-                    <Button x:Name="btnClose" 
-                            VerticalAlignment="Top" 
-                            Width="20" Height="20" 
-                            HorizontalAlignment="Right" 
-                            Margin="0 13 14 0" Opacity="0.3" 
-                            Background="Transparent" 
-                            BorderThickness="0" 
-                            Click="btnClose_Click"></Button>
-                    <TextBlock VerticalAlignment="Bottom" FontSize="15"
-                               FontFamily="Dubai"
-                               FontWeight="Black"
-                               Margin="10 0 0 7"
-                               Text="{Binding Shop.Name}">
-                      
-                    </TextBlock>
-                    <TextBlock VerticalAlignment="Bottom"
-                               HorizontalAlignment="Right" FontSize="15"
-                               Margin="0 0 50 7"
-                               FontFamily="Dubai"
-                               FontWeight="Black">
-                        <Run>ID: </Run>
-                        <Run Foreground="Brown">353584</Run>
-                    </TextBlock>
-                </Grid>
-            </Border>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <CustomControl:FilterUI></CustomControl:FilterUI>
-                <ScrollViewer Grid.Column="1">
-                    <ItemsControl ItemsSource="{Binding ProductList}" >
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="#37B89C"
+                    <StackPanel Orientation="Vertical"
+                            >
+                        <Grid>
+                            <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 10 10 0" Opacity="0.3"/>
+                            <Button x:Name="btnClose" 
+                                VerticalAlignment="Top" 
+                                Width="20" Height="20" 
+                                HorizontalAlignment="Right" 
+                                Margin="0 13 14 0" Opacity="0.3" 
+                                Background="Transparent" 
+                                BorderThickness="0" 
+                                Click="btnClose_Click"></Button>
+                          
+                        </Grid>
+                        <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Shop's informations"
+                        Background="White">
+                            <Expander.Style>
+                                <Style
+                                
+                                TargetType="Expander"
+                                BasedOn="{StaticResource MaterialDesignExpander}">
+                                    <Setter
+                                    Property="materialDesign:ExpanderAssist.ExpanderButtonContent"
+                                    Value="{materialDesign:PackIcon Kind=Plus}" />
+                                    <Style.Triggers>
+                                        <Trigger
+                                          Property="IsExpanded"
+                                          Value="True">
+                                            <Setter
+                                                Property="materialDesign:ExpanderAssist.ExpanderButtonContent"
+                                                Value="{materialDesign:PackIcon Kind=Minus}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Expander.Style>
+                            <CustomControl:ShopGuessInformation></CustomControl:ShopGuessInformation>
+                        </Expander>
+
+                    </StackPanel>
+
+                </Border>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <CustomControl:FilterUI></CustomControl:FilterUI>
+                    <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
+                        <ItemsControl ItemsSource="{Binding ProductList}" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#37B89C"
                                         CornerRadius="10"
                                         BorderThickness="2"
                                         Margin="5,5,5,5">
-                                <Button BorderThickness="0"
+                                        <Button BorderThickness="0"
                                             x:Name="btn_Chitietsanpham"
                                             BorderBrush="Transparent"
                                             Background="Transparent"
@@ -83,14 +100,14 @@
                                         RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                             CommandParameter="{Binding}"
 >
-                                    <StackPanel Orientation="Vertical">
-                                        <Grid>
-                                            <Image x:Name="Illustration"
+                                            <StackPanel Orientation="Vertical">
+                                                <Grid>
+                                                    <Image x:Name="Illustration"
                                                     Source="{Binding ImageLinks[0].ImageLink1, Converter={StaticResource MyImageConverter}}"
                                                     MaxHeight="155"
                                                     MaxWidth="160"
                                                     Stretch="Fill"/>
-                                            <TextBlock Background="Red"
+                                                    <TextBlock Background="Red"
                                                        Height="20"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
@@ -100,9 +117,9 @@
                                                        Margin="-5 5 0 0"
                                                        Text="{Binding Save, StringFormat=Save: {0}%}">
 
-                                            </TextBlock>
-                                        </Grid>
-                                        <TextBlock 
+                                                    </TextBlock>
+                                                </Grid>
+                                                <TextBlock 
                                                 TextTrimming="WordEllipsis"
                                                 FontWeight="SemiBold"
                                                 VerticalAlignment="Center"
@@ -110,8 +127,8 @@
                                                 Foreground="#EE4D2D"
                                                 FontSize="15">
                                                 <Run Text="{Binding Name}"></Run>
-                                        </TextBlock>
-                                        <TextBlock 
+                                                </TextBlock>
+                                                <TextBlock 
                                                 TextTrimming="WordEllipsis"
                                                 Margin="0,0,0,0"
                                                 VerticalAlignment="Center"
@@ -120,8 +137,8 @@
     
                                                 <Run Text="Remaining:"></Run>
                                                 <Run Text="{Binding NumberLeft}"></Run>
-                                        </TextBlock>
-                                        <TextBlock 
+                                                </TextBlock>
+                                                <TextBlock 
                                                     TextTrimming="WordEllipsis"
                                                     FontWeight="Medium"
                                                     FontSize="14"
@@ -129,8 +146,8 @@
                                                     HorizontalAlignment="Center">
                                                     <Run Text="Current Price:"></Run>
                                                     <Run Text="{Binding CurrentPrice, StringFormat='c'}"></Run>
-                                        </TextBlock>
-                                        <TextBlock 
+                                                </TextBlock>
+                                                <TextBlock 
                                                     TextTrimming="WordEllipsis"
                                                     FontWeight="Medium"
                                                     FontSize="10"
@@ -138,45 +155,46 @@
                                                     HorizontalAlignment="Center">
                                                     <Run Text="Original Price:"></Run>
                                                     <Run Text="{Binding OriginalPrice, StringFormat='c'}"></Run>
-                                        </TextBlock>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                                </TextBlock>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
                                                         VerticalAlignment="Center">
-                                            <materialDesign:PackIcon Kind="StoreMarker"
+                                                    <materialDesign:PackIcon Kind="StoreMarker"
                                                                      Foreground="Green"
                                                                      Margin="0 2 2 0"/>
-                                            <TextBlock 
+                                                    <TextBlock 
                                                         TextTrimming="WordEllipsis"
                                                         FontWeight="Medium"
                                                         FontSize="13"
                                                         Foreground="Orange"
                                                         HorizontalAlignment="Center"
                                                         Text="{Binding IDShopNavigation.Address}">
-                                            </TextBlock>
-                                        </StackPanel>
+                                                    </TextBlock>
+                                                </StackPanel>
 
-                                        <Button Height="35"
+                                                <Button Height="35"
                                                     Width="130"
                                                     Content="Add to Cart"
                                                     Background="#0FC20F"
                                                     Command="{Binding DataContext.SeeDetailCommand,
                                                     RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                                     CommandParameter="{Binding}">
+                                                </Button>
+                                            </StackPanel>
                                         </Button>
-                                    </StackPanel>
-                                </Button>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel></WrapPanel>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel></WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
 
-                </ItemsControl>
-            </ScrollViewer>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+
             </Grid>
-           
-        </Grid>           
+   
     </Border>
 </Window>

@@ -54,14 +54,17 @@ namespace WPF_Market.ViewModel
             VisitShop = new BaseViewModelCommand(ExecuteVisitShop);
             DecreaseNumberButttonClick = new BaseViewModelCommand(ExecuteDecreaseNumberCommand, CanExecuteDecreaseNumberCommand);
             SetFaV = new BaseViewModelCommand(ExecuteSetFaV);
-            var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type).Take(6).ToList();
+            var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type && p.IDProduct != productViewModel.IDProduct).Take(6).ToList();
             productList = new ObservableCollection<Inventory>(lst);
             
         }
 
         private void ExecuteVisitShop(object obj)
         {
-            var ShopUi = new ShopUIGuest(Product.IDShopNavigation);
+            var ShopUi = new ShopUIGuest(Product.IDShopNavigation, true);
+            var Shop = Product.IDShopNavigation;
+            Shop.NumCustomersVisit++;
+            DataProvider.Instance.DB.SaveChanges();
             ShopUi.Owner = CurrentApplicationStatus.MainBoardWindow;
             ShopUi.ShowDialog();
         }

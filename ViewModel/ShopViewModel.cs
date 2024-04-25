@@ -22,6 +22,23 @@ namespace WPF_Market.ViewModel
             DeleteProductCommand = new BaseViewModelCommand(ExecuteDeleteProductCommand);
             SeeProductDetail = new BaseViewModelCommand(ExecuteSeeDetailCommand);
             EditProductCommand = new BaseViewModelCommand(ExecuteEditProductCommand);
+            SeeStatistical = new BaseViewModelCommand(ExecuteSeeStatistial);
+            GuessView = new BaseViewModelCommand(ExecuteGuessView);
+        }
+
+        private void ExecuteGuessView(object obj)
+        {
+            var currentShop = DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == CurrentApplicationStatus.CurrentID).FirstOrDefault();
+            var Guessview = new ShopUIGuest(currentShop, false);
+            Guessview.Owner = CurrentApplicationStatus.MainBoardWindow;
+            Guessview.ShowDialog();
+        }
+
+        private void ExecuteSeeStatistial(object obj)
+        {
+            var newWindow = new Statistical();
+            newWindow.Owner = CurrentApplicationStatus.MainBoardWindow;
+            newWindow.ShowDialog();
         }
 
         private void ExecuteEditProductCommand(object obj)
@@ -71,5 +88,7 @@ namespace WPF_Market.ViewModel
         public ICommand DeleteProductCommand { get; }
         public ICommand SeeProductDetail {  get; }
         public ICommand EditProductCommand { get; }
+        public ICommand SeeStatistical {  get; }
+        public ICommand GuessView {  get; }
     }
 }
