@@ -1,0 +1,162 @@
+﻿<Window x:Class="WPF_Market.View.SeeComment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Market.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="WriteComment" MinHeight="500" Width="800">
+    <Border CornerRadius="10"
+            BorderThickness="3"
+            Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <materialDesign:PackIcon Kind="Close"
+                         VerticalAlignment="Top" 
+                         Width="20" Height="20" 
+                         HorizontalAlignment="Right" 
+                         Margin="0 5 5 0"
+                         Opacity="0.3"
+                         Grid.Row="0"/>
+            <Button x:Name="btnClose"
+                    Grid.Row="0"
+                    VerticalAlignment="Top"
+                    Width="20" Height="20" 
+                    HorizontalAlignment="Right" 
+                    Margin="0 5 5 0" Opacity="0.3"
+                    Background="Transparent"                  
+                    BorderThickness="0"
+                    Click="btnClose_Click"/>
+            <Grid Grid.Row="1">
+                <!--<Border Height="300"
+                        Margin="20"
+                        CornerRadius="10"
+                        Background="#EBEBE9"
+                        VerticalAlignment="Top">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontFamily="Dubai"
+                                   FontSize="18"
+                                   Margin="20 20 0 0 "
+                                   VerticalAlignment="Center">
+                            <Run FontWeight="Black"> ID User: </Run>
+                            <Run>823472</Run>
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock 
+                                       FontFamily="Dubai"
+                                       FontSize="18"
+                                       Margin="20 20 20 0"
+                                       VerticalAlignment="Center">
+                                <Run FontWeight="Black">Time: </Run>
+                                <Run>99/99/9999</Run>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="Rating: "
+                                       FontFamily="Dubai"
+                                       FontSize="15"
+                                       Margin="20 0"
+                                       FontWeight="Black"
+                                       VerticalAlignment="Center"/>
+                            <materialDesign:RatingBar
+                                        x:Name="ReadOnlyRatingBar"
+                                        VerticalAlignment="Center"
+                                        IsReadOnly="True"
+                                        Value="4" />
+                        </StackPanel>
+                        <Border Background="#F4FAF0"
+                                Grid.Row="2"
+                                CornerRadius="10"
+                                Margin="20 0 20 10">
+                            <ScrollViewer>
+                                <TextBlock FontFamily="Dubai"
+                                           FontSize="15"
+                                           TextWrapping="Wrap"
+                                           Padding="10"
+                                           Text="Bóng đá không chỉ là một môn thể thao, mà còn là một trải nghiệm tinh thần sâu sắc mà hàng triệu người trên khắp thế giới chia sẻ. Trong trận đấu, từng phút giây đều mang lại cảm xúc mạnh mẽ, từ niềm hạnh phúc khi đội nhà ghi bàn, đến nỗi buồn khi đối thủ đưa bóng vào lưới của mình. Đằng sau mỗi trận cầu là những câu chuyện đáng nhớ về sự cố gắng, sự đoàn kết và niềm tin vào đồng đội. Bóng đá không chỉ là một trò chơi, mà còn là một cách để kết nối con người và tạo ra những kỷ niệm không thể nào quên."/>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </Border>-->
+                <ItemsControl >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Height="300"
+                                    Margin="20"
+                                    CornerRadius="10"
+                                    Background="#EBEBE9"
+                                    VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock FontFamily="Dubai"
+                                               FontSize="18"
+                                               Margin="20 20 0 0 "
+                                               VerticalAlignment="Center">
+                                        <Run FontWeight="Black"> ID User: </Run>
+                                        <Run>823472</Run>
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock 
+                                               FontFamily="Dubai"
+                                               FontSize="18"
+                                               Margin="20 20 20 0"
+                                               VerticalAlignment="Center">
+                                        <Run FontWeight="Black">Time: </Run>
+                                        <Run>99/99/9999</Run>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                        <TextBlock Text="Rating: "
+                                                   FontFamily="Dubai"
+                                                   FontSize="15"
+                                                   Margin="20 0"
+                                                   FontWeight="Black"
+                                                   VerticalAlignment="Center"/>
+                                        <materialDesign:RatingBar
+                                                    x:Name="ReadOnlyRatingBar"
+                                                    VerticalAlignment="Center"
+                                                    IsReadOnly="True"
+                                                    Value="4" />
+                                    </StackPanel>
+                                    <Border Background="#F4FAF0"
+                                            Grid.Row="2"
+                                            CornerRadius="10"
+                                            Margin="20 0 20 10">
+                                        <ScrollViewer>
+                                            <TextBlock FontFamily="Dubai"
+                                                       FontSize="15"
+                                                       TextWrapping="Wrap"
+                                                       Padding="10"
+                                                       Text="Bóng đá không chỉ là một môn thể thao, mà còn là một trải nghiệm tinh thần sâu sắc mà hàng triệu người trên khắp thế giới chia sẻ. Trong trận đấu, từng phút giây đều mang lại cảm xúc mạnh mẽ, từ niềm hạnh phúc khi đội nhà ghi bàn, đến nỗi buồn khi đối thủ đưa bóng vào lưới của mình. Đằng sau mỗi trận cầu là những câu chuyện đáng nhớ về sự cố gắng, sự đoàn kết và niềm tin vào đồng đội. Bóng đá không chỉ là một trò chơi, mà còn là một cách để kết nối con người và tạo ra những kỷ niệm không thể nào quên."/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                </ItemsControl>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

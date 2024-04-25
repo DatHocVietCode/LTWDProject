@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\
+D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\
 WPF_Market
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\LTWD\LTWD_FinalProject\App.xaml
-21-1634993938
+D:\HK2_23-24_LTwindows\4-18\App.xaml
+23-2095007222
 
-651102934263
-250-1808183863
-CustomControl\BindablePasswordBox.xaml;CustomControl\FilterUI.xaml;CustomControl\ProductFAVUI.xaml;CustomControl\ProductUI.xaml;CustomControl\ShopGuessInformation.xaml;View\Bought.xaml;View\Cart.xaml;View\confirmPass.xaml;View\Custom_mb.xaml;View\detail_product.xaml;View\Invoice.xaml;View\Login_new.xaml;View\Main_Board.xaml;View\Manage_Product.xaml;View\Myinf.xaml;View\product.xaml;View\Scroll.xaml;View\ShopUI.xaml;View\ShopUIGuest.xaml;View\Signup.xaml;View\Statistical.xaml;
+671007008928
+250599398004
+CustomControl\BindablePasswordBox.xaml;CustomControl\FilterUI.xaml;CustomControl\ProductFAVUI.xaml;CustomControl\ProductUI.xaml;CustomControl\ShopGuessInformation.xaml;View\Bought.xaml;View\Cart.xaml;View\confirmPass.xaml;View\Custom_mb.xaml;View\detail_product.xaml;View\Invoice.xaml;View\Login_new.xaml;View\Main_Board.xaml;View\Manage_Product.xaml;View\Myinf.xaml;View\product.xaml;View\Scroll.xaml;View\SeeComment.xaml;View\ShopUI.xaml;View\ShopUIGuest.xaml;View\Signup.xaml;View\Statistical.xaml;View\WriteComment.xaml;
 
-False
+True
 

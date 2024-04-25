@@ -52,6 +52,9 @@
     <Compile Update="View\product.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SeeComment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ShopUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -62,6 +65,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Statistical.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\WriteComment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -117,6 +123,9 @@
     <Page Update="View\Scroll.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\SeeComment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\ShopUI.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -127,6 +136,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Statistical.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\WriteComment.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
