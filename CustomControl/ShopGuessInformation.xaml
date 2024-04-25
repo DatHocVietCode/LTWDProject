@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="WPF_Market.CustomControl.ShopGuessInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm ="clr-namespace:WPF_Market.ViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Market.CustomControl"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:MyImageConverter x:Key="ImageConverter"></vm:MyImageConverter>
+    </UserControl.Resources>
+    <Border BorderBrush="Black"
+            BorderThickness="0.5"
+            Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column ="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                <Ellipse Width="200" Height="200" Margin="5 5 5 10">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding UserAvatar, Converter={StaticResource ImageConverter}}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                           FontSize="16"
+                           Text="{Binding NameShop, StringFormat=Shop\'s name: {0}}"
+                           Margin="0 5 0 5">
+                    
+                </TextBlock>
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="0 5 0 0"
+                            Orientation="Horizontal">
+                    <TextBlock Text="Rating: "
+                               Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                               FontSize="16"
+                               Margin="0 0 5 0"></TextBlock>
+                    <materialDesign:RatingBar
+                          x:Name="BasicRatingBarFractional"
+                          Max="5"
+                          Min="0"
+                          IsReadOnly="True"
+                          Value="{Binding Rating}"
+                          />
+                </StackPanel>
+            </StackPanel>
+            <Grid Grid.Column = "1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        FontSize="16"
+                                       Text="{Binding Address, StringFormat=Address: {0}}"
+                                       Margin="0 5 0 5">
+                                
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+            FontSize="16"
+           Text="{Binding PhoneNumber, StringFormat=PhoneNumber: {0}}"
+           Margin="0 5 0 5">
+
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+            FontSize="16"
+           Text="{Binding Email, StringFormat=Email: {0}}"
+           Margin="0 5 0 5">
+
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel Orientation="Vertical"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                             FontSize="16"
+                            Text="{Binding NumCustomersVisit, StringFormat=CustomerVist: {0}}"
+                            Margin="0 5 0 5">
+
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+ FontSize="16"
+Text="{Binding NumCustomersRate, StringFormat=CustomersComment: {0}}"
+Margin="0 5 0 5">
+
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+ FontSize="16"
+Text="{Binding CreateDate, StringFormat=CreateDate: {0}}"
+Margin="0 5 0 5">
+
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+  FontSize="16"
+ Text="{Binding Slogan, StringFormat=Slogan: {0}}"
+ Margin="0 5 0 5">
+
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

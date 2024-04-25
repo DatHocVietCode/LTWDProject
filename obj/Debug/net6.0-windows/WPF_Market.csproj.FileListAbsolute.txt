@@ -214,6 +214,7 @@ D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\WPF_Market.csproj.AssemblyRef
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Custom_mb.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Scroll.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\BindablePasswordBox.g.cs
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ProductFAVUI.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ProductUI.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Bought.g.cs
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Cart.g.cs
@@ -235,6 +236,7 @@ D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\WPF_Market_MarkupCompile.cach
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\WPF_Market_MarkupCompile.lref
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\App.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\BindablePasswordBox.baml
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ProductFAVUI.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ProductUI.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Bought.baml
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\View\Cart.baml
@@ -263,10 +265,17 @@ D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\refint\WPF_Market.dll
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\WPF_Market.pdb
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\WPF_Market.genruntimeconfig.cache
 D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\ref\WPF_Market.dll
-D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ProductFAVUI.g.cs
-D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ProductFAVUI.baml
 >>>>>>> fd70191e74c6d2eba1aa522bc97cc614ebb29955
 D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\ProductFAVUI.g.cs
 D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\ProductUI.g.cs
 D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\ProductFAVUI.baml
 D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\ProductUI.baml
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\FilterUI.g.cs
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\FilterUI.baml
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ShopGuessInformation.g.cs
+D:\LTWD\LTWD_FinalProject\obj\Debug\net6.0-windows\CustomControl\ShopGuessInformation.baml
+>>>>>>> 07579688757b2fc45d5a733701716f4d12d7a637
+D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\FilterUI.g.cs
+D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\ShopGuessInformation.g.cs
+D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\FilterUI.baml
+D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\CustomControl\ShopGuessInformation.baml

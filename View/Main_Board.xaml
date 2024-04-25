@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:CusmtomControl="clr-namespace:WPF_Market.CustomControl"
         xmlns:vm="clr-namespace:WPF_Market.ViewModel"
         mc:Ignorable="d"
         Title="Main" Height="720" Width="1280"
@@ -100,74 +101,7 @@
                Content="{Binding CurrentContent, 
                 UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                 Grid.Column="1"/>
-            <Border BorderThickness="0 0 0 0" 
-                    BorderBrush="Black"
-                    Background="White"
-                    CornerRadius="0 0 0 0">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="1" />
-                </Border.Effect>
-                <StackPanel  Background="White" Margin="10">
-                    <TextBox x:Name="txt_search" Margin="10 0"
-                          VerticalAlignment="Center"
-                          materialDesign:HintAssist.Hint="Search"
-                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TreeView Margin="4" 
-                                 HorizontalAlignment="Left" RenderTransformOrigin="-0.01,0.571">
-                        <TreeViewItem Header="PRODUCT" >
-                            <TreeViewItem Header="A -> Z"/>
-                            <TreeViewItem Header="Z -> A"/>
-                        </TreeViewItem>
-
-                        <TreeViewItem Header="PRICE" >
-                            <TreeViewItem Header="MAX -> MIN"/>
-                            <TreeViewItem Header="MIN -> MAX"/>
-                        </TreeViewItem>
-                    </TreeView>
-                    <CheckBox x:Name="cb_elec"
-                          Content="Electronics"
-                          Margin="4 10"
-                             IsChecked="{Binding CbElect, UpdateSourceTrigger=PropertyChanged,
-                        Mode=TwoWay}"/>
-                    <CheckBox x:Name="cb_fasAclo"
-                          Content="Fashion and Clothing"
-                          Margin="4 10"
-                              IsChecked="{Binding CbFashion, UpdateSourceTrigger=PropertyChanged,
-                        Mode=TwoWay}"/>
-                    <CheckBox x:Name="cb_jewell"
-                          Content="Jewellery"
-                          Margin="4 10"
-                              IsChecked="{Binding CbJewell, UpdateSourceTrigger=PropertyChanged,
-                        Mode=TwoWay}"/>
-                    <CheckBox x:Name="cb_heAbea"
-                          Content="Health and Beauty"
-                          Margin="4 10"
-                         IsChecked="{Binding CbHealthBeauty, UpdateSourceTrigger=PropertyChanged,
-                        Mode=TwoWay}"/>
-                    <CheckBox x:Name="cb_book"
-                          Content="Books"
-                          Margin="4 10"
-                          IsChecked="{Binding CbBooks, UpdateSourceTrigger=PropertyChanged,
-                            Mode=TwoWay}"/>
-                    <CheckBox x:Name="cb_kidAbaby"
-                          Content="Kids and Babies"
-                          Margin="4 10"
-                          IsChecked="{Binding CbKidsBaies, UpdateSourceTrigger=PropertyChanged,
-                          Mode=TwoWay}"/>
-                    <CheckBox x:Name="cb_sport"
-                          Content="Sports"
-                          Margin="4 10"
-                          IsChecked="{Binding CbSports, UpdateSourceTrigger=PropertyChanged,
-                        Mode=TwoWay}"/>
-                    <CheckBox x:Name="cb_home"
-                          Content="Home and Garden"
-                          Margin="4 10"
-                          IsChecked="{Binding CbHomeGarden, UpdateSourceTrigger=PropertyChanged,
-                            Mode=TwoWay}"/>
-
-                </StackPanel>
-            </Border>
-
+            <CusmtomControl:FilterUI></CusmtomControl:FilterUI>
         </Grid>
     </Grid>
 

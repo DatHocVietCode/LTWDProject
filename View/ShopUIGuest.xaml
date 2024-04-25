@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:WPF_Market.View"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:vmProduct="clr-namespace:WPF_Market.ViewModel"
+            xmlns:CustomControl="clr-namespace:WPF_Market.CustomControl"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              WindowStartupLocation="CenterScreen"
              WindowStyle="None"
@@ -22,7 +23,7 @@
             Background="White">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="300"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
            
@@ -39,13 +40,13 @@
                             Margin="0 13 14 0" Opacity="0.3" 
                             Background="Transparent" 
                             BorderThickness="0" 
-                            Command="{Binding CloseCommand}"></Button>
+                            Click="btnClose_Click"></Button>
                     <TextBlock VerticalAlignment="Bottom" FontSize="15"
                                FontFamily="Dubai"
                                FontWeight="Black"
-                               Margin="10 0 0 7">
-                        <Run>Welcome to: </Run>
-                        <Run Foreground="Salmon">ten shop</Run>
+                               Margin="10 0 0 7"
+                               Text="{Binding Shop.Name}">
+                      
                     </TextBlock>
                     <TextBlock VerticalAlignment="Bottom"
                                HorizontalAlignment="Right" FontSize="15"
@@ -57,8 +58,14 @@
                     </TextBlock>
                 </Grid>
             </Border>
-            <ScrollViewer Grid.Row="1">
-                <ItemsControl ItemsSource="{Binding ProductList}" >
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <CustomControl:FilterUI></CustomControl:FilterUI>
+                <ScrollViewer Grid.Column="1">
+                    <ItemsControl ItemsSource="{Binding ProductList}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="#37B89C"
@@ -73,7 +80,7 @@
                                             Height="300"
                                             Margin="0"
                                             Command="{Binding DataContext.SeeDetailCommand,
-                                        RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                        RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                             CommandParameter="{Binding}"
 >
                                     <StackPanel Orientation="Vertical">
@@ -152,7 +159,7 @@
                                                     Content="Add to Cart"
                                                     Background="#0FC20F"
                                                     Command="{Binding DataContext.SeeDetailCommand,
-                                                    RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                                    RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                                     CommandParameter="{Binding}">
                                         </Button>
                                     </StackPanel>
@@ -168,6 +175,8 @@
 
                 </ItemsControl>
             </ScrollViewer>
+            </Grid>
+           
         </Grid>           
     </Border>
 </Window>
