@@ -71,7 +71,7 @@ public partial class TraoDoiMuaBan : DbContext
             entity.HasOne(d => d.IDUserNavigation).WithMany(p => p.Boughts)
                 .HasForeignKey(d => d.IDUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bought__IDUser__7814D14C");
+                .HasConstraintName("FK__Bought__IDUser__29AC2CE0");
         });
 
         modelBuilder.Entity<Cart>(entity =>
@@ -83,7 +83,7 @@ public partial class TraoDoiMuaBan : DbContext
             entity.HasOne(d => d.IDProductNavigation).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.IDProduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Cart__IDProduct__2F9A1060");
+                .HasConstraintName("FK__Cart__IDProduct__2AA05119");
 
             entity.HasOne(d => d.IDUserNavigation).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.IDUser)
@@ -137,11 +137,11 @@ public partial class TraoDoiMuaBan : DbContext
                     r => r.HasOne<User>().WithMany()
                         .HasForeignKey("IDUser")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__FaVProduc__IDUse__4589517F"),
+                        .HasConstraintName("FK__FaVProduc__IDUse__2C88998B"),
                     l => l.HasOne<Inventory>().WithMany()
                         .HasForeignKey("IDProduct")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__FaVProduc__IDPro__44952D46"),
+                        .HasConstraintName("FK__FaVProduc__IDPro__2B947552"),
                     j =>
                     {
                         j.HasKey("IDProduct", "IDUser").HasName("PK__FaVProdu__AC3EBCE47ED2D341");
@@ -160,12 +160,12 @@ public partial class TraoDoiMuaBan : DbContext
             entity.HasOne(d => d.IDInvoiceNavigation).WithMany(p => p.LstProducts)
                 .HasForeignKey(d => d.IDInvoice)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LstProduc__IDInv__79FD19BE");
+                .HasConstraintName("FK__LstProduc__IDInv__2D7CBDC4");
 
             entity.HasOne(d => d.IDProductNavigation).WithMany(p => p.LstProducts)
                 .HasForeignKey(d => d.IDProduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LstProduc__IDPro__7908F585");
+                .HasConstraintName("FK__LstProduc__IDPro__2E70E1FD");
         });
 
         modelBuilder.Entity<Priority>(entity =>
@@ -177,12 +177,12 @@ public partial class TraoDoiMuaBan : DbContext
             entity.HasOne(d => d.IDproductNavigation).WithMany(p => p.Priorities)
                 .HasForeignKey(d => d.IDproduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Priority__IDprod__54CB950F");
+                .HasConstraintName("FK__Priority__IDprod__2F650636");
 
             entity.HasOne(d => d.IDuserNavigation).WithMany(p => p.Priorities)
                 .HasForeignKey(d => d.IDuser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Priority__IDuser__55BFB948");
+                .HasConstraintName("FK__Priority__IDuser__30592A6F");
         });
 
         modelBuilder.Entity<Shop>(entity =>

@@ -33,7 +33,7 @@
                     Margin="0 5 5 0" Opacity="0.3"
                     Background="Transparent"                  
                     BorderThickness="0"
-                    />
+                    Click="btnClose_Click"/>
             <TextBlock Text="Statistical"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
@@ -43,44 +43,50 @@
             <ScrollViewer Grid.Row="1">
                 <Grid>
                     <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Vertical" Margin="20 0">
+                        <Border CornerRadius="10" Margin="10"
+                                Background="#F5EFE7">
+                            <StackPanel Orientation="Horizontal" Margin="20 0">
                                 <TextBlock TextWrapping="Wrap"
-                                           Width="100"
-                                           FontSize="15"
-                                           FontFamily="Dubai"
-                                           FontWeight="Black">
+                                               Width="100"
+                                               FontSize="15"
+                                               VerticalAlignment="Center"
+                                               FontFamily="Dubai"
+                                               FontWeight="Black">
                                     <Run>REVENUE: </Run>
                                     <Run Foreground="#A09A92">545555</Run>
                                 </TextBlock>
-                            </StackPanel>
-                            <Border Background="#F1E7DC" Height="250" Width="600"
+                                <Border Background="#F1E7DC" Height="250" Width="600"
                                     CornerRadius="10">
-                                <lvc:CartesianChart LegendLocation="None" >
-                                    <lvc:CartesianChart.AxisX>
-                                        <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16">
-                                            <!--ten san pham-->
+                                    <lvc:CartesianChart LegendLocation="None" >
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16">
+                                                <!--ten san pham-->
 
-                                            <lvc:Axis.Separator>
-                                                <lvc:Separator StrokeThickness="0" Step="1"/>
-                                            </lvc:Axis.Separator>
-                                        </lvc:Axis>
-                                    </lvc:CartesianChart.AxisX>
-                                    <lvc:CartesianChart.AxisY>
-                                        <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0" MaxValue="100"> <!--max = revenue-->
-                                            <lvc:Axis.Separator>
-                                                <lvc:Separator StrokeThickness="0"/>
-                                            </lvc:Axis.Separator>
-                                        </lvc:Axis>
-                                    </lvc:CartesianChart.AxisY>
+                                                <lvc:Axis.Separator>
+                                                    <lvc:Separator StrokeThickness="0" Step="1"/>
+                                                </lvc:Axis.Separator>
+                                            </lvc:Axis>
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0" MaxValue="100">
+                                                <!--max = revenue-->
+                                                <lvc:Axis.Separator>
+                                                    <lvc:Separator StrokeThickness="0"/>
+                                                </lvc:Axis.Separator>
+                                            </lvc:Axis>
+                                        </lvc:CartesianChart.AxisY>
 
-                                    <lvc:CartesianChart.Series>
-                                        <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="15" Values="40,10,10,100,100,100,100,100,100,100,100,100,100,100, 100, 100"/>
-                                        <!--số tiền bán dc-->
-                                    </lvc:CartesianChart.Series>
-                                </lvc:CartesianChart>
-                            </Border>
-                        </StackPanel>
+                                        <lvc:CartesianChart.Series>
+                                            <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="15" Values="40,10,10,100,100,100,100,100,100,100,100,100,100,100, 100, 100"/>
+                                            <!--số tiền bán dc-->
+                                        </lvc:CartesianChart.Series>
+                                    </lvc:CartesianChart>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                        <Border CornerRadius="10"
+                                Background="#F5EFE7"
+                                Margin="10">
                         <StackPanel Orientation="Horizontal" Height="250" Margin="20 0">
                             <TextBlock Width="400"
                                        VerticalAlignment="Center"
@@ -94,7 +100,7 @@
                                           Height="200"
                                           Width="200"
                          
-                                          Margin="0 0 10 0" DataClick="PieChart_DataClick">
+                                          Margin="0 0 10 0" DataClick="PieChart_DataClick" Loaded="PieChart_Loaded">
                                 <lvc:PieChart.Series>
                                     <lvc:PieSeries Title="Purchases "
                                                    Values="4"
@@ -108,7 +114,9 @@
                                 
                             </lvc:PieChart>
                         </StackPanel>
+                        </Border>
                     </StackPanel>
+                    
                 </Grid>
             </ScrollViewer>
         </Grid>

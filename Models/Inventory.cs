@@ -31,6 +31,8 @@ public partial class Inventory
 
     public int Priority { get; set; }
 
+    public int? Venenue { get; set; }
+
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     public virtual Shop IDShopNavigation { get; set; }
