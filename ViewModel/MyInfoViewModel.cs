@@ -35,8 +35,13 @@ namespace WPF_Market.ViewModel
                 {
                     if (openFileDialog.FileName !="")
                     {
+                        if (!File.Exists(absolutePath))
+                        {
+                            Directory.CreateDirectory(absolutePath);
+                        }
                         string sourceFilePath = openFileDialog.FileName;
                         string destinationFilePath = Path.Combine(absolutePath, Path.GetFileName(sourceFilePath));
+                      
                         File.Copy(sourceFilePath, destinationFilePath, true);
                         UserAvatar = Path.Combine(relativePath, Path.GetFileName(sourceFilePath));                        
                     }

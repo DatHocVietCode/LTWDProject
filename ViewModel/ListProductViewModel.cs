@@ -67,7 +67,7 @@ namespace WPF_Market.ViewModel
         private void ExecuteSeeDetailCommand(object obj)
         {
             var product = (Inventory)obj;
-            var shop = (Shop)obj;
+            var shop = product.IDShopNavigation;
             shop.Visits++;
             product.Priority++;
             DataProvider.Instance.DB.SaveChanges();
