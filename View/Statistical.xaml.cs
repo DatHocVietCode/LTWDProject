@@ -38,5 +38,10 @@ namespace WPF_Market.View
             var selected = (PieSeries)chartPoint.SeriesView;
             selected.PushOut = 8;
         }
+
+        private void PieChart_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

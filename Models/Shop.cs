@@ -19,6 +19,10 @@ public partial class Shop
 
     public string Email { get; set; }
 
+    public int? Visits { get; set; }
+
+    public int? Purchases { get; set; }
+
     public virtual Account IDShopNavigation { get; set; }
 
     public virtual ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();
