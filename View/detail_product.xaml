@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:WPF_Market.ViewModel"
+      xmlns:CustomControl="clr-namespace:WPF_Market.CustomControl"
       xmlns:v="clr-namespace:WPF_Market.View"
       mc:Ignorable="d" 
       d:DesignWidth="1280"

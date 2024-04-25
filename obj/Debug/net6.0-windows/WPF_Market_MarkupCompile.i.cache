@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\HK2_23-24_LTwindows\4-18\App.xaml
-17546418189
+19-1625027383
 
-58868129628
+61-1869279989
 250599398004
-CustomControl\BindablePasswordBox.xaml;View\Bought.xaml;View\Cart.xaml;View\confirmPass.xaml;View\Custom_mb.xaml;View\detail_product.xaml;View\Invoice.xaml;View\Login_new.xaml;View\Main_Board.xaml;View\Manage_Product.xaml;View\Myinf.xaml;View\product.xaml;View\Scroll.xaml;View\ShopUI.xaml;View\ShopUIGuest.xaml;View\Signup.xaml;View\Statistical.xaml;
+CustomControl\BindablePasswordBox.xaml;CustomControl\ProductFAVUI.xaml;CustomControl\ProductUI.xaml;View\Bought.xaml;View\Cart.xaml;View\confirmPass.xaml;View\Custom_mb.xaml;View\detail_product.xaml;View\Invoice.xaml;View\Login_new.xaml;View\Main_Board.xaml;View\Manage_Product.xaml;View\Myinf.xaml;View\product.xaml;View\Scroll.xaml;View\ShopUI.xaml;View\ShopUIGuest.xaml;View\Signup.xaml;View\Statistical.xaml;
 
-True
+False
 
