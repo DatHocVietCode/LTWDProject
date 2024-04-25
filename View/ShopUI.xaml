@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:WPF_Market.View"
              xmlns:vm="clr-namespace:WPF_Market.ViewModel"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:CustomControl ="clr-namespace:WPF_Market.CustomControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
             MinWidth="800"
@@ -18,149 +19,161 @@
     </UserControl.Resources>
     <Border CornerRadius="10"
             BorderThickness="3"
-            Background="White">
+            Background="White"
+            Width="1280">
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition/>
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 0.5">
-                <Grid>
-                    <TextBlock Text="MY SHOP"
-                               FontSize="20"
-                               Margin="10 0 0 0"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Left"></TextBlock>
-                    <StackPanel Orientation="Vertical"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Center">
-                        <TextBlock Text="{Binding IDShop, StringFormat='IDShop: {0}'}"
-                                   Margin="0 0 10 0"
-                                   x:Name="txbl_idShop"
-                                   FontSize="15">
-                           
-                        </TextBlock>
-                    </StackPanel>
-                </Grid>
-            </Border>
-            <ScrollViewer Grid.Row="1">
-                <Grid Grid.Row="1">
-                    <ListView x:Name="listView"
-                              ItemsSource="{Binding ShopInventory}">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="vm:ContextMenuBehavior.IsContextMenuEnabled" Value="True" />
-                                <Setter Property="vm:ContextMenuBehavior.ShowDetailCommand" Value="{Binding DataContext.EditProductCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
-                                <Setter Property="vm:ContextMenuBehavior.DeleteItemCommand" Value="{Binding DataContext.DeleteProductCommand, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.View>
-                           
-                            <GridView>
-
-                                <GridViewColumn
-                                DisplayMemberBinding="{Binding IDProduct}"
-                                Header="ID Product"
-                                Width="130"/>
-                            
-                                <GridViewColumn Header="Illustration">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Image Source="{Binding ImageLinks[0].ImageLink1, Converter={StaticResource ImageConvert}}" Width="50" Height="50"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn
-                                DisplayMemberBinding="{Binding Name}"
-                                Header="Product's Name"                      
-                                Width="160"/>
-                               
-                                <GridViewColumn
-                                DisplayMemberBinding="{Binding OriginalPrice}"
-                                Header="Original Price"
-                                Width="150"/>
-                                <GridViewColumn
-                                DisplayMemberBinding="{Binding CurrentPrice}"
-                                Header="Current Price"
-                                Width="150"/>
-                                <GridViewColumn
-                                DisplayMemberBinding="{Binding Save}"
-                                Header="Save(%)"
-                                Width="150"/>
-                                <GridViewColumn >
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button x:Name="btn_searchDetail" Background="Transparent"
-                                                    BorderThickness="0"
-                                                    Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}},
-                                                Path=DataContext.SeeProductDetail}"
-                                                    CommandParameter="{Binding}">
-                                                <materialDesign:PackIcon Kind="Search"
-                                                                         Foreground="Black"
-                                                                         Width="30"
-                                                                        Height="30"/>
-                                                
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                </Grid>
-            </ScrollViewer>
-            <Grid Grid.Row="2">
-                <Grid Background="#47403E"
-                      Height="30"
-                      VerticalAlignment="Bottom">
-                    <TextBlock Text="Manage Product"
-                                Foreground="Wheat"
-                                FontFamily="dubai"
-                               FontSize="15" 
-                               Margin="10 0"
-                                VerticalAlignment="Center"/>
-
-                </Grid>
-                <materialDesign:PopupBox
-                          Height="40"
-                          Width="40"
-                          HorizontalAlignment ="Right"
-                          VerticalAlignment="Top"
-                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                          Margin="0 0 30 0"
-                          PlacementMode="TopAndAlignCentres"
-                          Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
-                         
-                          ToolTipService.Placement="Right">
-                    <StackPanel>
-                        <Button
-                          Command="{Binding AddProductCommand}"
-                          ToolTip="Add New Product" >
-                            <materialDesign:PackIcon Kind="PencilPlus"
-                         Width="20"/>
-                        </Button>
-                        <Button
-                          
-                          ToolTip="Delivery Progress">
-                            <materialDesign:PackIcon Kind="TruckDelivery" />
-                        </Button>
-                        <Button
-                            Command="{Binding SeeStatistical}"
-                          ToolTip="Statistical">
-                            <materialDesign:PackIcon Kind="NoteText" />
-                        </Button>
-                        <Button ToolTip="GuestView"
-                                Command="{Binding GuessView}">
-                            <materialDesign:PackIcon Kind="EyeRefresh" />
-                        </Button>
-                    </StackPanel>
-                </materialDesign:PopupBox>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <CustomControl:FilterUI></CustomControl:FilterUI>
             </Grid>
+            <Grid Grid.Column="1"
+                  Margin="20 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="565"/>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Border BorderBrush="Black"
+        BorderThickness="0 0 0 0.5">
+                    <Grid>
+                        <TextBlock Text="MY SHOP"
+                   FontSize="20"
+                   Margin="10 0 0 0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"></TextBlock>
+                        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+                            <TextBlock Text="{Binding IDShop, StringFormat='IDShop: {0}'}"
+                       Margin="0 0 10 0"
+                       x:Name="txbl_idShop"
+                       FontSize="15">
+
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <ScrollViewer Grid.Row="1">
+                    <Grid Grid.Row="1">
+                        <ListView x:Name="listView"
+                  ItemsSource="{Binding ProductList}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="vm:ContextMenuBehavior.IsContextMenuEnabled" Value="True" />
+                                    <Setter Property="vm:ContextMenuBehavior.ShowDetailCommand" Value="{Binding DataContext.EditProductCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                    <Setter Property="vm:ContextMenuBehavior.DeleteItemCommand" Value="{Binding DataContext.DeleteProductCommand, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+
+                                <GridView>
+
+                                    <GridViewColumn
+                    DisplayMemberBinding="{Binding IDProduct}"
+                    Header="ID Product"
+                    Width="130"/>
+
+                                    <GridViewColumn Header="Illustration">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Image Source="{Binding ImageLinks[0].ImageLink1, Converter={StaticResource ImageConvert}}" Width="50" Height="50"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn
+                    DisplayMemberBinding="{Binding Name}"
+                    Header="Product's Name"                      
+                    Width="160"/>
+
+                                    <GridViewColumn
+                    DisplayMemberBinding="{Binding OriginalPrice}"
+                    Header="Original Price"
+                    Width="150"/>
+                                    <GridViewColumn
+                    DisplayMemberBinding="{Binding CurrentPrice}"
+                    Header="Current Price"
+                    Width="150"/>
+                                    <GridViewColumn
+                    DisplayMemberBinding="{Binding Save}"
+                    Header="Save(%)"
+                    Width="150"/>
+                                    <GridViewColumn >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="btn_searchDetail" Background="Transparent"
+                                        BorderThickness="0"
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}},
+                                    Path=DataContext.SeeProductDetail}"
+                                        CommandParameter="{Binding}">
+                                                    <materialDesign:PackIcon Kind="Search"
+                                                             Foreground="Black"
+                                                             Width="30"
+                                                            Height="30"/>
+
+                                                </Button>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                    </Grid>
+                </ScrollViewer>
+                <Grid Grid.Row="2">
+                    <Grid Background="#47403E"
+          Height="30"
+          VerticalAlignment="Bottom">
+                        <TextBlock Text="Manage Product"
+                    Foreground="Wheat"
+                    FontFamily="dubai"
+                   FontSize="15" 
+                   Margin="10 0"
+                    VerticalAlignment="Center"/>
+
+                    </Grid>
+                    <materialDesign:PopupBox
+              Height="40"
+              Width="40"
+              HorizontalAlignment ="Right"
+              VerticalAlignment="Top"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Margin="0 0 30 0"
+              PlacementMode="TopAndAlignCentres"
+              Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+             
+              ToolTipService.Placement="Right">
+                        <StackPanel>
+                            <Button
+              Command="{Binding AddProductCommand}"
+              ToolTip="Add New Product" >
+                                <materialDesign:PackIcon Kind="PencilPlus"
+             Width="20"/>
+                            </Button>
+                            <Button
+              
+              ToolTip="Delivery Progress">
+                                <materialDesign:PackIcon Kind="TruckDelivery" />
+                            </Button>
+                            <Button
+                Command="{Binding SeeStatistical}"
+              ToolTip="Statistical">
+                                <materialDesign:PackIcon Kind="NoteText" />
+                            </Button>
+                            <Button ToolTip="GuestView"
+                    Command="{Binding GuessView}">
+                                <materialDesign:PackIcon Kind="EyeRefresh" />
+                            </Button>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </Grid>
+            </Grid>
+            
         </Grid>
     </Border>
 </UserControl>

@@ -15,6 +15,31 @@
             <DropShadowEffect BlurRadius="10" ShadowDepth="1" />
         </Border.Effect>
         <StackPanel  Background="White" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="FILTER"
+                    Margin="4"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    FontFamily="ARIAL"
+                           VerticalAlignment="Center"></TextBlock>
+                <materialDesign:PackIcon Kind="Magnify"
+                                         VerticalAlignment="Center"
+                                         FontSize="16"/>
+                <Button x:Name="btnReload"
+                        HorizontalAlignment="Right"
+                      
+                        Background="White"
+                        BorderThickness="0"
+                        BorderBrush="White"
+                        Opacity="0.5"
+                        Width="45"
+                        Margin="50 0 0 0"
+                        Command="{Binding ReloadCommand}">
+                    <materialDesign:PackIcon Kind="Reload" 
+                                             Foreground="Black"/>
+                </Button>
+            </StackPanel>
+           
             <TextBox x:Name="txt_search" Margin="10 0"
               VerticalAlignment="Center"
               materialDesign:HintAssist.Hint="Search"
@@ -22,7 +47,7 @@
               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TreeView Margin="4" 
                      HorizontalAlignment="Left" RenderTransformOrigin="-0.01,0.571">
-              
+               
                 <TreeViewItem Header="PRICE" >
                     <TreeViewItem Header="MAX -> MIN"
                                    IsSelected="{Binding MaxMin, UpdateSourceTrigger=PropertyChanged,
@@ -61,46 +86,54 @@
                     </ItemsControl>
                 </TreeViewItem>
             </TreeView>
-            <CheckBox x:Name="cb_elec"
-              Content="Electronics"
-              Margin="4 10"
-                 IsChecked="{Binding CbElect, UpdateSourceTrigger=PropertyChanged,
-            Mode=TwoWay}"/>
-            <CheckBox x:Name="cb_fasAclo"
-              Content="Fashion and Clothing"
-              Margin="4 10"
-                  IsChecked="{Binding CbFashion, UpdateSourceTrigger=PropertyChanged,
-            Mode=TwoWay}"/>
-            <CheckBox x:Name="cb_jewell"
-              Content="Jewellery"
-              Margin="4 10"
-                  IsChecked="{Binding CbJewell, UpdateSourceTrigger=PropertyChanged,
-            Mode=TwoWay}"/>
-            <CheckBox x:Name="cb_heAbea"
-              Content="Health and Beauty"
-              Margin="4 10"
-             IsChecked="{Binding CbHealthBeauty, UpdateSourceTrigger=PropertyChanged,
-            Mode=TwoWay}"/>
-            <CheckBox x:Name="cb_book"
-              Content="Books"
-              Margin="4 10"
-              IsChecked="{Binding CbBooks, UpdateSourceTrigger=PropertyChanged,
-                Mode=TwoWay}"/>
-            <CheckBox x:Name="cb_kidAbaby"
-              Content="Kids and Babies"
-              Margin="4 10"
-              IsChecked="{Binding CbKidsBaies, UpdateSourceTrigger=PropertyChanged,
-              Mode=TwoWay}"/>
-            <CheckBox x:Name="cb_sport"
-              Content="Sports"
-              Margin="4 10"
-              IsChecked="{Binding CbSports, UpdateSourceTrigger=PropertyChanged,
-            Mode=TwoWay}"/>
-            <CheckBox x:Name="cb_home"
-              Content="Home and Garden"
-              Margin="4 10"
-              IsChecked="{Binding CbHomeGarden, UpdateSourceTrigger=PropertyChanged,
-                Mode=TwoWay}"/>
+            <TreeView x:Name="Category"
+                      Margin="4" 
+                     HorizontalAlignment="Left" RenderTransformOrigin="-0.01,0.571">
+                <TreeViewItem Header="Category">
+                    <CheckBox x:Name="cb_elec"
+   Content="Electronics"
+   Margin="4 10"
+      IsChecked="{Binding CbElect, UpdateSourceTrigger=PropertyChanged,
+ Mode=TwoWay}"/>
+                    <CheckBox x:Name="cb_fasAclo"
+   Content="Fashion and Clothing"
+   Margin="4 10"
+       IsChecked="{Binding CbFashion, UpdateSourceTrigger=PropertyChanged,
+ Mode=TwoWay}"/>
+                    <CheckBox x:Name="cb_jewell"
+   Content="Jewellery"
+   Margin="4 10"
+       IsChecked="{Binding CbJewell, UpdateSourceTrigger=PropertyChanged,
+ Mode=TwoWay}"/>
+                    <CheckBox x:Name="cb_heAbea"
+   Content="Health and Beauty"
+   Margin="4 10"
+  IsChecked="{Binding CbHealthBeauty, UpdateSourceTrigger=PropertyChanged,
+ Mode=TwoWay}"/>
+                    <CheckBox x:Name="cb_book"
+   Content="Books"
+   Margin="4 10"
+   IsChecked="{Binding CbBooks, UpdateSourceTrigger=PropertyChanged,
+     Mode=TwoWay}"/>
+                    <CheckBox x:Name="cb_kidAbaby"
+   Content="Kids and Babies"
+   Margin="4 10"
+   IsChecked="{Binding CbKidsBaies, UpdateSourceTrigger=PropertyChanged,
+   Mode=TwoWay}"/>
+                    <CheckBox x:Name="cb_sport"
+   Content="Sports"
+   Margin="4 10"
+   IsChecked="{Binding CbSports, UpdateSourceTrigger=PropertyChanged,
+ Mode=TwoWay}"/>
+                    <CheckBox x:Name="cb_home"
+   Content="Home and Garden"
+   Margin="4 10"
+   IsChecked="{Binding CbHomeGarden, UpdateSourceTrigger=PropertyChanged,
+     Mode=TwoWay}"/>
+                </TreeViewItem>
+                
+            </TreeView>
+           
 
         </StackPanel>
     </Border>

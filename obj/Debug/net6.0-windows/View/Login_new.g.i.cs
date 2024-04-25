@@ -82,7 +82,7 @@ namespace WPF_Market.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WPF_Market;V1.0.0.0;component/view/login_new.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WPF_Market;component/view/login_new.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\Login_new.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -66,7 +66,7 @@ namespace WPF_Market.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WPF_Market;V1.0.0.0;component/view/statistical.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WPF_Market;component/view/statistical.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\Statistical.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

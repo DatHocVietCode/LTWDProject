@@ -285,3 +285,5 @@ D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\WPF_Market.genruntimeconfig
 D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\ref\WPF_Market.dll
 D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\View\WriteComment.g.cs
 D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\View\WriteComment.baml
+D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\View\SeeComment.g.cs
+D:\HK2_23-24_LTwindows\4-18\obj\Debug\net6.0-windows\View\SeeComment.baml
