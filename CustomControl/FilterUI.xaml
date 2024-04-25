@@ -18,17 +18,47 @@
             <TextBox x:Name="txt_search" Margin="10 0"
               VerticalAlignment="Center"
               materialDesign:HintAssist.Hint="Search"
+                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TreeView Margin="4" 
                      HorizontalAlignment="Left" RenderTransformOrigin="-0.01,0.571">
-                <TreeViewItem Header="PRODUCT" >
-                    <TreeViewItem Header="A -> Z"/>
-                    <TreeViewItem Header="Z -> A"/>
-                </TreeViewItem>
-
+              
                 <TreeViewItem Header="PRICE" >
-                    <TreeViewItem Header="MAX -> MIN"/>
-                    <TreeViewItem Header="MIN -> MAX"/>
+                    <TreeViewItem Header="MAX -> MIN"
+                                   IsSelected="{Binding MaxMin, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}"/>
+                    <TreeViewItem Header="MIN -> MAX"
+                                  IsSelected="{Binding MinMax, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}"/>
+                    <ItemsControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="From:"
+                                       VerticalAlignment="Bottom"></TextBlock>
+                            <TextBox Text="{Binding MinPrice, UpdateSourceTrigger=PropertyChanged
+                                , Mode=TwoWay}"
+                                Margin="3 0 3 0"
+                                     VerticalAlignment="Center"
+                                     VerticalContentAlignment="Bottom"
+                                     materialDesign:HintAssist.Hint="MinPrice"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+
+                            </TextBox>
+                            
+                            <TextBlock Text="To:"
+                                       VerticalAlignment="Bottom"
+                                       Margin="3 0 0 0"
+                                       ></TextBlock>
+                            <TextBox Text="{Binding MaxPrice, UpdateSourceTrigger=PropertyChanged
+                                 , Mode=TwoWay}"
+                                       Margin="3 0 3 0"
+                                     VerticalAlignment="Center"
+                                     VerticalContentAlignment="Bottom"
+                                     materialDesign:HintAssist.Hint="MaxPrice"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+
+                            </TextBox>
+                        </StackPanel>
+                    </ItemsControl>
                 </TreeViewItem>
             </TreeView>
             <CheckBox x:Name="cb_elec"

@@ -27,6 +27,8 @@ namespace WPF_Market.ViewModel
         private bool cbKidsBaies = false;
         private bool cbSports = false;
         private bool cbHomeGarden = false;
+        private float minPrice;
+        private float maxPrice;
         public MainBoardViewModel()
         {
             HomeCommand = new BaseViewModelCommand(ExecuteHomeCommand);
@@ -128,5 +130,8 @@ namespace WPF_Market.ViewModel
         public bool CbSports { get => cbSports; set { cbSports = value; OnPropertyChanged(nameof(CbSports)); if (CbSports == true) { types.Add("Sports"); } else types.Remove("Sports"); filterProduct(types); } }
         public bool CbHomeGarden { get => cbHomeGarden; set { cbHomeGarden = value; OnPropertyChanged(nameof(CbHomeGarden)); if (CbHomeGarden == true) { types.Add("Home and Garden"); } else types.Remove("Home and Garden"); filterProduct(types); } }
         public bool CbElect { get => cbElect; set { cbElect = value; OnPropertyChanged(nameof(CbElect)); if (CbElect == true) { types.Add("Electronics"); } else types.Remove("Electronics"); filterProduct(types); } }
+
+        public float MinPrice { get => minPrice; set { minPrice = value; OnPropertyChanged(nameof(MinPrice)); } }
+        public float MaxPrice { get => maxPrice; set { maxPrice = value; OnPropertyChanged(nameof(MaxPrice)); } }
     }
 }
