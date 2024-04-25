@@ -61,7 +61,9 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteVisitShop(object obj)
         {
-            MessageBox.Show(Product.IDShopNavigation.NameShop + "'s UI is being under development");
+            var ShopUi = new ShopUIGuest(Product.IDShopNavigation);
+            ShopUi.Owner = CurrentApplicationStatus.MainBoardWindow;
+            ShopUi.ShowDialog();
         }
 
         private void ChangeColor()

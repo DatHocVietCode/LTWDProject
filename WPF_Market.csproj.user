@@ -10,10 +10,16 @@
     <Compile Update="CustomControl\BindablePasswordBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CustomControl\FilterUI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CustomControl\ProductFAVUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CustomControl\ProductUI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CustomControl\ShopGuessInformation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Bought.xaml.cs">
@@ -60,10 +66,16 @@
     <Page Update="CustomControl\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="CustomControl\FilterUI.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CustomControl\ProductFAVUI.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CustomControl\ProductUI.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CustomControl\ShopGuessInformation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Bought.xaml">

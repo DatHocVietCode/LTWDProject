@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Market.Models;
+using WPF_Market.ViewModel;
 
 namespace WPF_Market.View
 {
@@ -20,9 +22,15 @@ namespace WPF_Market.View
     /// </summary>
     public partial class ShopUIGuest : Window
     {
-        public ShopUIGuest()
+        public ShopUIGuest(Shop shop)
         {
             InitializeComponent();
+            this.DataContext = new ShopGuestViewModel(shop);
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

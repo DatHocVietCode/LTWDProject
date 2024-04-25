@@ -170,7 +170,8 @@
                                             FontWeight="Black"
                                             Foreground="#A6A0A1"
                                             Content="{Binding Product.IDShopNavigation.NameShop}"
-                                            Command="{Binding VisitShop}">
+                                            Command="{Binding VisitShop}"
+                                            CommandParameter="{Binding}">
                                     </Button>
                                    
                                 </StackPanel>
