@@ -33,6 +33,8 @@ public partial class Shop
 
     public int? Purchases { get; set; }
 
+    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
+
     public virtual Account IDShopNavigation { get; set; }
 
     public virtual ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();

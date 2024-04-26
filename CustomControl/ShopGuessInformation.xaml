@@ -12,7 +12,7 @@
         <vm:MyImageConverter x:Key="ImageConverter"></vm:MyImageConverter>
     </UserControl.Resources>
     <Border BorderBrush="Black"
-            BorderThickness="1"
+            BorderThickness="0"
             Background="White"
             CornerRadius="10"
             Margin="5">
@@ -21,8 +21,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="2.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Border Margin="5"
-                    BorderThickness="0.5"
+            <Border Margin="8 8 4 8"
+                    BorderThickness="0"
+                    Background="#E9F3EB"
                     CornerRadius="10"
                     BorderBrush="Black">
                 <StackPanel Grid.Column ="0"
@@ -35,7 +36,9 @@
                         </Ellipse.Fill>
                     </Ellipse>
                     <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
-                                FontSize="16"
+                                FontSize="18"
+                               FontFamily="Dubai"
+                               FontWeight="Black"
                                 Text="{Binding Shop.NameShop, StringFormat=Shop\'s name: {0}}"
                                 Margin="0 5 0 5"
                                 HorizontalAlignment="Center">
@@ -49,7 +52,8 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-                            
+                            FontFamily="Dubai"
+                            FontWeight="Normal"
                             Text="Rating: "
                             Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                             FontSize="16"
@@ -65,9 +69,10 @@
             </Border>
             <Border Grid.Column="1"
                     BorderBrush="Black"
-                    BorderThickness="0.5"
+                    BorderThickness="0"
+                    Background="#E9F3EB"
                     CornerRadius="10"
-                    Margin="5">
+                    Margin="4 8 8 8">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"></RowDefinition>
@@ -221,6 +226,7 @@
                          Background="WhiteSmoke"
                          Foreground="Black"
                          Command="{Binding SeeCommentsDetail}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                          Margin="10 5 5 5">
                                     <materialDesign:PackIcon Kind="CommentEye" />
                                 </Button>
@@ -228,6 +234,7 @@
                                      Background="WhiteSmoke"
                                      Foreground="#0FC20F"
                                      Command="{Binding CreateComment}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                      Margin="10 5 5 5"
                                         IsEnabled="{Binding WriteCommand, UpdateSourceTrigger=PropertyChanged
                                     , Mode=TwoWay}">

@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPF_Market.Models;
+using WPF_Market.ViewModel;
 
 namespace WPF_Market.View
 {
@@ -20,16 +22,13 @@ namespace WPF_Market.View
     /// </summary>
     public partial class WriteComment : Window
     {
-        public WriteComment()
+        public WriteComment(Shop shop)
         {
             InitializeComponent();
+            this.DataContext = new CreateCommentViewModel(shop);
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
+     
         private void rate_TextChanged(object sender, TextChangedEventArgs e)
         {
             double n;

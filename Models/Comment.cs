@@ -7,11 +7,17 @@ namespace WPF_Market.Models;
 
 public partial class Comment
 {
-    public int IDProduct { get; set; }
+    public int IDShop { get; set; }
 
     public int IDUser { get; set; }
 
     public DateTime DataTimeCreate { get; set; }
 
     public string Comment1 { get; set; }
+
+    public float? Rate { get; set; }
+
+    public virtual Shop IDShopNavigation { get; set; }
+
+    public virtual User IDUserNavigation { get; set; }
 }
