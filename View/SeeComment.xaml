@@ -33,12 +33,19 @@
                     Background="Transparent"                  
                     BorderThickness="0"
                     Click="btnClose_Click"/>
+            <TextBlock Text="COMMENT"
+                       FontSize="18"
+                       FontFamily="Dubai"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"
+                       FontWeight="Black"/>
             <Grid Grid.Row="1">
-                
+                <ScrollViewer>
                 <ItemsControl ItemsSource="{Binding SeeComment}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Height="300"
+                            <Border MinHeight="30"
+                                    MaxHeight="300"
                                     Margin="20"
                                     Width="700"
                                     CornerRadius="10"
@@ -105,6 +112,7 @@
                     </ItemsControl.ItemsPanel>
 
                 </ItemsControl>
+                </ScrollViewer>
             </Grid>
         </Grid>
     </Border>

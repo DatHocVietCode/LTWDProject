@@ -34,6 +34,9 @@
     <Compile Update="View\Custom_mb.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\DeliProcess.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Invoice.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -97,6 +100,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Custom_mb.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DeliProcess.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\detail_product.xaml">

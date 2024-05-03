@@ -35,7 +35,6 @@ namespace WPF_Market.ViewModel
             SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
             SetCbtoDefault();
             ReloadCommand = new BaseViewModelCommand(ExecuteReloadCommand);
-            CreateComment = new BaseViewModelCommand(ExecuteCreateComment);
             SeeCommentsDetail = new BaseViewModelCommand(ExecuteSeeCommentsDetail);
         }
 
@@ -47,13 +46,7 @@ namespace WPF_Market.ViewModel
             seecomment.ShowDialog();
         }
 
-        private void ExecuteCreateComment(object obj)
-        {
-            var windowComment = new WriteComment(Shop);
-            var parentWindow = obj as Window;
-            windowComment.Owner = parentWindow;
-            windowComment.ShowDialog();
-        }
+      
 
         private void ExecuteSeeDetailCommand(object obj)
         {
@@ -75,7 +68,6 @@ namespace WPF_Market.ViewModel
         {
         }
         public ICommand SeeDetailCommand { get; }
-        public ICommand CreateComment { get; }
         public ICommand SeeCommentsDetail {  get; }
         public bool WriteCommand { get => writeCommand; set { writeCommand = value; OnPropertyChanged(nameof(WriteCommand)); } }
       

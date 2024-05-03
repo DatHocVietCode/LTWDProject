@@ -230,16 +230,7 @@
                          Margin="10 5 5 5">
                                     <materialDesign:PackIcon Kind="CommentEye" />
                                 </Button>
-                                <Button x:Name="btn_CreateComment"
-                                     Background="WhiteSmoke"
-                                     Foreground="#0FC20F"
-                                     Command="{Binding CreateComment}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                     Margin="10 5 5 5"
-                                        IsEnabled="{Binding WriteCommand, UpdateSourceTrigger=PropertyChanged
-                                    , Mode=TwoWay}">
-                                    <materialDesign:PackIcon Kind="CommentPlus" />
-                                </Button>
+                                
                             </StackPanel>
 
                         </StackPanel>

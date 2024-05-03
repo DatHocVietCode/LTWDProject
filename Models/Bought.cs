@@ -15,6 +15,8 @@ public partial class Bought
 
     public float TotalPrice { get; set; }
 
+    public int? IsComment { get; set; }
+
     public virtual User IDUserNavigation { get; set; }
 
     public virtual ICollection<LstProduct> LstProducts { get; set; } = new List<LstProduct>();

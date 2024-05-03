@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\HK2_23-24_LTwindows\4-18\App.xaml
-23-2095007222
+24368921262
 
-67-1742931737
+68651240619
 250599398004
-CustomControl\BindablePasswordBox.xaml;CustomControl\FilterUI.xaml;CustomControl\ProductFAVUI.xaml;CustomControl\ProductUI.xaml;CustomControl\ShopGuessInformation.xaml;View\Bought.xaml;View\Cart.xaml;View\confirmPass.xaml;View\Custom_mb.xaml;View\detail_product.xaml;View\Invoice.xaml;View\Login_new.xaml;View\Main_Board.xaml;View\Manage_Product.xaml;View\Myinf.xaml;View\product.xaml;View\Scroll.xaml;View\SeeComment.xaml;View\ShopUI.xaml;View\ShopUIGuest.xaml;View\Signup.xaml;View\Statistical.xaml;View\WriteComment.xaml;
+CustomControl\BindablePasswordBox.xaml;CustomControl\FilterUI.xaml;CustomControl\ProductFAVUI.xaml;CustomControl\ProductUI.xaml;CustomControl\ShopGuessInformation.xaml;View\Bought.xaml;View\Cart.xaml;View\confirmPass.xaml;View\Custom_mb.xaml;View\DeliProcess.xaml;View\detail_product.xaml;View\Invoice.xaml;View\Login_new.xaml;View\Main_Board.xaml;View\Manage_Product.xaml;View\Myinf.xaml;View\product.xaml;View\Scroll.xaml;View\SeeComment.xaml;View\ShopUI.xaml;View\ShopUIGuest.xaml;View\Signup.xaml;View\Statistical.xaml;View\WriteComment.xaml;
 
 False
 

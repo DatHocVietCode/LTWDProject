@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,18 @@ namespace WPF_Market.ViewModel
             GetData();
             CheckDetail = new BaseViewModelCommand(ExecuteCheckDetailCommand);
             DeleteDetail = new BaseViewModelCommand(ExecuteDeleteCommand);
+            Comment = new BaseViewModelCommand(ExcuteComment);
+        }
+
+        private void ExcuteComment(object obj)
+        {
+            var cmt = obj as Bought;
+            
+            if(cmt.IsComment == 1 && cmt != null)
+            {
+                
+
+            }            
         }
 
         private void ExecuteDeleteCommand(object obj)
@@ -55,5 +68,6 @@ namespace WPF_Market.ViewModel
         // Commands
         public ICommand CheckDetail { get; }
         public ICommand DeleteDetail { get; }
+        public ICommand Comment { get; }
     }
 }
