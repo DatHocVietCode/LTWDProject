@@ -33,6 +33,8 @@ public partial class User
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
+    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
+
     public virtual Account IDNavigation { get; set; }
 
     public virtual ICollection<Inventory> IDProducts { get; set; } = new List<Inventory>();

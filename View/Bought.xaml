@@ -64,7 +64,6 @@
                                     DisplayMemberBinding="{Binding TotalPrice}"
                                     Header="TotalPrice"
                                     Width="200"/>
-                               
                                 <GridViewColumn >
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -76,7 +75,7 @@
                                                     Command="{Binding DataContext.CheckDetail,
                                                 RelativeSource={RelativeSource AncestorType=ListView}}"
                                                     CommandParameter="{Binding}">
-                                                    
+
                                                 <materialDesign:PackIcon Kind="TagSearch"
                                                                          Height="30"
                                                                          HorizontalAlignment="Center"
@@ -86,6 +85,8 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
+                                
+                                
 
                                 <GridViewColumn >
                                     <GridViewColumn.CellTemplate>

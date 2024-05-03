@@ -28,7 +28,6 @@ namespace WPF_Market.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=LTWD_Final_Project;Integrated " +
             "Security=True;Encrypt=True")]
-
         public string TraoDoiMuaBan {
             get {
                 return ((string)(this["TraoDoiMuaBan"]));

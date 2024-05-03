@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,8 @@ namespace WPF_Market.ViewModel
             GetData();
             CheckDetail = new BaseViewModelCommand(ExecuteCheckDetailCommand);
             DeleteDetail = new BaseViewModelCommand(ExecuteDeleteCommand);
+        
         }
-
         private void ExecuteDeleteCommand(object obj)
         {
             var invoiceDele = obj as Bought;

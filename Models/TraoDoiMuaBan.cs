@@ -93,12 +93,25 @@ public partial class TraoDoiMuaBan : DbContext
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => new { e.DataTimeCreate, e.IDUser, e.IDProduct }).HasName("PK__Comment__18F87060439BAE95");
+            entity.HasKey(e => new { e.DataTimeCreate, e.IDUser, e.IDShop }).HasName("PK__Comment__18F87060439BAE95");
 
             entity.ToTable("Comment");
 
-            entity.Property(e => e.DataTimeCreate).HasColumnType("datetime");
+            entity.Property(e => e.DataTimeCreate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
             entity.Property(e => e.Comment1).HasColumnName("Comment");
+            entity.Property(e => e.Rate).HasDefaultValueSql("((0))");
+
+            entity.HasOne(d => d.IDShopNavigation).WithMany(p => p.Comments)
+                .HasForeignKey(d => d.IDShop)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Comment__IDShop__4924D839");
+
+            entity.HasOne(d => d.IDUserNavigation).WithMany(p => p.Comments)
+                .HasForeignKey(d => d.IDUser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Comment__IDUser__4A18FC72");
         });
 
         modelBuilder.Entity<ImageLink>(entity =>

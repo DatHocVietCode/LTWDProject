@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Title="Invoice" MinHeight="250" Width="500"
+        Title="Invoice" MinHeight="250" Width="600"
         MouseDown="Window_MouseDown">
     <Border CornerRadius="10"
             BorderThickness="3"
@@ -42,7 +42,6 @@
                        FontWeight="DemiBold"/>
             <ScrollViewer Grid.Row="1">
                 <Grid>
-                    
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition/>
@@ -67,7 +66,7 @@
                         </TextBlock>
                     </Grid>
                     <Grid  Grid.Row="1">
-                        <ListView ItemsSource="{Binding ListItem}" IsEnabled="False">
+                        <ListView ItemsSource="{Binding ListItem}" IsEnabled="True">
                             
                             <ListView.View>
                                 <GridView>
@@ -81,6 +80,27 @@
                                     </GridViewColumn>
                                     <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Number}" Width="130"/>
                                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding IDProductNavigation.CurrentPrice}" Width="95"/>
+                                    <GridViewColumn >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="btn_comment"
+                                                        Width="60"
+                                                        Height="50"
+                                                        Background="Transparent"
+                                                        BorderThickness="0"
+                                                        Command="{Binding DataContext.Comment,
+                                                    RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                    CommandParameter="{Binding}">
+
+                                                    <materialDesign:PackIcon Kind="Comment"
+                                                                     Height="30"
+                                                                     HorizontalAlignment="Center"
+                                                                     Foreground="Black"
+                                                                     Width="40"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>

@@ -5,7 +5,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using WPF_Market.Models;
 using WPF_Market.View;
@@ -26,7 +29,19 @@ namespace WPF_Market.ViewModel
             SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
             SetCbtoDefault();
             ReloadCommand = new BaseViewModelCommand(ExecuteReloadCommand);
+            SeeCommentsDetail = new BaseViewModelCommand(ExecuteSeeCommentsDetail);
         }
+
+        private void ExecuteSeeCommentsDetail(object obj)
+        {
+            var seecomment = new SeeComment(Shop);
+            var parentWindow = obj as Window;
+            seecomment.Owner = parentWindow;
+            seecomment.ShowDialog();
+        }
+
+      
+
         private void ExecuteSeeDetailCommand(object obj)
         {
             var product = (Inventory)obj;
@@ -45,6 +60,7 @@ namespace WPF_Market.ViewModel
         {
         }
         public ICommand SeeDetailCommand { get; }
+        public ICommand SeeCommentsDetail {  get; }
         public bool WriteCommand { get => writeCommand; set { writeCommand = value; OnPropertyChanged(nameof(WriteCommand)); } }
         #region Filter
         List<string> types = new List<string>();
