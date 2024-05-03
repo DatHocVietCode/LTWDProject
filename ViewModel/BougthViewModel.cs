@@ -50,7 +50,7 @@ namespace WPF_Market.ViewModel
 
         void GetData()
         {
-            var lst = DataProvider.Instance.DB.Boughts.Include(p=>p.LstProducts).Where(p=> p.IDUser == CurrentApplicationStatus.CurrentID).ToList();
+            var lst = DataProvider.Instance.DB.Boughts.Include(p=>p.LstProducts).Where(p=> p.IDUser == CurrentApplicationStatus.CurrentID).OrderByDescending(p=>p.DateBought).ToList();
             Boughts = new ObservableCollection<Bought>(lst);
         }
         // Commands

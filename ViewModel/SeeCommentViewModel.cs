@@ -14,9 +14,9 @@ namespace WPF_Market.ViewModel
         private ObservableCollection<Comment> seeComment = new ObservableCollection<Comment>();
         public SeeCommentViewModel(Shop Shop)
         {
-            var lst = DataProvider.Instance.DB.Shops.Include(p=>p.Comments).Where(p=>p.IDShop==Shop.IDShop).FirstOrDefault();
-            SeeComment = new ObservableCollection<Comment>(lst.Comments);
-            
+            Shop.Comments = DataProvider.Instance.DB.Shops.Where(p => p.IDShop == Shop.IDShop).SelectMany(p=>p.Comments).OrderByDescending(p=>p.DataTimeCreate).ToList();
+           
+            SeeComment = new ObservableCollection<Comment>(Shop.Comments);
         }
 
      

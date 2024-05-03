@@ -79,41 +79,47 @@ namespace WPF_Market.ViewModel
             invoice.TotalPrice = (float)MoneyToPay;
             DataProvider.Instance.DB.Boughts.Add(invoice);
             DataProvider.Instance.DB.SaveChanges();
+            var checkedItem = new List<LstProduct>();
+            var checkedCarts = new List<CartWrapper>();
             foreach (var item in tempLst)
             {
                 if (item.CartWrapperIsChecked)
                 {
                     if (item.Cart.IDProductNavigation.NumberLeft >= item.CartWrapperNumber)
                     {
-                        item.Cart.IDProductNavigation.NumberLeft -= item.CartWrapperNumber;
-                        //item.Cart.IDProductNavigation.NumberSold += item.CartWrapperNumber;   
-                        DataProvider.Instance.DB.SaveChanges();
-
                         LstProduct product = new LstProduct();
                         product.IDProduct = item.Cart.IDProduct;
                         product.IDInvoice = invoice.IDInvoice;
                         product.Number = item.CartWrapperNumber;
-                        DataProvider.Instance.DB.LstProducts.Add(product);
+                        checkedItem.Add(product);
+                        checkedCarts.Add(item);
+                      /*  DataProvider.Instance.DB.LstProducts.Add(product);
                         DataProvider.Instance.DB.SaveChanges();
 
                         DataProvider.Instance.DB.Remove(item.Cart);
-                        DataProvider.Instance.DB.SaveChanges();
-                        carts.Remove(item);
+                        DataProvider.Instance.DB.SaveChanges();*/
+                        //carts.Remove(item);
                         isbought = true;
                     }
                     else
                     {
-                        new Custom_mb("Something went wrong! Please try again", Custom_mb.MessageType.Error, Custom_mb.MessageButtons.Ok).ShowDialog();
                         item.CartWrapperIsChecked = false;
+                        isbought = false;
                         break;
                     }
-                }
-                
+                }              
             }
             if (isbought)
             {
-                var lst = DataProvider.Instance.DB.LstProducts.Where(p => p.IDInvoice == invoice.IDInvoice).ToList();
-                invoice.LstProducts = new List<LstProduct>(lst);
+                //var lst = DataProvider.Instance.DB.LstProducts.Where(p => p.IDInvoice == invoice.IDInvoice).ToList();
+                invoice.LstProducts = new List<LstProduct>(checkedItem);
+                foreach (var item in checkedCarts)
+                {
+                    item.Cart.IDProductNavigation.NumberLeft -= item.CartWrapperNumber;
+                    //item.Cart.IDProductNavigation.NumberSold += item.CartWrapperNumber;   
+                    DataProvider.Instance.DB.Remove(item.Cart);
+                    Carts.Remove(item);
+                }
                 DataProvider.Instance.DB.SaveChanges();
                 new Custom_mb("Thanks for your support! Hope to see you later!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
             }
@@ -121,13 +127,16 @@ namespace WPF_Market.ViewModel
             {
                 DataProvider.Instance.DB.Boughts.Remove(invoice);
                 DataProvider.Instance.DB.SaveChanges();
+                foreach (var item in checkedCarts)
+                {
+                    item.CartWrapperIsChecked = false;
+                }
+                new Custom_mb("Something went wrong! Please try again", Custom_mb.MessageType.Error, Custom_mb.MessageButtons.Ok).ShowDialog();
             }
             SubTotal = 0;
             MoneyToPay = 0;
             IsCheckedPickup = true;
             IsCheckedDelivery = false;        
-
-            // Se bo sung xuat hoa don
         }
 
         private void ExecuteDeleteProductCommand(object obj)

@@ -23,6 +23,7 @@ namespace WPF_Market.ViewModel
         public ShopGuestViewModel(Shop shop, bool canWriteComment)
         {
             this.Shop = shop;
+            this.Shop.Comments = DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == this.Shop.IDShop).SelectMany(p => p.Comments).ToList();
             GetShopProduct();
             OrderByPriority(1);
             WriteCommand = canWriteComment;

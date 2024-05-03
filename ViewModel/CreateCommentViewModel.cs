@@ -47,7 +47,7 @@ namespace WPF_Market.ViewModel
             comment.Rate = (float)Rate;
             DataProvider.Instance.DB.Comments.Add(comment);
             DataProvider.Instance.DB.SaveChanges(); 
-            new Custom_mb("Thanks for your judge!\nHope t see you soon", Custom_mb.MessageType.Confirmation, Custom_mb.MessageButtons.Ok).ShowDialog();
+            new Custom_mb("Thanks for your judge!\nHope to see you soon", Custom_mb.MessageType.Confirmation, Custom_mb.MessageButtons.Ok).ShowDialog();
             ExecuteCloseCommand(obj);
         }
 
