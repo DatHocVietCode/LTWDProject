@@ -15,14 +15,8 @@ namespace WPF_Market.ViewModel
     class ShopGuestViewModel : BaseViewModel
     {
         private Shop shop;
-        
         public Shop Shop { get => shop; set { shop = value; OnPropertyChanged(nameof(Shop)); } }
-
-       
-       
         private bool writeCommand = true;
-      
-
         public ShopGuestViewModel(Shop shop, bool canWriteComment)
         {
             this.Shop = shop;
@@ -42,20 +36,16 @@ namespace WPF_Market.ViewModel
             detail.Owner = CurrentApplicationStatus.MainBoardWindow;
             detail.ShowDialog();
         }
-
         private void GetShopProduct()
         {
             var lst = Shop.Inventories.ToList();
             ProductList = new ObservableCollection<Inventory>(lst);
         }
-
         public ShopGuestViewModel()
         {
         }
         public ICommand SeeDetailCommand { get; }
         public bool WriteCommand { get => writeCommand; set { writeCommand = value; OnPropertyChanged(nameof(WriteCommand)); } }
-      
-     
         #region Filter
         List<string> types = new List<string>();
         private bool cbElect = false;

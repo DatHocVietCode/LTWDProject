@@ -25,25 +25,8 @@ namespace WPF_Market.View
         public Statistical()
         {
             InitializeComponent();
-
-            Pointlable = ChartPoint => string.Format("{0}({1:P})", ChartPoint.Y, ChartPoint.Participation);
-            DataContext = this;
         }
-        public Func<ChartPoint, string> Pointlable {  get; set; }
-        private void PieChart_DataClick(object sender, ChartPoint chartPoint)
-        {
-            var chart = (LiveCharts.Wpf.PieChart)chartPoint.ChartView;
-            foreach (PieSeries series in chart.Series)
-                series.PushOut = 0;
-            var selected = (PieSeries)chartPoint.SeriesView;
-            selected.PushOut = 8;
-        }
-
-        private void PieChart_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+    
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

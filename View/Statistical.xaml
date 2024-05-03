@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Market.View"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:vm="clr-namespace:WPF_Market.ViewModel"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Statistical" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:StatictisViewModel></vm:StatictisViewModel>
+    </Window.DataContext>
     <Border CornerRadius="10"
             BorderThickness="3"
             Background="White">
@@ -34,7 +38,7 @@
                     Background="Transparent"                  
                     BorderThickness="0"
                     Click="btnClose_Click"/>
-            <TextBlock Text="Statistical"
+            <TextBlock Text="Statistics"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
                FontSize="15"
@@ -51,15 +55,16 @@
                                                FontSize="15"
                                                VerticalAlignment="Center"
                                                FontFamily="Dubai"
-                                               FontWeight="Black">
-                                    <Run>REVENUE: </Run>
-                                    <Run Foreground="#A09A92">545555</Run>
+                                               FontWeight="Black"
+                                                Foreground="#A09A92"
+                                           Text="{Binding TotalRevenue, StringFormat=Total Revenue: {0}}">
+                                   
                                 </TextBlock>
                                 <Border Background="#F1E7DC" Height="250" Width="600"
                                     CornerRadius="10">
-                                    <lvc:CartesianChart LegendLocation="None" >
+                                    <lvc:CartesianChart LegendLocation="None">
                                         <lvc:CartesianChart.AxisX>
-                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16">
+                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="False" Labels="{Binding NameProducts, UpdateSourceTrigger=PropertyChanged}" FontSize="10">
                                                 <!--ten san pham-->
 
                                                 <lvc:Axis.Separator>
@@ -68,7 +73,7 @@
                                             </lvc:Axis>
                                         </lvc:CartesianChart.AxisX>
                                         <lvc:CartesianChart.AxisY>
-                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0" MaxValue="100">
+                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0"  MaxValue="{Binding MaxRevenue, UpdateSourceTrigger=PropertyChanged}">
                                                 <!--max = revenue-->
                                                 <lvc:Axis.Separator>
                                                     <lvc:Separator StrokeThickness="0"/>
@@ -77,7 +82,7 @@
                                         </lvc:CartesianChart.AxisY>
 
                                         <lvc:CartesianChart.Series>
-                                            <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="15" Values="40,10,10,100,100,100,100,100,100,100,100,100,100,100, 100, 100"/>
+                                            <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="30" Values="{Binding Revenue, UpdateSourceTrigger=PropertyChanged}"/>
                                             <!--số tiền bán dc-->
                                         </lvc:CartesianChart.Series>
                                     </lvc:CartesianChart>
@@ -92,24 +97,24 @@
                                        VerticalAlignment="Center"
                                        FontSize="15"
                                         FontFamily="Dubai"
-                                        FontWeight="Black">
-                                <Run>RATIO BETWEEN PURCHASES AND VISITS</Run>
+                                        FontWeight="Black"
+                                       Text="The proportion between customers who visit and purchase">
+                               
                             </TextBlock>
                             <lvc:PieChart LegendLocation="Bottom"
                                           Hoverable="False"
                                           Height="200"
                                           Width="200"
                          
-                                          Margin="0 0 10 0" DataClick="PieChart_DataClick" Loaded="PieChart_Loaded">
+                                          Margin="0 0 10 0">
                                 <lvc:PieChart.Series>
                                     <lvc:PieSeries Title="Purchases "
-                                                   Values="4"
-                                                   DataLabels="True"
-                                                   LabelPoint="{Binding Pointlable}"/>
+                                                   Values="{Binding Purchases, UpdateSourceTrigger=PropertyChanged}"
+                                              
+                                                   />
                                     <lvc:PieSeries Title="Visits"
-                                                   Values="1"
-                                                   DataLabels="True"
-                                                   LabelPoint="{Binding Pointlable}"/>
+                                                   Values="{Binding Visits,UpdateSourceTrigger=PropertyChanged}"
+                                                     />
                                 </lvc:PieChart.Series>
                                 
                             </lvc:PieChart>

@@ -63,7 +63,7 @@ namespace WPF_Market.ViewModel
         {
             var ShopUi = new ShopUIGuest(Product.IDShopNavigation, true);
             var Shop = Product.IDShopNavigation;
-            Shop.NumCustomersVisit++;
+            Shop.Visits++;
             DataProvider.Instance.DB.SaveChanges();
             ShopUi.Owner = CurrentApplicationStatus.MainBoardWindow;
             ShopUi.ShowDialog();

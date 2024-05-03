@@ -19,19 +19,15 @@ public partial class Shop
 
     public string Email { get; set; }
 
-    public int? NumCustomersVisit { get; set; }
-
-    public int? NumCustomersRate { get; set; }
-
     public float? Rating { get; set; }
 
     public string Slogan { get; set; }
 
     public DateTime? CreateDate { get; set; }
 
-    public int? Visits { get; set; }
+    public int Visits { get; set; }
 
-    public int? Purchases { get; set; }
+    public int Purchases { get; set; }
 
     public virtual Account IDShopNavigation { get; set; }
 
