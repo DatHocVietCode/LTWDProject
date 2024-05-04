@@ -103,7 +103,7 @@
                                           Margin="0 0 10 0" DataClick="PieChart_DataClick" Loaded="PieChart_Loaded">
                                 <lvc:PieChart.Series>
                                     <lvc:PieSeries Title="Purchases "
-                                                   Values="4"
+                                                   Values= "3"
                                                    DataLabels="True"
                                                    LabelPoint="{Binding Pointlable}"/>
                                     <lvc:PieSeries Title="Visits"
