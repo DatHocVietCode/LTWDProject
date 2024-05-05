@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,8 @@ namespace WPF_Market.ViewModel
     {
       
         private int iDShop = CurrentApplicationStatus.CurrentID;
+        private Shop shop = new Shop();
+        public Shop Shop { get => shop; set { shop = value; OnPropertyChanged(nameof(Shop)); } }
         public ShopViewModel()
         {
             GetProductFromDB();
@@ -24,6 +27,7 @@ namespace WPF_Market.ViewModel
             EditProductCommand = new BaseViewModelCommand(ExecuteEditProductCommand);
             SeeStatistical = new BaseViewModelCommand(ExecuteSeeStatistial, CanExecuteSeeStatistic);
             GuessView = new BaseViewModelCommand(ExecuteGuessView, CanExecuteGuessView);
+            ReloadCommand = new BaseViewModelCommand(ExecuteReloadCommand);
         }
 
         private bool CanExecuteSeeStatistic(object obj)
@@ -48,14 +52,14 @@ namespace WPF_Market.ViewModel
         private void ExecuteGuessView(object obj)
         {
             var currentShop = DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == CurrentApplicationStatus.CurrentID).FirstOrDefault();
-            var Guessview = new ShopUIGuest(currentShop, false);
+            var Guessview = new ShopUIGuest(currentShop, true);
             Guessview.Owner = CurrentApplicationStatus.MainBoardWindow;
             Guessview.ShowDialog();
         }
 
         private void ExecuteSeeStatistial(object obj)
         {
-            var newWindow = new Statistical();
+            var newWindow = new Statistic();
             newWindow.Owner = CurrentApplicationStatus.MainBoardWindow;
             newWindow.ShowDialog();
         }
@@ -78,20 +82,32 @@ namespace WPF_Market.ViewModel
 
         private void GetProductFromDB()
         {
-            ProductList = new ObservableCollection<Inventory>(DataProvider.Instance.DB.Inventories.Where(p => p.IDShop == CurrentApplicationStatus.CurrentID));
+            this.Shop = DataProvider.Instance.DB.Shops.Where(p => p.IDShop == CurrentApplicationStatus.CurrentID).FirstOrDefault();
+            Shop.Inventories = DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == Shop.IDShop).SelectMany(p=>p.Inventories).ToList();
+            ProductList = new ObservableCollection<Inventory>(Shop.Inventories);
         }
         private void ExecuteDeleteProductCommand(object obj)
         {
-            var Product = obj as Inventory;
-            var lstImage = DataProvider.Instance.DB.ImageLinks.Where(p => p.IDProduct == Product.IDProduct).ToList();
-            foreach (var item in lstImage)
+            try
             {
-                DataProvider.Instance.DB.ImageLinks.Remove(item);
+                var Product = obj as Inventory;
+                var lstImage = DataProvider.Instance.DB.ImageLinks.Where(p => p.IDProduct == Product.IDProduct).ToList();
+                foreach (var item in lstImage)
+                {
+                    DataProvider.Instance.DB.ImageLinks.Remove(item);
+                }
+                DataProvider.Instance.DB.SaveChanges();
+                DataProvider.Instance.DB.Inventories.Remove(Product);
+                DataProvider.Instance.DB.SaveChanges();
+                ProductList.Remove(Product);
+                new Custom_mb("Deleted!", Custom_mb.MessageType.Confirmation, Custom_mb.MessageButtons.Ok).ShowDialog();
             }
-            DataProvider.Instance.DB.SaveChanges();
-            DataProvider.Instance.DB.Inventories.Remove(Product);
-            ProductList.Remove(Product);
-            DataProvider.Instance.DB.SaveChanges();
+            catch (Exception)
+            {
+
+                new Custom_mb("The item can't be deleted because it is in using!", Custom_mb.MessageType.Error, Custom_mb.MessageButtons.Ok).ShowDialog();  
+            }
+          
         }
 
         private void ExecuteAddProductCommand(object obj)
@@ -155,17 +171,19 @@ namespace WPF_Market.ViewModel
 
         public string SearchText { get => searchText; set { searchText = value; OnPropertyChanged(nameof(SearchText)); SearchByName(); } }
         public ICommand ReloadCommand { get; }
+     
+
         private void FilterByType()
         {
             if (Types.Count == 0)
             {
-                var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).ToList();
-                ProductList = new ObservableCollection<Inventory>(lst);
+               
+                ProductList = new ObservableCollection<Inventory>(Shop.Inventories);
                 return;
             }
             else
             {
-                var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).Where(p => Types.Contains(p.Type)).ToList();
+                var lst = Shop.Inventories.Where(p => Types.Contains(p.Type)).ToList();
                 ProductList = new ObservableCollection<Inventory>(lst);
             }
         }
@@ -217,9 +235,7 @@ namespace WPF_Market.ViewModel
             MaxPrice = 0;
             MinMax = false;
             MaxMin = false;
-            var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation)
-                .Include(p => p.ImageLinks).ToList();
-            ProductList = new ObservableCollection<Inventory>(lst);
+            ProductList = new ObservableCollection<Inventory>(Shop.Inventories);
             OrderByPriority(1);
         }
         private void SetCbtoDefault()

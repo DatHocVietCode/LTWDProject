@@ -19,7 +19,7 @@
     <Compile Update="CustomControl\ProductUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CustomControl\ShopGuessInformation.xaml.cs">
+    <Compile Update="CustomControl\ShopGuestInformation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Bought.xaml.cs">
@@ -67,7 +67,7 @@
     <Compile Update="View\Signup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Statistical.xaml.cs">
+    <Compile Update="View\Statistic.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\WriteComment.xaml.cs">
@@ -87,7 +87,7 @@
     <Page Update="CustomControl\ProductUI.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="CustomControl\ShopGuessInformation.xaml">
+    <Page Update="CustomControl\ShopGuestInformation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Bought.xaml">
@@ -141,7 +141,7 @@
     <Page Update="View\Signup.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\Statistical.xaml">
+    <Page Update="View\Statistic.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\WriteComment.xaml">

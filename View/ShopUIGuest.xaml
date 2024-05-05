@@ -14,13 +14,16 @@
             d:DesignHeight="450" d:DesignWidth="800"
             MinWidth="800"
             MinHeight="450"
+            Height="700"
+            ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
     <Window.Resources>
         <sys:Single x:Key="MySingleValue">1.5</sys:Single>
         <vmProduct:MyImageConverter x:Key="MyImageConverter"></vmProduct:MyImageConverter>
     </Window.Resources>
     <Border CornerRadius="10"
-            BorderThickness="0"
+            BorderThickness="0.5"
+           
             Background="White">
        
             <Grid>
@@ -72,7 +75,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Expander.Style>
-                            <CustomControl:ShopGuessInformation></CustomControl:ShopGuessInformation>
+                            <CustomControl:ShopGuestInformation></CustomControl:ShopGuestInformation>
                         </Expander>
 
                     </StackPanel>

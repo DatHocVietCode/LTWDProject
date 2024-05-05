@@ -8,8 +8,9 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        WindowStyle="None"
+        xmlns:local ="clr-namespace:WPF_Market.ViewModel"
         FontSize="15"
+        WindowStyle="None"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Manage_Product" Height="700" Width="900"
         MouseEnter="Window_MouseEnter"
@@ -69,19 +70,21 @@
                                  Width="400" Margin="0 0 10 0"
                                  materialDesign:HintAssist.Hint="OriginalPrice"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                 Text="{Binding OriginalPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                 Text="{Binding OriginalPriceStr, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             <TextBox x:Name="txt_currentprice"
                                  Width="400" Margin="10 0 0 0"
                                  materialDesign:HintAssist.Hint="CurrentPrice"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                  Text="{Binding CurrentPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                  Text="{Binding CurrentPriceStr, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="50" Margin="0 0 0 10">
                             <TextBox x:Name="txt_new"
                                  Width="400" Margin="0 0 10 0"
                                  materialDesign:HintAssist.Hint="Newness (%)"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                 Text="{Binding Newness,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                 Text="{Binding NewnessStr,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                
+                            </TextBox>
                             <ComboBox x:Name="cbb_type"
                                   Width="400" Margin="10 0 0 0"
                                   materialDesign:HintAssist.Hint="Type"

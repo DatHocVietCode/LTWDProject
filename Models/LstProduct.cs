@@ -14,6 +14,4 @@ public partial class LstProduct
     public int Number { get; set; }
 
     public virtual Bought IDInvoiceNavigation { get; set; }
-
-    public virtual Inventory IDProductNavigation { get; set; }
 }

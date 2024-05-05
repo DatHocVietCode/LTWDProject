@@ -74,12 +74,12 @@
                                         
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding IDProductNavigation.Name}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding Inventory.Name}" TextWrapping="Wrap"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Number}" Width="130"/>
-                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding IDProductNavigation.CurrentPrice}" Width="95"/>
+                                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding LstProduct.Number}" Width="130"/>
+                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Inventory.CurrentPrice}" Width="95"/>
                                     <GridViewColumn >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

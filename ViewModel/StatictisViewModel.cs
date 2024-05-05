@@ -29,7 +29,7 @@ namespace WPF_Market.ViewModel
                 if (item.Name.Length > MaxLength)
                     MaxLength = item.Name.Length;
                 ID.Add(item.IDProduct);
-                Revenue.Add((int)item.Venenue);
+                Revenue.Add((int)item.Revenue);
             }
             MaxRevenue = Revenue.Max();
             TotalRevenue=Revenue.Sum();

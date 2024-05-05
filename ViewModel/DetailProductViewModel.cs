@@ -63,7 +63,7 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteVisitShop(object obj)
         {
-            var ShopUi = new ShopUIGuest(Product.IDShopNavigation, true);
+            var ShopUi = new ShopUIGuest(Product.IDShopNavigation, false);
             var Shop = Product.IDShopNavigation;
             //Shop.Visits++;
             //DataProvider.Instance.DB.SaveChanges();

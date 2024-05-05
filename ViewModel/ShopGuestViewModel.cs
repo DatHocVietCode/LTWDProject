@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,22 +18,97 @@ namespace WPF_Market.ViewModel
 {
     class ShopGuestViewModel : BaseViewModel
     {
-        private Shop shop;
+        private Shop shop = new Shop();
+      
+        private bool isEdit = false;
+        private bool isShow = true;
+        private bool editVisibility = false;
+        string relativePath;
+        string absolutePath;
         public Shop Shop { get => shop; set { shop = value; OnPropertyChanged(nameof(Shop)); } }
-        private bool writeCommand = true;
-        public ShopGuestViewModel(Shop shop, bool canWriteComment)
+        public bool IsEdit { get => isEdit; set { isEdit = value; OnPropertyChanged(nameof(IsEdit)); } }
+        public bool IsShow { get => isShow; set { isShow = value; OnPropertyChanged(nameof(IsShow)); } }
+        public bool EditVisibility { get => editVisibility; set { editVisibility = value; OnPropertyChanged(nameof(EditVisibility)); } }
+        public string NameShop { get => shop.NameShop; set { shop.NameShop = value; OnPropertyChanged(nameof(NameShop)); } }
+        public string Address { get => shop.Address; set { shop.Address = value; OnPropertyChanged(nameof(Address)); } }
+        public string PhoneNumber { get => shop.PhoneNumber; set { shop.PhoneNumber = value; OnPropertyChanged(nameof(PhoneNumber)); } }
+        public string Email { get => shop.Email; set { shop.Email = value; OnPropertyChanged(nameof(Email)); } }
+        public string Slogan { get => shop.Slogan; set { shop.Slogan = value; OnPropertyChanged(nameof(Slogan)); } }
+        public string ShopAvatar { get => shop.ShopAvatar; set { shop.ShopAvatar = value; OnPropertyChanged(nameof(ShopAvatar)); } }
+        public DateTime CreateDate { get => (DateTime)(shop.CreateDate)?.Date; }
+        public ShopGuestViewModel(Shop shop, bool EditVisibility)
         {
             this.Shop = shop;
             this.Shop.Comments = DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == this.Shop.IDShop).SelectMany(p => p.Comments).ToList();
+            this.EditVisibility = EditVisibility;
             GetShopProduct();
             OrderByPriority(1);
-            WriteCommand = canWriteComment;
             SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
             SetCbtoDefault();
             ReloadCommand = new BaseViewModelCommand(ExecuteReloadCommand);
             SeeCommentsDetail = new BaseViewModelCommand(ExecuteSeeCommentsDetail);
+            EditCommand = new BaseViewModelCommand(ExecuteEditCommand);
+            ChangeAvatar = new BaseViewModelCommand(ExecuteChangeAvatar);
+            relativePath = @"ShopAvatar\" + CurrentApplicationStatus.CurrentID.ToString() + @"\";
+            absolutePath = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin")) + relativePath;
+            SaveCommand = new BaseViewModelCommand(ExecuteSaveCommand, CanExecuteSaveCommand);
         }
 
+        private bool CanExecuteSaveCommand(object obj)
+        {
+            return CheckValidInfor();
+        }
+
+        private bool CheckValidInfor()
+        {
+            if (string.IsNullOrEmpty(PhoneNumber) || string.IsNullOrEmpty(Email))
+                return false;
+            return (PhoneNumber.Length == 10 && PhoneNumber[0] == '0' && Email.Contains("@gmail.com") && !string.IsNullOrEmpty(Slogan) 
+                && !string.IsNullOrEmpty(NameShop));
+        }
+
+        private void ExecuteSaveCommand(object obj)
+        {
+            IsShow = true;
+            IsEdit = false;
+            DataProvider.Instance.DB.SaveChanges();
+            new Custom_mb("Successfully edit your information!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();
+        }
+
+        private void ExecuteChangeAvatar(object obj)
+        {
+            try
+            {
+                Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    if (openFileDialog.FileName != "")
+                    {
+                        if (!File.Exists(absolutePath))
+                        {
+                            Directory.CreateDirectory(absolutePath);
+                        }
+                        string sourceFilePath = openFileDialog.FileName;
+                        string destinationFilePath = Path.Combine(absolutePath, Path.GetFileName(sourceFilePath));
+
+                        File.Copy(sourceFilePath, destinationFilePath, true);
+                        ShopAvatar = Path.Combine(relativePath, Path.GetFileName(sourceFilePath));
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error opening folder: " + ex.Message);
+            }
+        }
+
+        private void ExecuteEditCommand(object obj)
+        {
+            IsEdit = true;
+            IsShow = true;
+            new Custom_mb("To save your works, please ensure you clicked save button!", Custom_mb.MessageType.Info, Custom_mb.MessageButtons.Ok).ShowDialog();
+        }
         private void ExecuteSeeCommentsDetail(object obj)
         {
             var seecomment = new SeeComment(Shop);
@@ -62,7 +138,9 @@ namespace WPF_Market.ViewModel
         }
         public ICommand SeeDetailCommand { get; }
         public ICommand SeeCommentsDetail {  get; }
-        public bool WriteCommand { get => writeCommand; set { writeCommand = value; OnPropertyChanged(nameof(WriteCommand)); } }
+        public ICommand EditCommand { get; }
+        public ICommand ChangeAvatar { get; }
+        public ICommand SaveCommand {  get; }
         #region Filter
         List<string> types = new List<string>();
         private bool cbElect = false;
@@ -113,13 +191,13 @@ namespace WPF_Market.ViewModel
         {
             if (Types.Count == 0)
             {
-                var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).ToList();
+                var lst = this.Shop.Inventories.ToList();
                 ProductList = new ObservableCollection<Inventory>(lst);
                 return;
             }
             else
             {
-                var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks).Where(p => Types.Contains(p.Type)).ToList();
+                var lst = this.Shop.Inventories.Where(p => Types.Contains(p.Type)).ToList();
                 ProductList = new ObservableCollection<Inventory>(lst);
             }
         }

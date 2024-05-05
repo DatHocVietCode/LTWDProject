@@ -4,4 +4,21 @@
 	+ Nếu khách hàng mua sản phẩm ngay lập tức (pickup), +1 lượt mua cho các shop có trong hóa đơn, không cần biết mua bao nhiêu món và số lượng các món
 	+ Trường hợp Delivery, phải chờ cho tới khi khách hàng nhận được hàng thì mới +1, cách tính như pick up, vì khách hàng có thể hủy đơn
 - Chỉnh sửa database: Revenue của shop từ default = 0 và allow null chuyển về default 0 và not allow null nhầm tránh trường hợp gây lỗi cho shop mới tạo khi mới thêm hàng mà click vào thống kê thì revenue là null dẫn tới lỗi
+- Chỉnh sửa login vì phát hiện lỗi nếu login sai 1 lần thì lần sau login báo lỗi null
+- Chỉnh sửa shop guest view tự động hiển thị tất cả sản phẩm không có trong Shop (bị lặp code)
+- Nới rộng shop guest để hiển thị hết categories trong filter (đang tìm cách thiết lập scroll viewer)
+- Thêm và chỉnh sửa cho phần thông tin shop (done):
+	+ Đối với Guest View từ shop, cho phép chỉnh sửa thông tin
+	+ Đối với khác hàng click vào tham quan, ẩn nút chỉnh sửa đi
+- Đặt try catch cho việc xóa sản phẩm của Shop vì có thể nó đang được ai đó mua => gỡ liên kết khóa ngoại của nó với LstProduct, vì sản phẩm sau khi mua có thể bị xóa. => Thiết kế lại xem hóa đơn và tạo lớp Wrapper để bọc 2 đứa nó lại
+- Chỉnh sửa lại filter sao cho không còn lỗi logic (lọc luôn đồ của shop khác)
+- Chỉnh sửa tên cho đúng chính tả:
+	+ Venue -> Revenue
+	+ Statistical.xaml -> Statistic.xaml
+	+ ShopGuessInformation.xaml -> ShopGuestInformation.xaml
+- Chỉnh sửa lại logic lúc thêm sản phẩm:
+	+ Current/ Original/ Newness không được là chữ
+	+ Current <= Original
+	+ Newness <=100
+	+ Current và Original !=0
 - Tiếp tục phát triển tính năng Delivery

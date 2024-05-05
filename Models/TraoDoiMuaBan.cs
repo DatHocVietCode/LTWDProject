@@ -138,7 +138,6 @@ public partial class TraoDoiMuaBan : DbContext
 
             entity.Property(e => e.BoughtTime).HasColumnType("datetime");
             entity.Property(e => e.Type).HasMaxLength(50);
-            entity.Property(e => e.Venenue).HasDefaultValueSql("((0))");
 
             entity.HasOne(d => d.IDShopNavigation).WithMany(p => p.Inventories)
                 .HasForeignKey(d => d.IDShop)
@@ -175,11 +174,6 @@ public partial class TraoDoiMuaBan : DbContext
                 .HasForeignKey(d => d.IDInvoice)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__LstProduc__IDInv__2D7CBDC4");
-
-            entity.HasOne(d => d.IDProductNavigation).WithMany(p => p.LstProducts)
-                .HasForeignKey(d => d.IDProduct)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LstProduc__IDPro__2E70E1FD");
         });
 
         modelBuilder.Entity<Priority>(entity =>

@@ -173,7 +173,7 @@
                     Margin="0 0 5 30"
                     Command="{Binding EditCommand}"/>
             <Button x:Name="btn_change"
-                    Content="Change"
+                    Content="Save"
                     Background="#05B790" 
                     Foreground="#ffffff" FontSize="18" 
                     materialDesign:ButtonAssist.CornerRadius="15" 
