@@ -1,0 +1,7 @@
+5/5/2024: (Đạt)
+- Update cách tính visit cho Shop: Giờ không còn nhấn vào shop thì +1 visit, số lượt visit sẽ được tính ngay khi nhấn vào xem chi tiết sản phẩm
+- Các tính purchases: 
+	+ Nếu khách hàng mua sản phẩm ngay lập tức (pickup), +1 lượt mua cho các shop có trong hóa đơn, không cần biết mua bao nhiêu món và số lượng các món
+	+ Trường hợp Delivery, phải chờ cho tới khi khách hàng nhận được hàng thì mới +1, cách tính như pick up, vì khách hàng có thể hủy đơn
+- Chỉnh sửa database: Revenue của shop từ default = 0 và allow null chuyển về default 0 và not allow null nhầm tránh trường hợp gây lỗi cho shop mới tạo khi mới thêm hàng mà click vào thống kê thì revenue là null dẫn tới lỗi
+- Tiếp tục phát triển tính năng Delivery

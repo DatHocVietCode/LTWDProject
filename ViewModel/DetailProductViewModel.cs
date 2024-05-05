@@ -38,6 +38,8 @@ namespace WPF_Market.ViewModel
         {
             DefaultPath = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"));
             Product = productViewModel;
+            Product.IDShopNavigation.Visits++;
+            DataProvider.Instance.DB.SaveChanges();
             ChangeColor();
             foreach (var item in Product.ImageLinks)
             {
@@ -63,12 +65,11 @@ namespace WPF_Market.ViewModel
         {
             var ShopUi = new ShopUIGuest(Product.IDShopNavigation, true);
             var Shop = Product.IDShopNavigation;
-            Shop.Visits++;
-            DataProvider.Instance.DB.SaveChanges();
+            //Shop.Visits++;
+            //DataProvider.Instance.DB.SaveChanges();
             ShopUi.Owner = CurrentApplicationStatus.MainBoardWindow;
             ShopUi.ShowDialog();
         }
-
         private void ChangeColor()
         {
            
@@ -92,7 +93,6 @@ namespace WPF_Market.ViewModel
                 AddFaV();
            }
         }
-
         private void AddFaV()
         {
             Product.IDUsers.Add(CurrentApplicationStatus.CurrentUser);
