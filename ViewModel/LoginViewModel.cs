@@ -62,6 +62,7 @@ namespace WPF_Market.ViewModel
             else
             {
                 new Custom_mb("Your account does not exist!", Custom_mb.MessageType.Warning, Custom_mb.MessageButtons.Ok).ShowDialog();
+                UserAccount = new Models.Account();
             }
         }
         public WPF_Market.Models.Account UserAccount

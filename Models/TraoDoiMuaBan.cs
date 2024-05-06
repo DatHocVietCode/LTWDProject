@@ -174,11 +174,6 @@ public partial class TraoDoiMuaBan : DbContext
                 .HasForeignKey(d => d.IDInvoice)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__LstProduc__IDInv__2D7CBDC4");
-
-            entity.HasOne(d => d.IDProductNavigation).WithMany(p => p.LstProducts)
-                .HasForeignKey(d => d.IDProduct)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LstProduc__IDPro__2E70E1FD");
         });
 
         modelBuilder.Entity<Priority>(entity =>

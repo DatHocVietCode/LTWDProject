@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\LTWD\\LTWD_FinalProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\view\\manage_product.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:view\\manage_product.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\viewmodel\\manageproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:viewmodel\\manageproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\viewmodel\\doublevalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:viewmodel\\doublevalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\view\\manage_product.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:view\\manage_product.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|d:\\ltwd\\ltwd_finalproject\\viewmodel\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD014743-7588-40DB-9B6A-6B67B87FFF91}|WPF_Market.csproj|solutionrelative:viewmodel\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DoubleValidation.cs",
+              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\DoubleValidation.cs",
+              "RelativeDocumentMoniker": "ViewModel\\DoubleValidation.cs",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\DoubleValidation.cs",
+              "RelativeToolTip": "ViewModel\\DoubleValidation.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:07:12.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Manage_Product.xaml",
+              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml",
+              "RelativeDocumentMoniker": "View\\Manage_Product.xaml",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml",
+              "RelativeToolTip": "View\\Manage_Product.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-05T16:36:49.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManageProductViewModel.cs",
+              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ManageProductViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\ManageProductViewModel.cs",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ManageProductViewModel.cs",
+              "RelativeToolTip": "ViewModel\\ManageProductViewModel.cs",
+              "ViewState": "AQIAAAwBAAAAAAAAAAAkwB4BAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T16:36:02.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Manage_Product.xaml.cs",
+              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml.cs",
+              "RelativeDocumentMoniker": "View\\Manage_Product.xaml.cs",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\View\\Manage_Product.xaml.cs",
+              "RelativeToolTip": "View\\Manage_Product.xaml.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T16:36:55.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShopViewModel.cs",
+              "DocumentMoniker": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ShopViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\ShopViewModel.cs",
+              "ToolTip": "D:\\LTWD\\LTWD_FinalProject\\ViewModel\\ShopViewModel.cs",
+              "RelativeToolTip": "ViewModel\\ShopViewModel.cs",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAAwLkAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T16:32:22.76Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 211,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

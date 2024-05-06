@@ -68,7 +68,13 @@ namespace WPF_Market.ViewModel
             }
             return false;
         }
-
+        private void UpdateCartList(CartWrapper item)
+        {
+            item.Cart.IDProductNavigation.NumberLeft -= item.CartWrapperNumber;
+            //item.Cart.IDProductNavigation.NumberSold += item.CartWrapperNumber;   
+            DataProvider.Instance.DB.Remove(item.Cart);
+            Carts.Remove(item);
+        }
         private void ExecuteProceedToCheckOutCommand(object obj)
         {
             var tempLst = carts.ToList();
@@ -111,14 +117,30 @@ namespace WPF_Market.ViewModel
             }
             if (isbought)
             {
-                //var lst = DataProvider.Instance.DB.LstProducts.Where(p => p.IDInvoice == invoice.IDInvoice).ToList();
-                invoice.LstProducts = new List<LstProduct>(checkedItem);
-                foreach (var item in checkedCarts)
+                HashSet<Shop> lstShop = new HashSet<Shop>();
+                /// Nếu mà mua trực tiếp thì tính luôn lượt mua, không thì phải chờ giao hàng thành công mới tính lượt mua
+                if (IsCheckedPickup)
                 {
-                    item.Cart.IDProductNavigation.NumberLeft -= item.CartWrapperNumber;
-                    //item.Cart.IDProductNavigation.NumberSold += item.CartWrapperNumber;   
-                    DataProvider.Instance.DB.Remove(item.Cart);
-                    Carts.Remove(item);
+                   
+                    invoice.LstProducts = new List<LstProduct>(checkedItem);
+                    foreach (var item in checkedCarts)
+                    {
+                        lstShop.Add(item.Cart.IDProductNavigation.IDShopNavigation);
+                        UpdateCartList(item);
+                    }
+                }
+                else
+                {
+                    invoice.LstProducts = new List<LstProduct>(checkedItem);
+                    foreach (var item in checkedCarts)
+                    {
+                        UpdateCartList(item);
+                    }
+                }
+                //var lst = DataProvider.Instance.DB.LstProducts.Where(p => p.IDInvoice == invoice.IDInvoice).ToList();
+                foreach (var item in lstShop)
+                {
+                    item.Purchases++;
                 }
                 DataProvider.Instance.DB.SaveChanges();
                 new Custom_mb("Thanks for your support! Hope to see you later!", Custom_mb.MessageType.Success, Custom_mb.MessageButtons.Ok).ShowDialog();

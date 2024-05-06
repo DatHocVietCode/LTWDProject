@@ -45,6 +45,8 @@
     <Compile Remove="View\Slide1.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Description.txt" />
+    <None Remove="LTWD_FinalProject.sql" />
     <None Remove="SanPham\10\Images\mypham1.jpg" />
     <None Remove="SanPham\10\Images\mypham2.jpg" />
     <None Remove="SanPham\10\Images\mypham3.jpg" />

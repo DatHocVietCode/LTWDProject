@@ -1,0 +1,126 @@
+﻿<Window x:Class="WPF_Market.View.Statistic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Market.View"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:vm="clr-namespace:WPF_Market.ViewModel"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Statistical" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:StatictisViewModel></vm:StatictisViewModel>
+    </Window.DataContext>
+    <Border CornerRadius="10"
+            BorderThickness="3"
+            Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <materialDesign:PackIcon Kind="Close"
+                     VerticalAlignment="Top" 
+                     Width="20" Height="20" 
+                     HorizontalAlignment="Right" 
+                     Margin="0 5 5 0"
+                     Opacity="0.3"
+                     Grid.Row="0"/>
+            <Button x:Name="btnClose"
+                    Grid.Row="0"
+                    VerticalAlignment="Top"
+                    Width="20" Height="20" 
+                    HorizontalAlignment="Right" 
+                    Margin="0 5 5 0" Opacity="0.3"
+                    Background="Transparent"                  
+                    BorderThickness="0"
+                    Click="btnClose_Click"/>
+            <TextBlock Text="Statistics"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="15"
+               FontFamily="Dubai"
+               FontWeight="DemiBold"/>
+            <ScrollViewer Grid.Row="1">
+                <Grid>
+                    <StackPanel Orientation="Vertical">
+                        <Border CornerRadius="10" Margin="10"
+                                Background="#F5EFE7">
+                            <StackPanel Orientation="Horizontal" Margin="20 0">
+                                <TextBlock TextWrapping="Wrap"
+                                               Width="100"
+                                               FontSize="15"
+                                               VerticalAlignment="Center"
+                                               FontFamily="Dubai"
+                                               FontWeight="Black"
+                                                Foreground="#A09A92"
+                                           Text="{Binding TotalRevenue, StringFormat=Total Revenue: {0}}">
+                                   
+                                </TextBlock>
+                                <Border Background="#F1E7DC" Height="250" Width="600"
+                                    CornerRadius="10">
+                                    <lvc:CartesianChart LegendLocation="None">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="False" Labels="{Binding NameProducts, UpdateSourceTrigger=PropertyChanged}" FontSize="10">
+                                                <!--ten san pham-->
+
+                                                <lvc:Axis.Separator>
+                                                    <lvc:Separator StrokeThickness="0" Step="1"/>
+                                                </lvc:Axis.Separator>
+                                            </lvc:Axis>
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0"  MaxValue="{Binding MaxRevenue, UpdateSourceTrigger=PropertyChanged}">
+                                                <!--max = revenue-->
+                                                <lvc:Axis.Separator>
+                                                    <lvc:Separator StrokeThickness="0"/>
+                                                </lvc:Axis.Separator>
+                                            </lvc:Axis>
+                                        </lvc:CartesianChart.AxisY>
+
+                                        <lvc:CartesianChart.Series>
+                                            <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="30" Values="{Binding Revenue, UpdateSourceTrigger=PropertyChanged}"/>
+                                            <!--số tiền bán dc-->
+                                        </lvc:CartesianChart.Series>
+                                    </lvc:CartesianChart>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                        <Border CornerRadius="10"
+                                Background="#F5EFE7"
+                                Margin="10">
+                        <StackPanel Orientation="Horizontal" Height="250" Margin="20 0">
+                            <TextBlock Width="400"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                        FontFamily="Dubai"
+                                        FontWeight="Black"
+                                       Text="The proportion between customers who visit and purchase">
+                               
+                            </TextBlock>
+                            <lvc:PieChart LegendLocation="Bottom"
+                                          Hoverable="False"
+                                          Height="200"
+                                          Width="200"
+                         
+                                          Margin="0 0 10 0">
+                                <lvc:PieChart.Series>
+                                        <lvc:PieSeries Title="Purchases "
+                                                   Values="{Binding Purchases, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <lvc:PieSeries Title="Visits"
+                                                   Values="{Binding Visits,UpdateSourceTrigger=PropertyChanged}"/>
+                                </lvc:PieChart.Series>
+                                
+                            </lvc:PieChart>
+                        </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Window>
