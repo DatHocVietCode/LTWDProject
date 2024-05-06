@@ -22,8 +22,27 @@ namespace WPF_Market.ViewModel
             DeleteProductCommand = new BaseViewModelCommand(ExecuteDeleteProductCommand);
             SeeProductDetail = new BaseViewModelCommand(ExecuteSeeDetailCommand);
             EditProductCommand = new BaseViewModelCommand(ExecuteEditProductCommand);
-            SeeStatistical = new BaseViewModelCommand(ExecuteSeeStatistial);
-            GuessView = new BaseViewModelCommand(ExecuteGuessView);
+            SeeStatistical = new BaseViewModelCommand(ExecuteSeeStatistial, CanExecuteSeeStatistic);
+            GuessView = new BaseViewModelCommand(ExecuteGuessView, CanExecuteGuessView);
+        }
+
+        private bool CanExecuteSeeStatistic(object obj)
+        {
+            if (ProductList.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool CanExecuteGuessView(object obj)
+        {
+            var yourShop = DataProvider.Instance.DB.Shops.Where(p => p.IDShop == CurrentApplicationStatus.CurrentID).FirstOrDefault();
+            if (yourShop != null)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void ExecuteGuessView(object obj)

@@ -63,7 +63,7 @@ namespace WPF_Market.ViewModel
         {
             var ShopUi = new ShopUIGuest(Product.IDShopNavigation, true);
             var Shop = Product.IDShopNavigation;
-            Shop.NumCustomersVisit++;
+            Shop.Visits++;
             DataProvider.Instance.DB.SaveChanges();
             ShopUi.Owner = CurrentApplicationStatus.MainBoardWindow;
             ShopUi.ShowDialog();
@@ -142,7 +142,7 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteAddProductCommand(object obj)
         {
-            var temp = DataProvider.Instance.DB.Carts.Where(p=> p.IDProduct == Product.IDProduct).FirstOrDefault();
+            var temp = DataProvider.Instance.DB.Carts.Where(p=> p.IDProduct == Product.IDProduct && p.IDUser==CurrentApplicationStatus.CurrentID).FirstOrDefault();
             if (temp != null)
             {
                 temp.NumberOfProduct += Number;
@@ -164,36 +164,31 @@ namespace WPF_Market.ViewModel
             string linkImage = (string)obj;
             DefaultImage = linkImage;
         }
-
-        private void ReadTongQuan()
+        private string ReadFileInfo(string filepath)
         {
-            string filepath = DefaultPath + @"SanPham\" + Product.IDProduct.ToString().Trim() + "/Tongquansanpham.txt";
+            string temp = string.Empty;
             StreamReader reader = new StreamReader(filepath);
             while (!reader.EndOfStream)
             {
-                TongQuan = reader.ReadToEnd();
+                temp = reader.ReadToEnd();
             }
             reader.Close();
+            return temp;
+        }
+        private void ReadTongQuan()
+        {
+            string filepath = DefaultPath + @"SanPham\" + Product.IDProduct.ToString().Trim() + "/Tongquansanpham.txt";
+            TongQuan = ReadFileInfo(filepath);
         }
         private void ReadTTThem()
         {
             string filepath = DefaultPath + @"SanPham\" + Product.IDProduct.ToString().Trim() + "/Thongtinthem.txt";
-            StreamReader reader = new StreamReader(filepath);
-            while (!reader.EndOfStream)
-            {
-                TTThem = reader.ReadToEnd();
-            }
-            reader.Close();
+            TTThem = ReadFileInfo(filepath);
         }
         private void ReadTThientai()
         {
             string filepath = DefaultPath + @"SanPham\" + Product.IDProduct.ToString().Trim() + "/Tinhtranghientai.txt";
-            StreamReader reader = new StreamReader(filepath);
-            while (!reader.EndOfStream)
-            {
-                BaoHanh = reader.ReadToEnd();
-            }
-            reader.Close();
+            BaoHanh = ReadFileInfo(filepath);
            
         }   
         public Inventory Product
@@ -230,13 +225,6 @@ namespace WPF_Market.ViewModel
             }
         }
         public double CurrentPrice { get => (double)(Product.CurrentPrice) ; set { currentPrice = value; OnPropertyChanged(nameof(CurrentPrice)); } }
-
-        public ObservableCollection<string> ListImage { get => listImage; set => listImage = value; }
-        public ICommand IncreaseNumberButttonClick { get; }
-        public ICommand SeeDetailCommand { get; }
-        public ICommand DecreaseNumberButttonClick { get; }
-        public ICommand SetFaV {  get; }
-        public ICommand VisitShop {  get; } 
         public int Number
         {
             get
@@ -249,6 +237,13 @@ namespace WPF_Market.ViewModel
                 OnPropertyChanged(nameof(number));
             }
         }
+        public ObservableCollection<string> ListImage { get => listImage; set => listImage = value; }
+        public ICommand IncreaseNumberButttonClick { get; }
+        public ICommand SeeDetailCommand { get; }
+        public ICommand DecreaseNumberButttonClick { get; }
+        public ICommand SetFaV {  get; }
+        public ICommand VisitShop {  get; } 
+     
 
       
     }

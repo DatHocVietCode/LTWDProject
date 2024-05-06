@@ -43,7 +43,7 @@
             <TextBlock Text="Manage Product" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="14 13 0 0"  Foreground="Black" FontWeight="Bold"></TextBlock>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="13 0">
                 <TextBlock Text="ID SHOP: "/>
-                <TextBlock x:Name="txbl_idShop" Text="1" />
+                <TextBlock x:Name="txbl_idShop" Text="{Binding IDShop}" />
             </StackPanel>
             <ScrollViewer Grid.Row="1">
                 <Grid>

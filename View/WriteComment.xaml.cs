@@ -42,5 +42,13 @@ namespace WPF_Market.View
             }
             
         }
+
+        private void Window_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

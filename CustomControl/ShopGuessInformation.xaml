@@ -160,7 +160,7 @@
                                                                 HorizontalAlignment="Center"/>
                                     <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                                FontSize="16"
-                                              Text="{Binding Shop.NumCustomersVisit, StringFormat=CustomerVist: {0}}"
+                                              Text="{Binding Shop.Visits, StringFormat=CustomerVist: {0}}"
                                               Margin="5">
 
                                     </TextBlock>
@@ -175,7 +175,7 @@
                                               HorizontalAlignment="Center"/>
                                     <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                                FontSize="16"
-                                               Text="{Binding Shop.NumCustomersRate, StringFormat=CustomersComment: {0}}"
+                                               Text="{Binding Shop.Comments.Count, StringFormat=CustomerRating: {0}}"
                                                Margin="5">
 
                                     </TextBlock>

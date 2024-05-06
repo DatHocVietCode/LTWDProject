@@ -27,7 +27,7 @@ namespace WPF_Market.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-7TC6IQE;Initial Catalog=LTWD_Final_Project;Integrated Securit" +
-            "y=True;TrustServerCertificate=True\n")]
+            "y=True;TrustServerCertificate=True")]
         public string TraoDoiMuaBan {
             get {
                 return ((string)(this["TraoDoiMuaBan"]));

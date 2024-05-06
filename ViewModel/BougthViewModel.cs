@@ -21,20 +21,8 @@ namespace WPF_Market.ViewModel
             GetData();
             CheckDetail = new BaseViewModelCommand(ExecuteCheckDetailCommand);
             DeleteDetail = new BaseViewModelCommand(ExecuteDeleteCommand);
-            Comment = new BaseViewModelCommand(ExcuteComment);
+        
         }
-
-        private void ExcuteComment(object obj)
-        {
-            var cmt = obj as Bought;
-            
-            if(cmt.IsComment == 1 && cmt != null)
-            {
-                
-
-            }            
-        }
-
         private void ExecuteDeleteCommand(object obj)
         {
             var invoiceDele = obj as Bought;
@@ -62,12 +50,11 @@ namespace WPF_Market.ViewModel
 
         void GetData()
         {
-            var lst = DataProvider.Instance.DB.Boughts.Include(p=>p.LstProducts).Where(p=> p.IDUser == CurrentApplicationStatus.CurrentID).ToList();
+            var lst = DataProvider.Instance.DB.Boughts.Include(p=>p.LstProducts).Where(p=> p.IDUser == CurrentApplicationStatus.CurrentID).OrderByDescending(p=>p.DateBought).ToList();
             Boughts = new ObservableCollection<Bought>(lst);
         }
         // Commands
         public ICommand CheckDetail { get; }
         public ICommand DeleteDetail { get; }
-        public ICommand Comment { get; }
     }
 }

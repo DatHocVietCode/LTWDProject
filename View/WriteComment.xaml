@@ -3,12 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Market.View"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WPF_Market.ViewModel"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:WPF_Market.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:CreateCommentViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="WriteComment" Height="500" Width="800">
+        Title="WriteComment" Height="600" Width="800" MouseEnter="Window_MouseEnter">
+    <Window.Resources>
+        <local:MyImageConverter x:Key="ImageConverter"></local:MyImageConverter>
+    </Window.Resources>
     <Border CornerRadius="10"
             BorderThickness="3"
             Background="White">
@@ -83,6 +86,48 @@
                             VerticalScrollBarVisibility="Auto"
                              Text="{Binding CommentText, UpdateSourceTrigger=PropertyChanged
                         , Mode=TwoWay}"/>
+                    <Grid>
+                        <ScrollViewer VerticalAlignment="Bottom" Height="120" HorizontalScrollBarVisibility="Visible"
+                                    VerticalScrollBarVisibility="Hidden"
+                                  HorizontalAlignment="Left"
+                                    Margin="10 5 0 0"
+                                  Width="650">
+                        <ItemsControl x:Name="ListImage"
+                                        ItemsSource="{Binding ListImageCMT}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                            <Image  Source="{Binding Converter={StaticResource ImageConverter}}"
+                                                Height="120"
+                                                Width="120"
+                                                Margin="5 0 0 10"
+                                                Stretch="Uniform"
+                                                IsEnabled="True">
+                                        </Image>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </ScrollViewer>
+                        <Button Height="60"
+                                Width="80"
+                                HorizontalAlignment="Right"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Command="{Binding BtnImageCMT}">
+                            <materialDesign:PackIcon Kind="FolderImage"
+                                                     Width="60"
+                                                     Height="60"
+                                                     Foreground="Silver"
+                                                     VerticalAlignment="Center"
+                                                     HorizontalAlignment="Center"/>
+                        </Button>
+                    </Grid>
                     <Button x:Name="btn_send"
                             Width="65"
                             Height="40" HorizontalAlignment="Right"

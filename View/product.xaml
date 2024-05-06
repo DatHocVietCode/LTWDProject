@@ -99,7 +99,8 @@
                 FontFamily="Dubai"
                 FontWeight="Black"
                 Margin="5"></TextBlock>
-                                <ItemsControl ItemsSource="{Binding ProductList}" >
+                                <ItemsControl Name="PopularList"
+                                    ItemsSource="{Binding ProductList}" >
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <CustomControl:ProductUI></CustomControl:ProductUI>

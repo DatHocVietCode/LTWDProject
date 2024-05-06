@@ -279,11 +279,11 @@ namespace WPF_Market.ViewModel
         private bool WriteToFile()
         {
             string pathOver = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
-+ string.Format(@"SanPham\{0}\Tongquansanpham.txt", Inventory.IDProduct.ToString().Trim());
+                                + string.Format(@"SanPham\{0}\Tongquansanpham.txt", Inventory.IDProduct.ToString().Trim());
             string pathTinhtrang = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
-+ string.Format(@"SanPham\{0}\Tinhtranghientai.txt", Inventory.IDProduct.ToString().Trim());
+                                + string.Format(@"SanPham\{0}\Tinhtranghientai.txt", Inventory.IDProduct.ToString().Trim());
             string pathThem = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().IndexOf("bin"))
-                + string.Format(@"SanPham\{0}\Thongtinthem.txt", Inventory.IDProduct.ToString().Trim());
+                                + string.Format(@"SanPham\{0}\Thongtinthem.txt", Inventory.IDProduct.ToString().Trim());
             bool writeOverview = writeFile(pathOver, Overview);
             bool writeAdditional = writeFile(pathThem, Additional);
             bool writeConfiguration = writeFile(pathTinhtrang, Configuration);
@@ -293,7 +293,6 @@ namespace WPF_Market.ViewModel
         {
             if (WriteToFile())
             {
-                
                 //Inventory.IDShop = CurrentApplicationStatus.CurrentID;
                 Inventory.Name = NameProduct;
                 Inventory.OriginalPrice = (float)OriginalPrice;
@@ -439,5 +438,6 @@ namespace WPF_Market.ViewModel
         public double OriginalPrice { get => originalPrice; set { originalPrice = value; OnPropertyChanged(nameof(OriginalPrice)); } }
 
         public ObservableCollection<string> ImageLinksGV { get => imageLinksGV; set { imageLinksGV = value; OnPropertyChanged(nameof(ImageLinksGV)); } }
+        public int IDShop { get => CurrentApplicationStatus.CurrentID; }
     }
 }
