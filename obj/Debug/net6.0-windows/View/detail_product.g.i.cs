@@ -155,7 +155,7 @@ namespace WPF_Market.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WPF_Market;component/view/detail_product.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WPF_Market;V1.0.0.0;component/view/detail_product.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\detail_product.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
