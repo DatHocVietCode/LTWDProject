@@ -45,5 +45,13 @@ namespace WPF_Market.View
         {
 
         }
+
+        private void ManageProductWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

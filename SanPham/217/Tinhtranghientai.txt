@@ -1,0 +1,39 @@
+Chip điều khiển chính Bluetooth 5.0, hỗ trợ kết nối ngày rảnh tay trong 10m.
+
+Có thể nói chuyện, nghe nhạc.
+
+Hệ thống xử lý âm thanh DSP tích hợp, có thể loại bỏ tiếng ồn và tiếng vang rất tốt, đảm bảo giao tiếp và âm nhạc rõ ràng.
+
+Tai nghe thiết kế Super Mini ẩn trong tai, Thiết kế nhỏ và nhẹ, tàng hình.
+
+Thời gian chờ: khoảng 100-150 giờ
+
+
+
+Spescifications:
+
+Loại tai nghe: Có thể sử dụng cả tai trái và tai phải
+
+Phiên bản Bluetooth: V5.0 + EDR
+
+Cấu hình Bluetooth: Rảnh tay / Tai nghe
+
+Thỏa thuận hỗ trợ: HEP / HSP / A2D / AVRCP
+
+Phạm vi truyền: hơn 10 mét
+
+Loại pin: Pin liti có thể sạc lại 55mA
+
+Thời gian sạc: khoảng 1h-2h
+
+Thời gian làm việc: Âm nhạc 4-6 giờ (Âm lượng sẽ ảnh hưởng đến thời gian)
+
+Thời gian chờ: khoảng 100-150 giờ
+
+Dải tần số: 2,40-2,48GHz
+
+Hệ số biến dạng: ≤ 1%
+
+Đáp ứng tần số: 20Hz-20KHz
+
+Kiểu đeo: tai nghe in-Ear / tàng hình
