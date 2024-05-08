@@ -17,6 +17,8 @@ public partial class Comment
 
     public float? Rate { get; set; }
 
+    public int IDCmt { get; set; }
+
     public virtual Shop IDShopNavigation { get; set; }
 
     public virtual User IDUserNavigation { get; set; }
