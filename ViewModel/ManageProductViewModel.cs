@@ -237,6 +237,7 @@ namespace WPF_Market.ViewModel
             string path = Path.GetFullPath("SanPham");
             string folderPath = path.Substring(0, path.IndexOf("bin"));
             string temp = @"SanPham\" + Inventory.IDProduct.ToString().Trim() + @"\Images";
+            
             string destinationDirectory = @Path.Combine(folderPath, temp);
             CopyImageToDirectory(destinationDirectory);
             string[] files = Directory.GetFiles(destinationDirectory);

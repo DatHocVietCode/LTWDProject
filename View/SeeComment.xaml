@@ -4,11 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Market.View"
+        xmlns:vm ="clr-namespace:WPF_Market.ViewModel"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Title="WriteComment" MinHeight="500" Width="800">
+    <Window.Resources>
+        <vm:MyImageConverter x:Key="ImageConverter"></vm:MyImageConverter>
+    </Window.Resources>
     <Border CornerRadius="10"
             BorderThickness="3"
             Background="White">
@@ -56,7 +60,8 @@
                                         <RowDefinition Height="40"/>
                                         <RowDefinition Height="30"/>
                                         <RowDefinition/>
-                                    </Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        </Grid.RowDefinitions>
                                     <TextBlock FontFamily="Dubai"
                                                FontSize="18"
                                                Margin="20 20 0 0 "
@@ -89,19 +94,47 @@
                                                     IsReadOnly="True"
                                                     Value="{Binding Rate}" />
                                     </StackPanel>
-                                    <Border Background="#F4FAF0"
-                                            Grid.Row="2"
-                                            CornerRadius="5"
-                                            Margin="20 0 20 10">
-                                        <ScrollViewer>
-                                            <TextBlock FontFamily="Dubai"
-                                                       FontSize="15"
-                                                       TextWrapping="Wrap"
-                                                       Padding="10"
-                                                       Text="{Binding Comment1}"/>
+                                        <Border Background="#F4FAF0"
+                                                Grid.Row="2"
+                                                CornerRadius="5"
+                                                Margin="20 0 20 10">
+                                            <ScrollViewer>
+                                                <TextBlock FontFamily="Dubai"
+                                                           FontSize="15"
+                                                           TextWrapping="Wrap"
+                                                           Padding="10"
+                                                           Text="{Binding Comment1}"/>
+                                            </ScrollViewer>
+                                        </Border>
+                                        <ScrollViewer VerticalAlignment="Bottom" Height="120" HorizontalScrollBarVisibility="Visible"
+                                                        VerticalScrollBarVisibility="Hidden"
+                                                      HorizontalAlignment="Left"
+                                                        Margin="10 5 0 0"
+                                                      Grid.Row="3"
+                                                      Width="650">
+                                            <ItemsControl x:Name="ListImage"
+                                                          ItemsSource="{Binding LstImagesCMTs}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Image  Source="{Binding ImageLink, Converter={StaticResource ImageConverter}}"
+                                                                    Height="120"
+                                                                    Width="120"
+                                                                    Margin="5 0 0 10"
+                                                                    Stretch="Uniform"
+                                                                    IsEnabled="True">
+                                                            </Image>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                            </ItemsControl>
                                         </ScrollViewer>
-                                    </Border>
-                                </Grid>
+                                    </Grid>
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

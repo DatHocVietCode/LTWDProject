@@ -33,9 +33,9 @@
                        FontWeight="Black"
                        FontFamily="Dubai"
                        Margin="10 0"
-                       VerticalAlignment="Center">
-                <Run>Dear: </Run>
-                <Run>Name shop</Run>
+                       VerticalAlignment="Center"
+                       Text="{Binding Shop.NameShop, StringFormat= To {0}}">
+             
             </TextBlock>
             <Button x:Name="btnClose"
                     Grid.Row="0"
@@ -63,7 +63,7 @@
                                  FontSize="20"
                                  HorizontalContentAlignment="Right"
                                  BorderThickness="0"
-                                 VerticalAlignment="Center" TextChanged="rate_TextChanged"/>
+                                 VerticalAlignment="Center"/>
                         <TextBlock Text="/5"
                                    FontSize="20"                                
                                    FontFamily="Dubai"                                 

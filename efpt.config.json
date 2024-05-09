@@ -44,6 +44,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[LstImagesCMT]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[LstProduct]",
          "ObjectType": 0
       },

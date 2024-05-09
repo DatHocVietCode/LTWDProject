@@ -32,10 +32,23 @@ namespace WPF_Market.ViewModel
 
         private bool CanExecuteSeeStatistic(object obj)
         {
-            if (ProductList.Count > 0)
+            return CheckValidInfor();
+        }
+
+        private bool CheckValidInfor()
+        {
+            if (ProductList.Count <= 0)
             {
-                return true;
+               return false;
             }
+            var sumVistPur = Shop.Visits + Shop.Purchases;
+            float sumRevenue = 0;
+            foreach (var product in ProductList)
+            {
+                sumRevenue += (float)product.Revenue;
+            }
+            if (sumRevenue > 0 && sumVistPur > 0)
+                return true;
             return false;
         }
 
@@ -59,6 +72,7 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteSeeStatistial(object obj)
         {
+
             var newWindow = new Statistic();
             newWindow.Owner = CurrentApplicationStatus.MainBoardWindow;
             newWindow.ShowDialog();
@@ -83,8 +97,9 @@ namespace WPF_Market.ViewModel
         private void GetProductFromDB()
         {
             this.Shop = DataProvider.Instance.DB.Shops.Where(p => p.IDShop == CurrentApplicationStatus.CurrentID).FirstOrDefault();
-            Shop.Inventories = DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == Shop.IDShop).SelectMany(p=>p.Inventories).ToList();
-            ProductList = new ObservableCollection<Inventory>(Shop.Inventories);
+            Shop.Inventories = DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == Shop.IDShop).SelectMany(p=>p.Inventories).Include(p=>p.ImageLinks).ToList();
+            lst = Shop.Inventories.ToList();
+            ProductList = new ObservableCollection<Inventory>(lst);
         }
         private void ExecuteDeleteProductCommand(object obj)
         {
@@ -126,6 +141,8 @@ namespace WPF_Market.ViewModel
         public ICommand SeeStatistical {  get; }
         public ICommand GuessView {  get; }
         #region Filter
+        private List<Inventory> lst = new List<Inventory>();
+        private List<Inventory> favlst = new List<Inventory>();
         List<string> types = new List<string>();
         private bool cbElect = false;
         private bool cbHealth = false;
@@ -136,11 +153,11 @@ namespace WPF_Market.ViewModel
         private bool cbKidsBaies = false;
         private bool cbSports = false;
         private bool cbHomeGarden = false;
-        private float minPrice;
-        private float maxPrice;
+        private float minPrice = 0;
+        private float maxPrice = 0;
         private bool minMax = false;
         private bool maxMin = false;
-        private string searchText;
+        private string searchText = string.Empty;
         private ObservableCollection<Inventory> productList = new ObservableCollection<Inventory>();
         public bool CbHealth
         {
@@ -171,27 +188,58 @@ namespace WPF_Market.ViewModel
 
         public string SearchText { get => searchText; set { searchText = value; OnPropertyChanged(nameof(SearchText)); SearchByName(); } }
         public ICommand ReloadCommand { get; }
-     
-
         private void FilterByType()
         {
-            if (Types.Count == 0)
+            ProductList = new ObservableCollection<Inventory>(lst);
+            var ItemToRemove = new ObservableCollection<Inventory>();
+            if (!string.IsNullOrWhiteSpace(searchText))
             {
-               
-                ProductList = new ObservableCollection<Inventory>(Shop.Inventories);
-                return;
+                foreach (var item in ProductList)
+                {
+                    if (!item.Name.ToLower().Contains(SearchText.ToLower()))
+                    {
+                        ItemToRemove.Add(item);
+                    }
+                }
             }
-            else
+            RemoveItem(ItemToRemove);
+
+            ItemToRemove = new ObservableCollection<Inventory>();
+            if (Types.Count > 0)
             {
-                var lst = Shop.Inventories.Where(p => Types.Contains(p.Type)).ToList();
-                ProductList = new ObservableCollection<Inventory>(lst);
+                foreach (var item in ProductList)
+                {
+                    if (!Types.Contains(item.Type))
+                        ItemToRemove.Add(item);
+                }
+            }
+            RemoveItem(ItemToRemove);
+
+            ItemToRemove = new ObservableCollection<Inventory>();
+            if (MinPrice != 0 && MaxPrice != 0)
+            {
+                foreach (var item in ProductList)
+                {
+                    if (item.CurrentPrice < MinPrice || item.CurrentPrice > MaxPrice)
+                    {
+                        ItemToRemove.Add(item);
+                    }
+                }
+            }
+            RemoveItem(ItemToRemove);
+        }
+
+        private void RemoveItem(ObservableCollection<Inventory> itemToRemove)
+        {
+            foreach (var item in itemToRemove)
+            {
+                ProductList.Remove(item);
             }
         }
+
         private void SearchByName()
         {
-            var lst = DataProvider.Instance.DB.Inventories.Include(p => p.IDShopNavigation).Include(p => p.ImageLinks)
-                .Where(p => p.Name.ToLower().Contains(SearchText.ToLower())).ToList();
-            ProductList = new ObservableCollection<Inventory>(lst);
+            FilterByType();
             OrderByPriority(1);
         }
         /// <summary>
@@ -221,11 +269,7 @@ namespace WPF_Market.ViewModel
         /// </summary>
         private void SearchByRangePrice()
         {
-            if (MinPrice > maxPrice)
-                return;
-            var lst = DataProvider.Instance.DB.Inventories.Include(p => p.ImageLinks)
-                .Include(p => p.IDShopNavigation).Where(p => p.CurrentPrice >= MinPrice && p.CurrentPrice <= maxPrice).ToList();
-            ProductList = new ObservableCollection<Inventory>(lst);
+            FilterByType();
             OrderByPriority(1);
         }
         private void ExecuteReloadCommand(object obj)
@@ -235,14 +279,14 @@ namespace WPF_Market.ViewModel
             MaxPrice = 0;
             MinMax = false;
             MaxMin = false;
-            ProductList = new ObservableCollection<Inventory>(Shop.Inventories);
+            ProductList = new ObservableCollection<Inventory>(lst);
             OrderByPriority(1);
         }
         private void SetCbtoDefault()
         {
             CbHealth = false;
             CbFashion = false;
-            cbJewell = false;
+            CbJewell = false;
             CbHealthBeauty = false;
             CbBooks = false;
             CbKidsBaies = false;

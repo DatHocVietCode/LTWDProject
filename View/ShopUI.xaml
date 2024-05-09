@@ -155,11 +155,7 @@
                                 <materialDesign:PackIcon Kind="PencilPlus"
              Width="20"/>
                             </Button>
-                            <Button
-              
-              ToolTip="Delivery Progress">
-                                <materialDesign:PackIcon Kind="TruckDelivery" />
-                            </Button>
+                           
                             <Button
                 Command="{Binding SeeStatistical}"
               ToolTip="Statistical">

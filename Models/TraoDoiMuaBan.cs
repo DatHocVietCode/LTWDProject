@@ -33,6 +33,8 @@ public partial class TraoDoiMuaBan : DbContext
 
     public virtual DbSet<Inventory> Inventories { get; set; }
 
+    public virtual DbSet<LstImagesCMT> LstImagesCMTs { get; set; }
+
     public virtual DbSet<LstProduct> LstProducts { get; set; }
 
     public virtual DbSet<Priority> Priorities { get; set; }
@@ -93,25 +95,25 @@ public partial class TraoDoiMuaBan : DbContext
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => new { e.DataTimeCreate, e.IDUser, e.IDShop }).HasName("PK__Comment__18F87060439BAE95");
+            entity.HasKey(e => e.IDCmt);
 
             entity.ToTable("Comment");
 
+            entity.Property(e => e.Comment1).HasColumnName("Comment");
             entity.Property(e => e.DataTimeCreate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
-            entity.Property(e => e.Comment1).HasColumnName("Comment");
             entity.Property(e => e.Rate).HasDefaultValueSql("((0))");
 
             entity.HasOne(d => d.IDShopNavigation).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.IDShop)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Comment__IDShop__4924D839");
+                .HasConstraintName("FK__Comment__IDShop__3D7E1B63");
 
             entity.HasOne(d => d.IDUserNavigation).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.IDUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Comment__IDUser__4A18FC72");
+                .HasConstraintName("FK__Comment__IDUser__3E723F9C");
         });
 
         modelBuilder.Entity<ImageLink>(entity =>
@@ -160,6 +162,20 @@ public partial class TraoDoiMuaBan : DbContext
                         j.HasKey("IDProduct", "IDUser").HasName("PK__FaVProdu__AC3EBCE47ED2D341");
                         j.ToTable("FaVProduct");
                     });
+        });
+
+        modelBuilder.Entity<LstImagesCMT>(entity =>
+        {
+            entity.HasKey(e => new { e.IDComment, e.ImageLink }).HasName("PK__LstImage__6BEA526167E67FE6");
+
+            entity.ToTable("LstImagesCMT");
+
+            entity.Property(e => e.ImageLink).HasMaxLength(255);
+
+            entity.HasOne(d => d.IDCommentNavigation).WithMany(p => p.LstImagesCMTs)
+                .HasForeignKey(d => d.IDComment)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Images_CMT");
         });
 
         modelBuilder.Entity<LstProduct>(entity =>

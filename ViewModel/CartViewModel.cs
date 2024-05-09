@@ -98,13 +98,7 @@ namespace WPF_Market.ViewModel
                         product.IDInvoice = invoice.IDInvoice;
                         product.Number = item.CartWrapperNumber;
                         checkedItem.Add(product);
-                        checkedCarts.Add(item);
-                      /*  DataProvider.Instance.DB.LstProducts.Add(product);
-                        DataProvider.Instance.DB.SaveChanges();
-
-                        DataProvider.Instance.DB.Remove(item.Cart);
-                        DataProvider.Instance.DB.SaveChanges();*/
-                        //carts.Remove(item);
+                        checkedCarts.Add(item);                  
                         isbought = true;
                     }
                     else
@@ -118,25 +112,14 @@ namespace WPF_Market.ViewModel
             if (isbought)
             {
                 HashSet<Shop> lstShop = new HashSet<Shop>();
-                /// Nếu mà mua trực tiếp thì tính luôn lượt mua, không thì phải chờ giao hàng thành công mới tính lượt mua
-                if (IsCheckedPickup)
-                {
-                   
                     invoice.LstProducts = new List<LstProduct>(checkedItem);
                     foreach (var item in checkedCarts)
                     {
+                        item.Cart.IDProductNavigation.Revenue += item.CartWrapperNumber * (float)item.CartWrapperCurrentPrice;
+                        DataProvider.Instance.DB.SaveChanges();
                         lstShop.Add(item.Cart.IDProductNavigation.IDShopNavigation);
                         UpdateCartList(item);
                     }
-                }
-                else
-                {
-                    invoice.LstProducts = new List<LstProduct>(checkedItem);
-                    foreach (var item in checkedCarts)
-                    {
-                        UpdateCartList(item);
-                    }
-                }
                 //var lst = DataProvider.Instance.DB.LstProducts.Where(p => p.IDInvoice == invoice.IDInvoice).ToList();
                 foreach (var item in lstShop)
                 {
