@@ -108,13 +108,10 @@
                          
                                           Margin="0 0 10 0">
                                 <lvc:PieChart.Series>
-                                    <lvc:PieSeries Title="Purchases "
-                                                   Values="{Binding Purchases, UpdateSourceTrigger=PropertyChanged}"
-                                              
-                                                   />
-                                    <lvc:PieSeries Title="Visits"
-                                                   Values="{Binding Visits,UpdateSourceTrigger=PropertyChanged}"
-                                                     />
+                                        <lvc:PieSeries Title="Purchases "
+                                                   Values="{Binding Purchases, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <lvc:PieSeries Title="Visits"
+                                                   Values="{Binding Visits,UpdateSourceTrigger=PropertyChanged}"/>
                                 </lvc:PieChart.Series>
                                 
                             </lvc:PieChart>
