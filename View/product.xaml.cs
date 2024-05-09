@@ -34,6 +34,7 @@ namespace WPF_Market.View
             this.DataContext = a;
         
         }
-    
+
+      
     }
 }

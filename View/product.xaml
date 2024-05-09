@@ -32,7 +32,7 @@
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <CustomControl:FilterUI></CustomControl:FilterUI>
+                    <CustomControl:FilterUI Loaded="FilterUI_Loaded"></CustomControl:FilterUI>
                 </Grid>
             <ScrollViewer Grid.Column="1">
                 <Grid Grid.Column="1">
@@ -54,18 +54,20 @@
                             </Style>
                         </Grid.Style>
                         <Border Grid.Row="1"
-    CornerRadius="10"
-    BorderBrush="Black"
-    BorderThickness="0.5"
-    Margin="5">
+                                CornerRadius="10"
+                                Background="#F3F8F1"
+                                BorderThickness="0"
+                                Margin="5">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="Favorite"
-                   FontSize="15"
-                   FontFamily="Dubai"
-                   FontWeight="Black"
-                   Margin="5"/>
+                                           FontSize="15"
+                                           Foreground="#7E7F7D"
+                                           FontFamily="Dubai"
+                                           FontWeight="Black"
+                                           Margin="15"/>
+                                
                                 <ScrollViewer  HorizontalScrollBarVisibility="Auto"
-                        VerticalScrollBarVisibility="Auto">
+                                                 VerticalScrollBarVisibility="Auto">
                                     <ItemsControl ItemsSource="{Binding FavProductList}" >
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
@@ -86,19 +88,20 @@
                     </Grid>
 
                     <Grid Grid.Row="2" 
-  Grid.RowSpan="1">
+                            Grid.RowSpan="1">
                         <Border Grid.Row="2"
-            CornerRadius="10"
-            BorderBrush="Black"
-            BorderThickness="0.5"
-            Margin="5">
+                                CornerRadius="10"
+                                Background="#F3F8F1"
+                                BorderThickness="0"
+                                Margin="5">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
-                Text="Popular"
-                FontSize="15"
-                FontFamily="Dubai"
-                FontWeight="Black"
-                Margin="5"></TextBlock>
+                                    Text="Popular"
+                                    FontSize="15"
+                                    Foreground="#7E7F7D"
+                                    FontFamily="Dubai"
+                                    FontWeight="Black"
+                                    Margin="15"></TextBlock>
                                 <ItemsControl Name="PopularList"
                                     ItemsSource="{Binding ProductList}" >
                                     <ItemsControl.ItemTemplate>

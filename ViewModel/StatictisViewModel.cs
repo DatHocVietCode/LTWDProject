@@ -15,24 +15,23 @@ namespace WPF_Market.ViewModel
         private ChartValues<string> nameProducts = new ChartValues<string>();
         private ChartValues<int> revenue = new ChartValues<int>();
         private ChartValues<int> iD = new ChartValues<int>();
-        private int maxRevenue;
-        private int totalRevenue;
-        private int maxLength = 0;
-        private ChartValues<double> visits;
-        private ChartValues<double> purchases;
+        private int maxRevenue = 0;
+        private int totalRevenue = 0;
+        private ChartValues<double> visits = new ChartValues<double>();
+        private ChartValues<double> purchases = new ChartValues<double>();
         public StatictisViewModel()
         {
             ProductList = new ChartValues<Inventory>(DataProvider.Instance.DB.Inventories.Where(p=> p.IDShop == CurrentApplicationStatus.CurrentID).ToList());
             foreach (var item in ProductList)
             {
-                NameProducts.Add(item.Name);
-                if (item.Name.Length > MaxLength)
-                    MaxLength = item.Name.Length;
+                NameProducts.Add(item.Name);            
                 ID.Add(item.IDProduct);
                 Revenue.Add((int)item.Revenue);
             }
             MaxRevenue = Revenue.Max();
-            TotalRevenue=Revenue.Sum();
+            if (MaxRevenue == 0)
+                MaxRevenue = 100;
+            TotalRevenue = Revenue.Sum();
             var temp = (double)DataProvider.Instance.DB.Shops.Where(p=>p.IDShop == CurrentApplicationStatus.CurrentID).FirstOrDefault().Visits;
             Visits = new ChartValues<double> { temp };
             temp = (double)DataProvider.Instance.DB.Shops.Where(p => p.IDShop == CurrentApplicationStatus.CurrentID).FirstOrDefault().Purchases;
@@ -48,9 +47,6 @@ namespace WPF_Market.ViewModel
         public int MaxRevenue { get => maxRevenue; set { maxRevenue = value; OnPropertyChanged(nameof(MaxRevenue)); } }
 
         public int TotalRevenue { get => totalRevenue; set { totalRevenue = value; OnPropertyChanged(nameof(TotalRevenue)); } }
-
-        public int MaxLength { get => maxLength; set { maxLength = value; OnPropertyChanged(nameof(MaxLength)); } }
-
         public ChartValues<int> ID { get => iD; set { iD = value; OnPropertyChanged(nameof(ID)); } }
 
         public ChartValues<double> Visits { get => visits; set { visits = value; OnPropertyChanged(nameof(Visits)); }

@@ -27,28 +27,18 @@ namespace WPF_Market.View
             InitializeComponent();
             this.DataContext = new CreateCommentViewModel(shop);
         }
-
-     
-        private void rate_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            double n;
-            if (txt_rate.Text.Length> 0)
-            {
-                if (double.TryParse(this.txt_rate.Text, out n))
-                {
-                    ReadOnlyRatingBar.Value = n;
-                }
-                else MessageBox.Show("nhap lai");
-            }
-            
-        }
-
         private void Window_MouseEnter(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

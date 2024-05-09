@@ -50,7 +50,7 @@ namespace WPF_Market.ViewModel
             ReadTTThem();
             ReadTThientai();
             ChangePicture = new BaseViewModelCommand(SelectImageCommand);
-            AddProduct = new BaseViewModelCommand(ExecuteAddProductCommand);
+            AddProduct = new BaseViewModelCommand(ExecuteAddProductCommand, CanExecuteAddProduct);
             IncreaseNumberButttonClick = new BaseViewModelCommand(ExecuteIncreaseNumberCommand);
             SeeDetailCommand = new BaseViewModelCommand(ExecuteSeeDetailCommand);
             VisitShop = new BaseViewModelCommand(ExecuteVisitShop);
@@ -59,6 +59,12 @@ namespace WPF_Market.ViewModel
             var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type && p.IDProduct != productViewModel.IDProduct).Take(6).ToList();
             productList = new ObservableCollection<Inventory>(lst);
             
+        }
+
+        private bool CanExecuteAddProduct(object obj)
+        {
+            return (!(Product.IDShop == CurrentApplicationStatus.CurrentID) && !(Product.NumberLeft <= 0));
+               
         }
 
         private void ExecuteVisitShop(object obj)

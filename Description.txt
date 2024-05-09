@@ -22,3 +22,17 @@
 	+ Newness <=100
 	+ Current và Original !=0
 - Tiếp tục phát triển tính năng Delivery
+
+
+9/5/2024(Đạt): 
+- Chỉnh sửa hoàn thiện thêm hình ảnh vào cmt:
+	+ Bắt buộc phải có hình mới cho cmt
+	+ Chỉnh sửa db: Thêm db LstImageCmt
+- Bỏ tính năng delivery
+- Kiểm tra lại tính năng lọc (Fix gần như toàn bộ)
+- Thêm tính năng không cho mua nếu số lượng hàng còn lại <=0
+- Không được mua hàng của shop mình
+- Fix Statistic:
+	+ Chỉ cho xem khi có khách đến xem shop hoặc mua hàng và doanh thu > 0
+- Fix linh tinh
+- Chỉnh sửa filter 

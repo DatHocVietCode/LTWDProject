@@ -43,6 +43,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[LstImagesCMT]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[LstProduct]",
          "ObjectType": 0
       },
@@ -61,6 +65,7 @@
    ],
    "UiHint": null,
    "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,
    "UseDateOnlyTimeOnly": false,

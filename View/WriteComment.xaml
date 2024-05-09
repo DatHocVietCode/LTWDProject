@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="WriteComment" Height="600" Width="800" MouseEnter="Window_MouseEnter">
+        Title="WriteComment" Height="600" Width="800" MouseEnter="Window_MouseEnter"
+        MouseDown="Window_MouseDown">
     <Window.Resources>
         <local:MyImageConverter x:Key="ImageConverter"></local:MyImageConverter>
     </Window.Resources>
@@ -32,9 +33,9 @@
                        FontWeight="Black"
                        FontFamily="Dubai"
                        Margin="10 0"
-                       VerticalAlignment="Center">
-                <Run>Dear: </Run>
-                <Run>Name shop</Run>
+                       VerticalAlignment="Center"
+                       Text="{Binding Shop.NameShop, StringFormat= To {0}}">
+             
             </TextBlock>
             <Button x:Name="btnClose"
                     Grid.Row="0"
@@ -62,7 +63,7 @@
                                  FontSize="20"
                                  HorizontalContentAlignment="Right"
                                  BorderThickness="0"
-                                 VerticalAlignment="Center" TextChanged="rate_TextChanged"/>
+                                 VerticalAlignment="Center"/>
                         <TextBlock Text="/5"
                                    FontSize="20"                                
                                    FontFamily="Dubai"                                 
@@ -93,7 +94,7 @@
                                     Margin="10 5 0 0"
                                   Width="650">
                         <ItemsControl x:Name="ListImage"
-                                        ItemsSource="{Binding ListImageCMT}">
+                                        ItemsSource="{Binding ListImageCMT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>

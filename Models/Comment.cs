@@ -22,4 +22,6 @@ public partial class Comment
     public virtual Shop IDShopNavigation { get; set; }
 
     public virtual User IDUserNavigation { get; set; }
+
+    public virtual ICollection<LstImagesCMT> LstImagesCMTs { get; set; } = new List<LstImagesCMT>();
 }

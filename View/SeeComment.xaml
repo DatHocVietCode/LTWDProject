@@ -4,11 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Market.View"
+        xmlns:vm ="clr-namespace:WPF_Market.ViewModel"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Title="WriteComment" MinHeight="500" Width="800">
+    <Window.Resources>
+        <vm:MyImageConverter x:Key="ImageConverter"></vm:MyImageConverter>
+    </Window.Resources>
     <Border CornerRadius="10"
             BorderThickness="3"
             Background="White">
@@ -56,7 +60,7 @@
                                         <RowDefinition Height="40"/>
                                         <RowDefinition Height="30"/>
                                         <RowDefinition/>
-                                        <RowDefinition/>
+                                        <RowDefinition Height="0"/>
                                         </Grid.RowDefinitions>
                                     <TextBlock FontFamily="Dubai"
                                                FontSize="18"
@@ -109,11 +113,11 @@
                                                       Grid.Row="3"
                                                       Width="650">
                                             <ItemsControl x:Name="ListImage"
-                                                            ItemsSource="{Binding ListImageSeeCMT}">
+                                                          ItemsSource="{Binding LstImagesCMTs}">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid>
-                                                            <Image  Source="{Binding Converter={StaticResource ImageConverter}}"
+                                                            <Image  Source="{Binding ImageLink, Converter={StaticResource ImageConverter}}"
                                                                     Height="120"
                                                                     Width="120"
                                                                     Margin="5 0 0 10"
