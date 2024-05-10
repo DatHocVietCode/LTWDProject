@@ -32,7 +32,9 @@
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <CustomControl:FilterUI></CustomControl:FilterUI>
+
+                    <CustomControl:FilterUI ></CustomControl:FilterUI>
+
                 </Grid>
             <ScrollViewer Grid.Column="1">
                 <Grid Grid.Column="1">
@@ -59,6 +61,7 @@
                                 BorderThickness="0"
                                 Margin="5">
                             <StackPanel Orientation="Vertical">
+
                                 <materialDesign:Chip
                                         Content="Your favorites:"
                                         Background="OrangeRed"
@@ -95,10 +98,12 @@
                                 BorderThickness="0"
                                 Margin="5">
                             <StackPanel Orientation="Vertical">
+
                                 <materialDesign:Chip
                                     Content="Most sales:"
                                     Background="LightYellow"
                                     Margin="5"
+
                                     FontFamily="Dubai"
                                     FontWeight="Bold"/>
                                 <ItemsControl Name="PopularList"

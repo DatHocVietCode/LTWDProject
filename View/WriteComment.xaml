@@ -30,6 +30,7 @@
                                      Grid.Row="0"/>
             
             <TextBlock FontSize="20"
+                       x:Name="txbl_dear"
                        FontWeight="Black"
                        FontFamily="Dubai"
                        Margin="10 0"
@@ -51,6 +52,7 @@
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Rating:"
+                                   x:Name="txbl_rating"
                                    FontSize="20"
                                    VerticalAlignment="Center"
                                    FontFamily="Dubai"
@@ -65,6 +67,7 @@
                                  BorderThickness="0"
                                  VerticalAlignment="Center"/>
                         <TextBlock Text="/5"
+                                   x:Name="txbl_5"
                                    FontSize="20"                                
                                    FontFamily="Dubai"                                 
                                    VerticalAlignment="Center"></TextBlock>
@@ -117,6 +120,7 @@
                     </ScrollViewer>
                         <Button Height="60"
                                 Width="80"
+                                x:Name="btn_image"
                                 HorizontalAlignment="Right"
                                 Background="Transparent"
                                 BorderThickness="0"

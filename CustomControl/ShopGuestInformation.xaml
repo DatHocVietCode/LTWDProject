@@ -43,7 +43,8 @@
                                 , Mode=TwoWay}"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                    <TextBlock x:Name="txbl_name"
+                        Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                 FontSize="18"
                                FontFamily="Dubai"
                                FontWeight="Black"
@@ -58,6 +59,7 @@
                             Margin="0 5 0 5"
                             Orientation="Horizontal">
                         <TextBlock
+                            x:Name="txbl_rating"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             FontFamily="Dubai"
@@ -104,7 +106,8 @@
            Foreground="Black"
            FontFamily="Dubai"
            Command="{Binding ChangeAvatar}"/>
-                    <TextBox materialDesign:HintAssist.Hint="Name's Shop"
+                    <TextBox x:Name="txt_nameshop"
+                        materialDesign:HintAssist.Hint="Name's Shop"
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              FontSize="10"
                         TextWrapping="Wrap"
@@ -158,7 +161,8 @@
                                                  Foreground="#0FC20F"
                                                  VerticalAlignment="Center"
                                                  HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_address"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                     FontSize="16"
                                     Text="{Binding Address, StringFormat=Address: {0}}"
                                     Margin="5"
@@ -174,7 +178,8 @@
                                                  Foreground="#0FC20F"
                                                 VerticalAlignment="Center"
                                                 HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_phone"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                       FontSize="16"
                                      Text="{Binding PhoneNumber, StringFormat=PhoneNumber: {0}}"
                                      Margin="5"
@@ -192,6 +197,7 @@
                                                 HorizontalAlignment="Center"/>
                                         <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                      FontSize="16"
+                                                   x:Name="txbl_email"
                                      Text="{Binding Email, StringFormat=Email: {0}}"
                                      Margin="5"
                                     VerticalAlignment="Center">
@@ -219,7 +225,8 @@
                                                    Foreground="#0FC20F"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_visit"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                    FontSize="16"
                                   Text="{Binding Shop.Visits, StringFormat=CustomerVist: {0}}"
                                   Margin="5">
@@ -234,7 +241,8 @@
                                  Foreground="#0FC20F"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_cmtNum"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                    FontSize="16"
                                    Text="{Binding Shop.Comments.Count, StringFormat=CustomerRating: {0}}"
                                    Margin="5">
@@ -249,7 +257,8 @@
                                                  Foreground="#0FC20F"
                                                  VerticalAlignment="Center"
                                                  HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_timeCreate"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                                  FontSize="16"
                                  Text="{Binding Shop.CreateDate, StringFormat=CreateDate: {0}}"
                                  Margin="5">
@@ -273,7 +282,8 @@
                             <StackPanel Orientation="Vertical"
          HorizontalAlignment="Center"
          VerticalAlignment="Center">
-                                <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                <TextBlock x:Name="txbl_slogan"
+                                    Style="{StaticResource MaterialDesignHeadline2TextBlock}"
              FontSize="16"
              Text="{Binding Slogan, StringFormat=Slogan: {0}}"
              Margin="0 5 0 5"
@@ -344,7 +354,7 @@
                                         Foreground="#0FC20F"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"/>
-                                        <TextBox 
+                                        <TextBox x:Name="txt_address"
                               materialDesign:HintAssist.Hint="Address"
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              TextWrapping="Wrap"
@@ -364,7 +374,8 @@
                                         Foreground="#0FC20F"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
-                                        <TextBox  materialDesign:HintAssist.Hint="PhoneNumber"
+                                        <TextBox  x:Name="txt_phone"
+                                            materialDesign:HintAssist.Hint="PhoneNumber"
                                   Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              FontSize="10"
                             Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
@@ -382,7 +393,8 @@
                                          Foreground="#0FC20F"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
-                                        <TextBox  materialDesign:HintAssist.Hint="Emai"
+                                        <TextBox  x:Name="txt_email"
+                                            materialDesign:HintAssist.Hint="Emai"
                                   Style="{StaticResource MaterialDesignOutlinedTextBox}"
                             FontSize="10"
                             Text="{Binding Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
@@ -414,7 +426,8 @@
                                           Foreground="#0FC20F"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_visits"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                           FontSize="16"
                          Text="{Binding Shop.Visits, StringFormat=CustomerVist: {0}}"
                          Margin="5">
@@ -429,7 +442,8 @@
                         Foreground="#0FC20F"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_numCmt"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                           FontSize="16"
                           Text="{Binding Shop.Comments.Count, StringFormat=CustomerRating: {0}}"
                           Margin="5">
@@ -444,7 +458,8 @@
                                         Foreground="#0FC20F"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"/>
-                                        <TextBlock Style="{StaticResource MaterialDesignHeadline2TextBlock}"
+                                        <TextBlock x:Name="txbl_crate"
+                                            Style="{StaticResource MaterialDesignHeadline2TextBlock}"
                         FontSize="16"
                         Text="{Binding CreateDate, StringFormat=CreateDate: {0}}"
                         Margin="5">
@@ -468,7 +483,8 @@
                             <StackPanel Orientation="Vertical"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center">
-                                <TextBox materialDesign:HintAssist.Hint="Slogan"
+                                <TextBox x:Name="txt_slogan"
+                                    materialDesign:HintAssist.Hint="Slogan"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                        TextWrapping="Wrap"
                                         Width="600"

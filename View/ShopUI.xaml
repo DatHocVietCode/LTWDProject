@@ -40,6 +40,7 @@
         BorderThickness="0 0 0 0.5">
                     <Grid>
                         <TextBlock Text="MY SHOP"
+                                   x:Name="txbl_title"
                    FontSize="20"
                    Margin="10 0 0 0"
                    VerticalAlignment="Center"
@@ -130,6 +131,7 @@
           Height="30"
           VerticalAlignment="Bottom">
                         <TextBlock Text="Manage Product"
+                                   x:Name="txbl_manage"
                     Foreground="Wheat"
                     FontFamily="dubai"
                    FontSize="15" 
@@ -150,18 +152,20 @@
               ToolTipService.Placement="Right">
                         <StackPanel>
                             <Button
+                                x:Name="btn_add"
               Command="{Binding AddProductCommand}"
               ToolTip="Add New Product" >
                                 <materialDesign:PackIcon Kind="PencilPlus"
              Width="20"/>
                             </Button>
                            
-                            <Button
+                            <Button x:Name="btn_statis"
                 Command="{Binding SeeStatistical}"
               ToolTip="Statistical">
                                 <materialDesign:PackIcon Kind="NoteText" />
                             </Button>
                             <Button ToolTip="GuestView"
+                                    x:Name="btn_guest"
                     Command="{Binding GuessView}">
                                 <materialDesign:PackIcon Kind="EyeRefresh" />
                             </Button>

@@ -114,6 +114,7 @@
                                                     MaxWidth="160"
                                                     Stretch="Fill"/>
                                                     <TextBlock Background="Red"
+                                                               x:Name="txbl_save"
                                                        Height="20"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
@@ -126,6 +127,7 @@
                                                     </TextBlock>
                                                 </Grid>
                                                 <TextBlock 
+                                                    x:Name="txbl_name"
                                                 TextTrimming="WordEllipsis"
                                                 FontWeight="SemiBold"
                                                 VerticalAlignment="Center"
@@ -135,6 +137,7 @@
                                                 <Run Text="{Binding Name}"></Run>
                                                 </TextBlock>
                                                 <TextBlock 
+                                                    x:Name="txbl_numleft"
                                                 TextTrimming="WordEllipsis"
                                                 Margin="0,0,0,0"
                                                 VerticalAlignment="Center"
@@ -145,6 +148,7 @@
                                                 <Run Text="{Binding NumberLeft}"></Run>
                                                 </TextBlock>
                                                 <TextBlock 
+                                                    x:Name="txbl_current"
                                                     TextTrimming="WordEllipsis"
                                                     FontWeight="Medium"
                                                     FontSize="14"
@@ -153,7 +157,7 @@
                                                     <Run Text="Current Price:"></Run>
                                                     <Run Text="{Binding CurrentPrice, StringFormat='c'}"></Run>
                                                 </TextBlock>
-                                                <TextBlock 
+                                                <TextBlock x:Name="txbl_original"
                                                     TextTrimming="WordEllipsis"
                                                     FontWeight="Medium"
                                                     FontSize="10"
@@ -168,6 +172,7 @@
                                                                      Foreground="Green"
                                                                      Margin="0 2 2 0"/>
                                                     <TextBlock 
+                                                        x:Name="txbl_idshop"
                                                         TextTrimming="WordEllipsis"
                                                         FontWeight="Medium"
                                                         FontSize="13"
@@ -179,6 +184,7 @@
 
                                                 <Button Height="35"
                                                     Width="130"
+                                                        x:Name="btn_add"
                                                     Content="Add to Cart"
                                                     Background="#0FC20F"
                                                     Command="{Binding DataContext.SeeDetailCommand,

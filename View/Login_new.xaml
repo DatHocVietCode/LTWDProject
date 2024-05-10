@@ -74,6 +74,7 @@
                         </cc:BindablePasswordBox>
                         
                         <Button Content="Login" 
+                                x:Name="btn_login"
                                 Background="#05B790" Foreground="#ffffff" 
                                 FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" 
                                 Height="45" 
@@ -83,6 +84,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Padding="15,0,0,0" Foreground="#07BF96" Text="Don't have an account?" VerticalAlignment="Center"></TextBlock>
                             <Button Content="Sign up"
+                                    x:Name="btn_sign"
                                     materialDesign:ButtonAssist.CornerRadius="22"
                                     FontSize="16" Height="45" Width="100"
                                     HorizontalContentAlignment="Center"

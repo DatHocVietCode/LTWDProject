@@ -35,6 +35,7 @@
                             BorderThickness="0"
                             Click="btnClose_Click"/>
             <TextBlock Text="INVOICE"
+                       x:Name="txbl_title"
                        VerticalAlignment="Bottom"
                        HorizontalAlignment="Center"
                        FontSize="15"
@@ -49,6 +50,7 @@
                     <Grid VerticalAlignment="Center" Grid.ColumnSpan="2">
                         <TextBlock VerticalAlignment="Center"
                                    FontSize="15"
+                                   x:Name="txbl_id"
                                    Margin="10"
                                    FontFamily="Dubai"
                                    Text="{Binding DetailInvoice.IDInvoice,
@@ -59,6 +61,7 @@
                         <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center"
                                    FontSize="15"
                                    Margin="10"
+                                   x:Name="txbl_date"
                                    FontFamily="Dubai"
                                    Text="{Binding DetailInvoice.DateBought,
                             StringFormat='DayBought: {0}'}">
@@ -108,6 +111,7 @@
                             <TextBlock VerticalAlignment="Center"
                                        FontSize="15"
                                        Margin="10"
+                                       x:Name="txb_total"
                                        FontFamily="Dubai"
                                        Text="{Binding DetailInvoice.TotalPrice,
                                 StringFormat='TotalPrice: {0}'}" >
@@ -116,6 +120,7 @@
                             <TextBlock VerticalAlignment="Bottom"
                                        HorizontalAlignment="Right"
                                        FontSize="15"
+                                       x:Name="txbl_thanks"
                                        FontFamily="Dubai"
                                        FontWeight="Black"
                                        Text="Thank you for your purchase"

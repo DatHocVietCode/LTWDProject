@@ -115,6 +115,7 @@
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left"  Margin="10" >
                                 <DockPanel>
                                     <TextBlock 
+                                        x:Name="txt_nameSP"
                                         Width="550"
                                         MaxWidth="550"
                                         Text="{Binding Product.Name}"
@@ -124,6 +125,7 @@
                                         Foreground="#5F5D5C"
                                         FontFamily="Dubai"/>
                                     <Button 
+                                        x:Name="btn_fav"
                                         DockPanel.Dock="Right"
                                         BorderThickness="0.9"
                                         Background="WhiteSmoke" 
@@ -192,7 +194,7 @@
                                      Text="{Binding Product.Newness, StringFormat={}{0}%}"></Run>
                                 </TextBlock>
 
-                                <TextBlock 
+                                <TextBlock x:Name="lbl_type"
                                            FontSize="25"
                                            Margin="0 10"
                                            FontWeight="Bold">
@@ -203,6 +205,7 @@
                                 <StackPanel Orientation="Horizontal" Margin="0 10">
                                     <TextBlock Text="ORIGINAL PRICE: "
                                                FontSize="25"
+                                               x:Name="txbl_original"
                                                VerticalAlignment="Center"
                                                FontFamily="Dubai"    
                                                Foreground="#6B605E"
@@ -220,6 +223,7 @@
                                 <StackPanel Orientation="Horizontal" Margin="0 10">
                                     <TextBlock Text="CURRENT PRICE: "
                                            FontSize="25"
+                                               x:Name="txbl_current"
                                            VerticalAlignment="Center"
                                            FontFamily="Dubai"
                                            Foreground="#6B605E"
@@ -244,6 +248,7 @@
                                 <TextBlock
                                     Text="{Binding Product.NumberLeft, StringFormat=NUMBER LEFT: {0}}"
                                     FontSize="25"
+                                    x:Name="leftNum"
                                     VerticalAlignment="Center"                            
                                     FontFamily="Dubai"
                                     Foreground="#6B605E"
@@ -254,11 +259,13 @@
 
                                     <TextBlock Text="Number of Products: "
                                            FontSize="25"
+                                               x:Name="txbl_num"
                                            VerticalAlignment="Center"
                                            FontFamily="Dubai"
                                            Foreground="#6B605E"
                                            FontWeight="Bold"/>
                                     <Button
+                                        x:Name="btn_decrease"
                                         Command="{Binding DecreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
                                         Style="{StaticResource MaterialDesignIconForegroundButton}"
                                         ToolTip="MaterialDesignIconForegroundButton"
@@ -277,6 +284,7 @@
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                                     <Button
+                                        x:Name="btn_increase"
                                         Command="{Binding IncreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
                                             Style="{StaticResource MaterialDesignIconForegroundButton}"
                                             ToolTip="MaterialDesignIconForegroundButton"
@@ -287,7 +295,8 @@
                                             VerticalContentAlignment="Center"
                                         />
                                     </Button>
-                                    <Button Content="Add to cart" 
+                                    <Button x:Name="btn_cart"
+                                        Content="Add to cart" 
                                             Background="#0FC20F" 
                                             Foreground="#645A4C" 
                                             FontSize="20" 
@@ -309,7 +318,9 @@
                 <Border CornerRadius="5" BorderThickness="1"
                     Background="White" Grid.Row="1">
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Detail Information"
+                        <TextBlock 
+                            x:Name="txbl_titleInf"
+                            Text="Detail Information"
                                FontSize="30"
                                FontFamily="Dubai"
                                Margin="20 0"
@@ -318,6 +329,7 @@
                         </TextBlock>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Status"
+                                       x:Name="txbl_status"
                                    FontSize="20"
                                    Margin="20 0"
                                    VerticalAlignment="Center"></TextBlock>
@@ -341,6 +353,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Gurantee"
                                 FontSize="20"
+                                       x:Name="txbl_gurantee"
                                 Margin="20 0"
                                 VerticalAlignment="Center"></TextBlock>
                             <Expander
@@ -396,6 +409,7 @@
                                                     Stretch="Fill"/>
                                                         <TextBlock Background="Red"
                                                        Height="20"
+                                                           x:Name="txbl_save"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
                                                        Padding="5 0 5 0"
@@ -404,9 +418,12 @@
                                                        Margin="-5 5 0 0"
                                                        Text="{Binding Save, StringFormat=Save: {0}%}">
 
-                                                        </TextBlock>
-                                                    </Grid>
-                                                    <TextBlock 
+
+                                                </TextBlock>
+                                            </Grid>
+                                            <TextBlock 
+                                                x:Name="txbl_name2"
+
                                                 TextTrimming="WordEllipsis"
                                                 FontWeight="SemiBold"
                                                 VerticalAlignment="Center"
@@ -414,8 +431,11 @@
                                                 Foreground="#EE4D2D"
                                                 FontSize="15">
                                                 <Run Text="{Binding Name}"></Run>
-                                                    </TextBlock>
-                                                    <TextBlock 
+
+                                            </TextBlock>
+                                            <TextBlock 
+                                                x:Name="txbl_numleft2"
+
                                                 TextTrimming="WordEllipsis"
                                                 Margin="0,0,0,0"
                                                 VerticalAlignment="Center"
@@ -424,8 +444,11 @@
     
                                                 <Run Text="Remaining:"></Run>
                                                 <Run Text="{Binding NumberLeft}"></Run>
-                                                    </TextBlock>
-                                                    <TextBlock 
+
+                                            </TextBlock>
+                                            <TextBlock 
+                                                x:Name="txbl_current2"
+
                                                     TextTrimming="WordEllipsis"
                                                     FontWeight="Medium"
                                                     FontSize="14"
@@ -433,8 +456,11 @@
                                                     HorizontalAlignment="Center">
                                                     <Run Text="Current Price:"></Run>
                                                     <Run Text="{Binding CurrentPrice, StringFormat='c'}"></Run>
-                                                    </TextBlock>
-                                                    <TextBlock 
+
+                                            </TextBlock>
+                                            <TextBlock 
+                                                x:Name="txbl_original2"
+
                                                     TextTrimming="WordEllipsis"
                                                     FontWeight="Medium"
                                                     FontSize="10"
@@ -448,7 +474,10 @@
                                                         <materialDesign:PackIcon Kind="StoreMarker"
                                                                      Foreground="Green"
                                                                      Margin="0 2 2 0"/>
-                                                        <TextBlock 
+
+                                                <TextBlock 
+                                                    x:Name="txbl_idshop"
+
                                                         TextTrimming="WordEllipsis"
                                                         FontWeight="Medium"
                                                         FontSize="13"
@@ -458,7 +487,10 @@
                                                         </TextBlock>
                                                     </StackPanel>
 
-                                                    <Button Height="35"
+
+                                            <Button x:Name="btn_seedetail"
+                                                Height="35"
+
                                                     Width="130"
                                                     Content="Add to Cart"
                                                     Background="#0FC20F"

@@ -61,7 +61,8 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="From:"
                                        VerticalAlignment="Bottom"></TextBlock>
-                            <TextBox Text="{Binding MinPrice, UpdateSourceTrigger=PropertyChanged
+                            <TextBox x:Name="txt_min"
+                                Text="{Binding MinPrice, UpdateSourceTrigger=PropertyChanged
                                 , Mode=TwoWay}"
                                 Margin="3 0 3 0"
                                      VerticalAlignment="Center"
@@ -75,7 +76,8 @@
                                        VerticalAlignment="Bottom"
                                        Margin="3 0 0 0"
                                        ></TextBlock>
-                            <TextBox Text="{Binding MaxPrice, UpdateSourceTrigger=PropertyChanged
+                            <TextBox x:Name="txt_max"
+                                Text="{Binding MaxPrice, UpdateSourceTrigger=PropertyChanged
                                  , Mode=TwoWay}"
                                        Margin="3 0 3 0"
                                      VerticalAlignment="Center"

@@ -25,6 +25,7 @@
             BorderThickness="0 0 0 0.5">
             <Grid>
                 <TextBlock Text="MY INFORMATION"
+                           x:Name="txbl_title"
                FontSize="20"
                Margin="10 0 0 0"
                VerticalAlignment="Center"
@@ -64,30 +65,35 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <TextBlock Text="IdentifyNum "
+                               x:Name="txbl_identify"
                            FontSize="20"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="1">
                     <TextBlock Text="Full of Name: "
+                               x:Name="txbl_name"
                            FontSize="20"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="2">
                     <TextBlock Text="Day of Birth: "
+                               x:Name="txbl_date"
                FontSize="20"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="3">
                     <TextBlock Text="Phone: "
+                               x:Name="txbl_phone"
                FontSize="20"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="4">
                     <TextBlock Text="Email: "
+                               x:Name="txbl_email"
                FontSize="20"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"/>

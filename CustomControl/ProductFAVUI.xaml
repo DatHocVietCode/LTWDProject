@@ -47,6 +47,7 @@
                                                         HorizontalAlignment="Right"
                                                         VerticalAlignment="Top"/>
                     <TextBlock Background="Red"
+                               x:Name="txbl_save"
                                                        Height="20"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
@@ -59,6 +60,7 @@
                     </TextBlock>
                 </Grid>
                 <TextBlock 
+                    x:Name="txbl_name"
                                             TextTrimming="WordEllipsis"
                                             FontWeight="SemiBold"
                                             VerticalAlignment="Center"
@@ -68,6 +70,7 @@
                                             <Run Text="{Binding Name}"></Run>
                 </TextBlock>
                 <TextBlock 
+                    x:Name="txbl_remain"
                                             TextTrimming="WordEllipsis"
                                             Margin="0,0,0,0"
                                             VerticalAlignment="Center"
@@ -78,6 +81,7 @@
                                             <Run Text="{Binding NumberLeft}"></Run>
                 </TextBlock>
                 <TextBlock 
+                    x:Name="txbl_current"
                                                 TextTrimming="WordEllipsis"
                                                 FontWeight="Medium"
                                                 FontSize="14"
@@ -87,6 +91,7 @@
                                                 <Run Text="{Binding CurrentPrice, StringFormat='c'}"></Run>
                 </TextBlock>
                 <TextBlock 
+                    x:Name="txbl_original"
                                                 TextTrimming="WordEllipsis"
                                                 FontWeight="Medium"
                                                 FontSize="10"
@@ -101,6 +106,7 @@
                                                                      Foreground="Green"
                                                                      Margin="0 2 2 0"/>
                     <TextBlock 
+                        x:Name="txbl_shop"
                                                 TextTrimming="WordEllipsis"
                                                 FontWeight="Medium"
                                                 FontSize="13"
@@ -111,6 +117,7 @@
                 </StackPanel>
 
                 <Button Height="35"
+                        x:Name="btn_add"
                                                 Width="130"
                                                 Content="Add to Cart"
                                                 Background="#0FC20F"
