@@ -166,7 +166,7 @@ public partial class TraoDoiMuaBan : DbContext
 
         modelBuilder.Entity<LstImagesCMT>(entity =>
         {
-            entity.HasKey(e => new { e.IDComment, e.ImageLink }).HasName("PK__LstImage__6BEA526167E67FE6");
+            entity.HasKey(e => new { e.IDComment, e.ImageLink });
 
             entity.ToTable("LstImagesCMT");
 

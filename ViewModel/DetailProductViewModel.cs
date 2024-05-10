@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
@@ -56,14 +57,14 @@ namespace WPF_Market.ViewModel
             VisitShop = new BaseViewModelCommand(ExecuteVisitShop);
             DecreaseNumberButttonClick = new BaseViewModelCommand(ExecuteDecreaseNumberCommand, CanExecuteDecreaseNumberCommand);
             SetFaV = new BaseViewModelCommand(ExecuteSetFaV);
-            var lst = DataProvider.Instance.DB.Inventories.Where(p=> p.Type == productViewModel.Type && p.IDProduct != productViewModel.IDProduct).Take(6).ToList();
-            productList = new ObservableCollection<Inventory>(lst);
+            var lst = DataProvider.Instance.DB.Inventories.Include(p=>p.ImageLinks).Where(p=> p.Type == productViewModel.Type && p.IDProduct != productViewModel.IDProduct && p.IDShop!=CurrentApplicationStatus.CurrentID).Take(10).ToList();
+            ProductList = new ObservableCollection<Inventory>(lst);
             
         }
 
         private bool CanExecuteAddProduct(object obj)
         {
-            return (!(Product.IDShop == CurrentApplicationStatus.CurrentID) && !(Product.NumberLeft <= 0));
+            return (!(Product.IDShop == CurrentApplicationStatus.CurrentID) && !(Product.NumberLeft <= 0) && (Number < Product.NumberLeft));
                
         }
 
@@ -249,8 +250,5 @@ namespace WPF_Market.ViewModel
         public ICommand DecreaseNumberButttonClick { get; }
         public ICommand SetFaV {  get; }
         public ICommand VisitShop {  get; } 
-     
-
-      
     }
 }

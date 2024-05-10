@@ -12,7 +12,7 @@
         BorderBrush="Black"
         Background="White"
         CornerRadius="0 0 0 0"
-            >
+        Height="700">
         <Border.Effect>
             <DropShadowEffect BlurRadius="10" ShadowDepth="1" />
         </Border.Effect>

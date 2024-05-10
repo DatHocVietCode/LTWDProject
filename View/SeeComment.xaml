@@ -37,7 +37,7 @@
                     Background="Transparent"                  
                     BorderThickness="0"
                     Click="btnClose_Click"/>
-            <TextBlock Text="COMMENT"
+            <TextBlock Text="COMMENT AND RATING"
                        FontSize="18"
                        FontFamily="Dubai"
                        VerticalAlignment="Bottom"
@@ -59,8 +59,8 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="40"/>
                                         <RowDefinition Height="30"/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
                                     <TextBlock FontFamily="Dubai"
                                                FontSize="18"
@@ -98,19 +98,21 @@
                                                 Grid.Row="2"
                                                 CornerRadius="5"
                                                 Margin="20 0 20 10">
-                                            <ScrollViewer>
+                                            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                          MaxHeight="60">
                                                 <TextBlock FontFamily="Dubai"
-                                                           FontSize="15"
+                                                           FontSize="15"              
+                                                           Padding="10" 
                                                            TextWrapping="Wrap"
-                                                           Padding="10"
-                                                           Text="{Binding Comment1}"/>
+                                                           Text="{Binding Comment1}"
+                                                           />
                                             </ScrollViewer>
                                         </Border>
                                         <ScrollViewer VerticalAlignment="Bottom" Height="120" HorizontalScrollBarVisibility="Visible"
-                                                        VerticalScrollBarVisibility="Hidden"
+                                                      VerticalScrollBarVisibility="Hidden"
                                                       HorizontalAlignment="Left"
-                                                        Margin="10 5 0 0"
-                                                      Grid.Row="3"
+                                                      Margin="10 5 0 0"
+                                                      Grid.Row="4"
                                                       Width="650">
                                             <ItemsControl x:Name="ListImage"
                                                           ItemsSource="{Binding LstImagesCMTs}">

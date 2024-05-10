@@ -54,18 +54,20 @@
                             </Style>
                         </Grid.Style>
                         <Border Grid.Row="1"
-    CornerRadius="10"
-    BorderBrush="Black"
-    BorderThickness="0.5"
-    Margin="5">
+                                CornerRadius="10"
+                                Background="#F3F8F1"
+                                BorderThickness="0"
+                                Margin="5">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="Favorite"
-                   FontSize="15"
-                   FontFamily="Dubai"
-                   FontWeight="Black"
-                   Margin="5"/>
+                                <materialDesign:Chip
+                                        Content="Your favorites:"
+                                        Background="OrangeRed"
+                                        Margin="5"
+                                        FontFamily="Dubai"
+                                        FontWeight="Bold"/>
+                                
                                 <ScrollViewer  HorizontalScrollBarVisibility="Auto"
-                        VerticalScrollBarVisibility="Auto">
+                                                 VerticalScrollBarVisibility="Auto">
                                     <ItemsControl ItemsSource="{Binding FavProductList}" >
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
@@ -86,19 +88,19 @@
                     </Grid>
 
                     <Grid Grid.Row="2" 
-  Grid.RowSpan="1">
+                            Grid.RowSpan="1">
                         <Border Grid.Row="2"
-            CornerRadius="10"
-            BorderBrush="Black"
-            BorderThickness="0.5"
-            Margin="5">
+                                CornerRadius="10"
+                                Background="#F3F8F1"
+                                BorderThickness="0"
+                                Margin="5">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock
-                Text="Popular"
-                FontSize="15"
-                FontFamily="Dubai"
-                FontWeight="Black"
-                Margin="5"></TextBlock>
+                                <materialDesign:Chip
+                                    Content="Most sales:"
+                                    Background="LightYellow"
+                                    Margin="5"
+                                    FontFamily="Dubai"
+                                    FontWeight="Bold"/>
                                 <ItemsControl Name="PopularList"
                                     ItemsSource="{Binding ProductList}" >
                                     <ItemsControl.ItemTemplate>

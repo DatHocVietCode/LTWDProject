@@ -99,12 +99,19 @@ namespace WPF_Market.ViewModel
 
         private void ExecuteDeleteItemEdit(object obj)
         {
-            ImageLinksGV.Remove(obj as string);
-            var image = DataProvider.Instance.DB.ImageLinks.Where(p => p.IDProduct == Inventory.IDProduct && p.ImageLink1 == obj as string).FirstOrDefault();
-            DataProvider.Instance.DB.ImageLinks.Remove(image);
-            DataProvider.Instance.DB.SaveChanges();
-        }
+            try
+            {
+                ImageLinksGV.Remove(obj as string);
+                var image = DataProvider.Instance.DB.ImageLinks.Where(p => p.IDProduct == Inventory.IDProduct && p.ImageLink1 == obj as string).FirstOrDefault();
+                DataProvider.Instance.DB.ImageLinks.Remove(image);
+                DataProvider.Instance.DB.SaveChanges();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
         private void ExecuteSubmitCommand(object obj)
         {
 
