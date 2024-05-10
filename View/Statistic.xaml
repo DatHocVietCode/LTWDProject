@@ -10,7 +10,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Statistical" Height="450" Width="800">
+        Title="Statistical" Height="600" Width="800">
     <Window.DataContext>
         <vm:StatictisViewModel></vm:StatictisViewModel>
     </Window.DataContext>
@@ -39,6 +39,7 @@
                     BorderThickness="0"
                     Click="btnClose_Click"/>
             <TextBlock Text="Statistics"
+                       x:Name="txbl_title"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
                FontSize="15"
@@ -51,6 +52,7 @@
                                 Background="#F5EFE7">
                             <StackPanel Orientation="Horizontal" Margin="20 0">
                                 <TextBlock TextWrapping="Wrap"
+                                           x:Name="txbl_revenue"
                                                Width="100"
                                                FontSize="15"
                                                VerticalAlignment="Center"
@@ -94,6 +96,7 @@
                                 Margin="10">
                         <StackPanel Orientation="Horizontal" Height="250" Margin="20 0">
                             <TextBlock Width="400"
+                                       x:Name="txbl_rate"
                                        VerticalAlignment="Center"
                                        FontSize="15"
                                         FontFamily="Dubai"

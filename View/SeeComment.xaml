@@ -38,6 +38,7 @@
                     BorderThickness="0"
                     Click="btnClose_Click"/>
             <TextBlock Text="COMMENT"
+                       x:Name="txbl_title"
                        FontSize="18"
                        FontFamily="Dubai"
                        VerticalAlignment="Bottom"
@@ -63,6 +64,7 @@
                                         <RowDefinition Height="0"/>
                                         </Grid.RowDefinitions>
                                     <TextBlock FontFamily="Dubai"
+                                               x:Name="txbl_id"
                                                FontSize="18"
                                                Margin="20 20 0 0 "
                                                VerticalAlignment="Center"
@@ -70,7 +72,7 @@
                                        
                                     </TextBlock>
                                     
-                                    <TextBlock 
+                                    <TextBlock x:Name="txbl_date"
                                             FontFamily="Dubai"
                                             FontSize="18"
                                             Margin="20 20 20 0"
@@ -82,6 +84,7 @@
                                    
                                     <StackPanel Grid.Row="1" Orientation="Horizontal">
                                         <TextBlock Text="Rating: "
+                                                   x:Name="txbl_rate"
                                                    FontFamily="Dubai"
                                                    FontSize="15"
                                                    Margin="20 0"
@@ -100,6 +103,7 @@
                                                 Margin="20 0 20 10">
                                             <ScrollViewer>
                                                 <TextBlock FontFamily="Dubai"
+                                                           x:Name="txbl_cmt"
                                                            FontSize="15"
                                                            TextWrapping="Wrap"
                                                            Padding="10"

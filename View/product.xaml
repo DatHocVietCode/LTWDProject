@@ -32,7 +32,7 @@
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <CustomControl:FilterUI Loaded="FilterUI_Loaded"></CustomControl:FilterUI>
+                    <CustomControl:FilterUI ></CustomControl:FilterUI>
                 </Grid>
             <ScrollViewer Grid.Column="1">
                 <Grid Grid.Column="1">
@@ -60,6 +60,7 @@
                                 Margin="5">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="Favorite"
+                                           x:Name="txbl_fav"
                                            FontSize="15"
                                            Foreground="#7E7F7D"
                                            FontFamily="Dubai"
@@ -95,7 +96,7 @@
                                 BorderThickness="0"
                                 Margin="5">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock
+                                <TextBlock x:Name="txbl_pop"
                                     Text="Popular"
                                     FontSize="15"
                                     Foreground="#7E7F7D"

@@ -79,10 +79,12 @@
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  Text="{Binding Email, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
                         <cc:BindablePasswordBox
+                            x:Name="txt_pass"
                                      materialDesign:HintAssist.FloatingOffset="0,-18" 
                                      materialDesign:HintAssist.Hint="Password" 
                                      Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                        <cc:BindablePasswordBox                          
+                        <cc:BindablePasswordBox  
+                            x:Name="txt_pass2"
                                      materialDesign:HintAssist.FloatingOffset="0,-18" 
                                      materialDesign:HintAssist.Hint="Repeat Password" 
                                      Margin="0 27 0 0" 
@@ -108,6 +110,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Padding="15,0,0,0" Foreground="#07BF96" Text="Have an account?" VerticalAlignment="Center"></TextBlock>
                             <Button Content="Login" 
+                                    x:Name="btn_login"
                                     materialDesign:ButtonAssist.CornerRadius="22" 
                                     FontSize="16" Height="45" Width="100" HorizontalContentAlignment="Center" 
                                     Style="{StaticResource MaterialDesignFlatButton}"

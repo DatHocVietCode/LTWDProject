@@ -42,7 +42,8 @@
                     BorderThickness="0"
                     Command="{Binding CloseForm}"
                     CommandParameter="{Binding ElementName=ManageProductWindow}"></Button>
-            <TextBlock Text="Manage Product" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="14 13 0 0"  Foreground="Black" FontWeight="Bold"></TextBlock>
+            <TextBlock x:Name="txbl_title" 
+                Text="Manage Product" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="14 13 0 0"  Foreground="Black" FontWeight="Bold"></TextBlock>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="13 0">
                 <TextBlock Text="ID SHOP: "/>
                 <TextBlock x:Name="txbl_idShop" Text="{Binding IDShop}" />
@@ -58,6 +59,7 @@
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                  Text="{Binding NameProduct, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             <DatePicker
+                                x:Name="dt_date"
                                 Margin="20 0 0 0"
                                 Width="400"
                                 materialDesign:HintAssist.HelperText="Helper text"
@@ -132,12 +134,14 @@
                                     HorizontalAlignment="Center">
                             <TextBox Text="Please input your number of products"
                                      BorderThickness="0"
+                                     x:Name="txbl_num"
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      IsEnabled="False">
 
                             </TextBox>
 
                             <Button
+                                x:Name="btn_decrese"
      Command="{Binding DecreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
      Style="{StaticResource MaterialDesignIconForegroundButton}"
      ToolTip="MaterialDesignIconForegroundButton"
@@ -156,6 +160,7 @@
      Style="{StaticResource MaterialDesignOutlinedTextBox}"
      Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             <Button
+                                x:Name="btn_increase"
      Command="{Binding IncreaseNumberButttonClick, UpdateSourceTrigger=PropertyChanged}"
          Style="{StaticResource MaterialDesignIconForegroundButton}"
          ToolTip="MaterialDesignIconForegroundButton"

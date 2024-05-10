@@ -33,6 +33,7 @@
                           HorizontalAlignment="Center"
                           Orientation="Horizontal">
                     <TextBlock
+                        x:Name="txbl_menu"
                         Margin="15 4"
                         VerticalAlignment="Center"
                         Foreground="{DynamicResource SecondaryHueMidForegroundBrush}"
