@@ -105,7 +105,7 @@
                                             <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                           MaxHeight="60">
                                                 <TextBlock FontFamily="Dubai"
-
+                                                            Padding="10"
                                                            x:Name="txbl_cmt"
                                                            FontSize="15"
 
